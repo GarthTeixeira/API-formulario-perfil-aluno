@@ -17,17 +17,23 @@ class BaseService:
     def get_all(self) -> List[Dict]:
         if(self._repository == None):
             raise Exception("Repository not set")
-        competences = self._repository.get_all()
-        return competences
+        list = self._repository.get_all()
+        return list
     
     def get_by_id(self, id: str) -> Dict:
         if(self._repository == None):
             raise Exception("Repository not set")
-        competence = self._repository.get_by_id(id)
-        return competence
+        document = self._repository.get_by_id(id)
+        return document
     
     def insert_one(self, data: Dict) -> str:
         if(self._repository == None):
             raise Exception("Repository not set")
-        competence = self._repository.insert_one(data)
-        return competence
+        document = self._repository.insert_one(data)
+        return document
+    
+    def insert_list_of_documents(self, data: List[Dict]) -> List[Dict]:
+        if(self._repository == None):
+            raise Exception("Repository not set")
+        list = self._repository.insert_list_of_documents(data)
+        return list

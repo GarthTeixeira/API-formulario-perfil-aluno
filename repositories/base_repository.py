@@ -24,3 +24,8 @@ class BaseRepository:
         collection = self._connection.get_collection(self._collection_name)
         response = collection.insert_one(data)
         return str(response.inserted_id)
+    
+    def insert_list_of_documents(self, data: List[Dict]) -> List[Dict]:
+        collection = self._connection.get_collection(self._collection_name)
+        response = collection.insert_many(data)
+        return str(response.inserted_ids)
