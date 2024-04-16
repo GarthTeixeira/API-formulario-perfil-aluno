@@ -9,6 +9,7 @@ class DisciplinesService(BaseService):
             self._setRepository(DisciplineRepository(self._connection))
     
         def get_by_area(self, area_tag: str) -> List[Dict]:
+            print(area_tag)
             area = self._repository.get_by_area(area_tag)
             return area
         

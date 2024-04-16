@@ -5,13 +5,13 @@
             "nome":"João",
             "idade":20,
             "anos_letivos":[2020,2021],
+            "serie_atual": "3º ano",
             "email":"email@email.com"
         },
 
-        "respostas":[ 
+        "grafos_das_respostas":[ 
             { 
-                "resposta_grafo":{
-                    "arestas_disciplinas":[
+                "arestas_frago":[
                         {
                             "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
                             "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
@@ -24,12 +24,11 @@
                         }
                         
                     ]
-                },
+                ,
                 "competencia_id": "fewfewc990asd090q-8e88"
             },
             { 
-                "resposta_grafo":{
-                    "arestas_disciplinas":[
+                "arestas_frago":[
                         {
                             "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
                             "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
@@ -42,7 +41,7 @@
                         }
                         
                     ]
-                },
+                ,
                 "competencia_id": "fewfewc990asd090q-8e88"
             }
         ]
@@ -51,8 +50,7 @@
         "aluno":{},
         "respostas":[ 
             { 
-                "resposta_grafo":{
-                    "arestas_disciplinas":[
+                "arestas_frago":[
                         {
                             "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
                             "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
@@ -65,12 +63,11 @@
                         }
                         
                     ]
-                },
+                ,
                 "competencia_id": "fewfewc990asd090q-8e88"
             },
             { 
-                "resposta_grafo":{
-                    "arestas_disciplinas":[
+                "arestas_frago":[
                         {
                             "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
                             "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
@@ -83,7 +80,7 @@
                         }
                         
                     ]
-                },
+                ,
                 "competencia_id": "fewfewc990asd090q-8e88"
             }
         ]

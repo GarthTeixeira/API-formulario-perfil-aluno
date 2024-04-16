@@ -1,21 +1,21 @@
 [
     {
         "name": "Português",
-        "serie_ano": "1°",
+        "serie_ano":1,
         "area": "LINGUAGENS",
         "escola": "teste",
         "codigo": "1"
     },
     {
         "name": "Espanhol",
-        "serie_ano": "1°",
+        "serie_ano":1,
         "area": "LINGUAGENS",
         "escola": "teste",
         "codigo": "2"
     },
     {
         "name": "Algebra",
-        "serie_ano": "1°",
+        "serie_ano":1,
         "area": "EXATAS",
         "escola": "teste",
         "codigo": "3"
@@ -23,161 +23,161 @@
     },
     {
         "name": "Fisica",
-        "serie_ano": "1°",
+        "serie_ano":1,
         "area": "NATUREZA",
         "escola": "teste",
         "codigo": "4"
     },
     {
         "name": "Quimica",
-        "serie_ano": "1°",
+        "serie_ano":1,
         "area": "NATUREZA",
         "escola": "teste",
         "codigo": "5"
     },
     {
         "name": "Biologia",
-        "serie_ano": "1°",
+        "serie_ano":1,
         "area": "NATUREZA",
         "escola": "teste",
         "codigo": "6"
     },
     {
         "name": "Geografia",
-        "serie_ano": "1°",
+        "serie_ano":1,
         "area": "HUMANAS",
         "escola": "teste",
         "codigo": "7"
     },
     {
         "name": "Historia",
-        "serie_ano": "1°",
+        "serie_ano":1,
         "area": "HUMANAS",
         "escola": "teste",
         "codigo": "8"
     },
     {
         "name": "Filosofia",
-        "serie_ano": "1°",
+        "serie_ano":1,
         "area": "HUMANAS",
         "escola": "teste",
         "codigo": "9"
     },
     {
         "name": "Sociologia",
-        "serie_ano": "3°",
+        "serie_ano":3,
         "area": "HUMANAS",
         "escola": "teste",
         "codigo": "10"
     },
     {
         "name": "Artes",
-        "serie_ano": "1°",
+        "serie_ano":1,
         "area": "LINGUAGENS",
         "escola": "teste",
         "codigo": "11"
     },
     {
         "name": "Educacao Fisica",
-        "serie_ano": "1°",
+        "serie_ano":1,
         "area": "LINGUAGENS",
         "escola": "teste",
         "codigo": "12"
     },
     {
         "name": "Português",
-        "serie_ano": "2°",
+        "serie_ano":2,
         "area": "LINGUAGENS",
         "escola": "teste",
         "codigo": "1"
     },
     {
         "name": "Português",
-        "serie_ano": "3°",
+        "serie_ano":3,
         "area": "LINGUAGENS",
         "escola": "teste",
         "codigo": "1"
     },
     {
         "name": "Redação",
-        "serie_ano": "3°",
+        "serie_ano":3,
         "area": "LINGUAGENS",
         "escola": "teste",
         "codigo": "1"
     },
     {
         "name": "Educacao Fisica",
-        "serie_ano": "2°",
+        "serie_ano":2,
         "area": "LINGUAGENS",
         "escola": "teste",
         "codigo": "12"
     },
     {
         "name":"Algebra",
-        "serie_ano":"2°",
+        "serie_ano":2,
         "area":"EXATAS",
         "escola":"teste",
         "codigo":"3"
     },
     {
         "name":"Fisica",
-        "serie_ano":"2°",
+        "serie_ano":2,
         "area":"NATUREZA",
         "escola":"teste",
         "codigo":"4"
     },
     {
         "name":"Biologia",
-        "serie_ano":"2°",
+        "serie_ano":2,
         "area":"NATUREZA",
         "escola":"teste",
         "codigo":"6"
     },
     {
         "name":"Geografia",
-        "serie_ano":"2°",
+        "serie_ano":2,
         "area":"HUMANAS",
         "escola":"teste",
         "codigo":"7"
     },
     {
         "name":"Historia",
-        "serie_ano":"2°",
+        "serie_ano":2,
         "area":"HUMANAS",
         "escola":"teste",
         "codigo":"8"
     },
     {
         "name":"Filosofia",
-        "serie_ano":"2°",
+        "serie_ano":2,
         "area":"HUMANAS",
         "escola":"teste",
         "codigo":"9"
     },
     {
         "name":"Sociologia",
-        "serie_ano":"2°",
+        "serie_ano":2,
         "area":"HUMANAS",
         "escola":"teste",
         "codigo":"10"
     },
     {
         "name":"Artes",
-        "serie_ano":"2°",
+        "serie_ano":2,
         "area":"LINGUAGENS",
         "escola":"teste",
         "codigo":"11"
     },
     {
         "name":"Espanhol",
-        "serie_ano":"2°",
+        "serie_ano":2,
         "area":"LINGUAGENS",
         "escola":"teste",
         "codigo":"2"
     },
     {
         "name":"Quimica",
-        "serie_ano":"2°",
+        "serie_ano":2,
         "area":"NATUREZA",
         "escola":"teste",
         "codigo":"5"
@@ -185,42 +185,42 @@
    
     {
         "name":"Algebra",
-        "serie_ano":"3°",
+        "serie_ano":3,
         "area":"EXATAS",
         "escola":"teste",
         "codigo":"3"
     },
     {
         "name":"Quimica",
-        "serie_ano":"3°",
+        "serie_ano":3,
         "area":"NATUREZA",
         "escola":"teste",
         "codigo":"5"
     },
     {
         "name":"Biologia",
-        "serie_ano":"3°",
+        "serie_ano":3,
         "area":"NATUREZA",
         "escola":"teste",
         "codigo":"6"
     },
     {
         "name":"Geografia",
-        "serie_ano":"3°",
+        "serie_ano":3,
         "area":"HUMANAS",
         "escola":"teste",
         "codigo":"7"
     },
     {
         "name":"Historia",
-        "serie_ano":"3°",
+        "serie_ano":3,
         "area":"HUMANAS",
         "escola":"teste",
         "codigo":"8"
     },
     {
         "name":"Fisica",
-        "serie_ano":"3°",
+        "serie_ano":3,
         "area":"NATUREZA",
         "escola":"teste",
         "codigo":"4"
