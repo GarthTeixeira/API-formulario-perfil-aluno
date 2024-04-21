@@ -11,7 +11,7 @@
 
         "grafos_das_respostas":[ 
             { 
-                "arestas_frago":[
+                "arestas_grafo":[
                         {
                             "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
                             "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],

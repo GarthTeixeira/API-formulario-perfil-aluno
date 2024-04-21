@@ -7,3 +7,5 @@ class Resposta:
     def __str__(self):
         return f"Disciplina de origem: {self.origem}\nValor: {self.valor}\nDisciplina de destino: {self.destino}"
     
+    def print(self):
+        print(self.__str__())

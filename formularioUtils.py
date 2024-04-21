@@ -1,5 +1,5 @@
 from models.resposta import Resposta
-
+from models.grafo import Grafo
 
 class FormularioUtils:
     def __init__(self):
@@ -25,40 +25,56 @@ class FormularioUtils:
             repostas_agrupadas.append(resposta_agrupada)
 
         return repostas_agrupadas
-        
+    
 
     @staticmethod
-    def montaResposta(disciplinasDaArea, valoresDisciplina, competencia):
+    def montaRepostaParaDisciplina(discipinas,valoresResposta, grafos: list[Grafo]): 
+           
+        for key,value in valoresResposta['competencias'].items():
+            keys = set(map(lambda grafo: grafo.getCompetencia(), grafos))
+            if key in keys:
+                for grafo in grafos:
+                    if grafo.getCompetencia() == key:
+                        grafo.setRespostasValue(valoresResposta['disciplina'],value)
+              
+            else:
+                newGrafo = Grafo(key,FormularioUtils.montaArestaGrafo(discipinas))
+                newGrafo.setRespostasValue(valoresResposta['disciplina'],value)
+                grafos.append(newGrafo)
+        
+        return grafos
+
+                
+
+    @staticmethod
+    def montaArestaGrafo(disciplinasDaArea):
         
         disciplinasDaAreaOrdenadasPorSeries = sorted(disciplinasDaArea, key=lambda disciplina: disciplina['serie_ano'])
         anosSet = set(map(lambda disciplina: disciplina['serie_ano'], disciplinasDaAreaOrdenadasPorSeries))
 
-        resposta = {}
-        resposta['arestas_grafo'] = []
+        arestas_grafo = []
 
         for ano in anosSet:
             disciplinasDoAno = list(filter(lambda disciplina: disciplina['serie_ano'] == ano, disciplinasDaAreaOrdenadasPorSeries))
             disciplinasDoAnoSeguinte = list(filter(lambda disciplina: disciplina['serie_ano'] == ano + 1, disciplinasDaAreaOrdenadasPorSeries))
 
             if len(disciplinasDoAnoSeguinte) != 0:
-                print(f"Disciplinas do {ano}º ano (vertice origem):")
                 
                 for disciplina in disciplinasDoAno:
-                    resposta['arestas_grafo'].append(
+                    arestas_grafo.append(
                         Resposta(
                             disciplina['id'],
-                            valoresDisciplina[disciplina['id']],
+                            0,
                             list(map( lambda disciplina: disciplina['id'], disciplinasDoAnoSeguinte))
                         )
                     )
 
-        resposta['competencia'] = competencia
-
-        return resposta
+        
+        return arestas_grafo
     
   
     
-disciplinas = [ {
+disciplinasAreaLinguagens = [ {
         "name": "Artes",
         "serie_ano":1,
         "area": "LINGUAGENS",
@@ -94,15 +110,57 @@ disciplinas = [ {
         "id": "15"
     }]
 
-valorResosta = {
-    "11": 1,
-    "12": 2,
-    "13": 3,
-    "14": 4,
-    "15": 5
+disciplinasAreaMatematica = [ {
+        "name": "Matemática I",
+        "serie_ano":1,
+        "area": "MATEMATICA",
+        "escola": "teste",
+        "id": "21"
+    },
+    {
+        "name": "Matemática II",
+        "serie_ano":2,
+        "area": "MATEMATICA",
+        "escola": "teste",
+        "id": "22"
+    },
+    {
+        "name": "Algebra",
+        "serie_ano":3,
+        "area": "MATEMATICA",
+        "escola": "teste",
+        "id": "23"
+    },
+    {
+        "name": "Geometria",
+        "serie_ano":3,
+        "area": "MATEMATICA",
+        "escola": "teste",
+        "id": "24"
+    },
+]
+
+valorResposta1 = {
+    "disciplina": 13,
+    "competencias":{
+        "C8":10,
+        "C6":5,
+        "C1":9,
+    }
 }
 
+valorResposta2 = {
+    "disciplina": 15,
+    "competencias":{
+        "C8":10,
+        "C6":5,
+        "C1":7,
+    }
+}
 
-resposta = FormularioUtils.montaResposta(disciplinas, valorResosta, "Habilidade 1")
+grafos = []
+grafos = FormularioUtils.montaRepostaParaDisciplina(disciplinasAreaLinguagens,valorResposta1,grafos)
+grafos = FormularioUtils.montaRepostaParaDisciplina(disciplinasAreaLinguagens,valorResposta2,grafos)
 
-print(resposta)
+for grafo in grafos:
+    grafo.print()
