@@ -28,7 +28,7 @@ class FormularioUtils:
     
 
     @staticmethod
-    def montaRepostaParaDisciplina(discipinas,valoresResposta, grafos: list[Grafo]): 
+    def montaRepostaParaDisciplina(discipinas,valoresResposta, grafos: list[Grafo]) -> list[Grafo]: 
            
         for key,value in valoresResposta['competencias'].items():
             keys = set(map(lambda grafo: grafo.getCompetencia(), grafos))
