@@ -29,3 +29,8 @@ class BaseRepository:
         collection = self._connection.get_collection(self._collection_name)
         response = collection.insert_many(data)
         return str(response.inserted_ids)
+    
+    def update_one(self, id: str, data: Dict) -> Dict:
+        collection = self._connection.get_collection(self._collection_name)
+        response = collection.update_one({"_id": ObjectId(id)}, {"$set": data})
+        return response

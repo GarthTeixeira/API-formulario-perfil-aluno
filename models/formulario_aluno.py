@@ -1,6 +1,6 @@
 from models.aluno import Aluno
 from models.grafo import Grafo
-from ..formularioUtils import FormularioUtils
+from utils.formularioUtils import FormularioUtils
 # Resquest format
 # {
 #     "disciplina": 0,
@@ -8,7 +8,7 @@ from ..formularioUtils import FormularioUtils
 # }
 
 class FormularioAluno:
-    def __init__(self,aluno:Aluno,grafos:list[Grafo]) -> None:
+    def __init__(self,aluno:Aluno,grafos:list[Grafo] = []) -> None:
         self.__aluno = aluno
         self.__grafos_das_respostas = grafos
 
@@ -27,6 +27,6 @@ class FormularioAluno:
 
         return True
     
-    def appendNewGrafo(self,values,disciplinasArea,grafo:Grafo):
+    def appendNewGrafo(self,values,disciplinasArea):
         if(self.__validate_data(values)):
             self.__grafos_das_respostas = FormularioUtils.montaRepostaParaDisciplina(disciplinasArea,values,self.__grafos_das_respostas)

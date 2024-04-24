@@ -74,93 +74,93 @@ class FormularioUtils:
     
   
     
-disciplinasAreaLinguagens = [ {
-        "name": "Artes",
-        "serie_ano":1,
-        "area": "LINGUAGENS",
-        "escola": "teste",
-        "id": "11"
-    },
-    {
-        "name": "Educacao Fisica",
-        "serie_ano":1,
-        "area": "LINGUAGENS",
-        "escola": "teste",
-        "id": "12"
-    },
-    {
-        "name": "Português",
-        "serie_ano":2,
-        "area": "LINGUAGENS",
-        "escola": "teste",
-        "id": "13"
-    },
-    {
-        "name": "Português",
-        "serie_ano":3,
-        "area": "LINGUAGENS",
-        "escola": "teste",
-        "id": "14"
-    },
-    {
-        "name": "Redação",
-        "serie_ano":3,
-        "area": "LINGUAGENS",
-        "escola": "teste",
-        "id": "15"
-    }]
+# disciplinasAreaLinguagens = [ {
+#         "name": "Artes",
+#         "serie_ano":1,
+#         "area": "LINGUAGENS",
+#         "escola": "teste",
+#         "id": "11"
+#     },
+#     {
+#         "name": "Educacao Fisica",
+#         "serie_ano":1,
+#         "area": "LINGUAGENS",
+#         "escola": "teste",
+#         "id": "12"
+#     },
+#     {
+#         "name": "Português",
+#         "serie_ano":2,
+#         "area": "LINGUAGENS",
+#         "escola": "teste",
+#         "id": "13"
+#     },
+#     {
+#         "name": "Português",
+#         "serie_ano":3,
+#         "area": "LINGUAGENS",
+#         "escola": "teste",
+#         "id": "14"
+#     },
+#     {
+#         "name": "Redação",
+#         "serie_ano":3,
+#         "area": "LINGUAGENS",
+#         "escola": "teste",
+#         "id": "15"
+#     }]
 
-disciplinasAreaMatematica = [ {
-        "name": "Matemática I",
-        "serie_ano":1,
-        "area": "MATEMATICA",
-        "escola": "teste",
-        "id": "21"
-    },
-    {
-        "name": "Matemática II",
-        "serie_ano":2,
-        "area": "MATEMATICA",
-        "escola": "teste",
-        "id": "22"
-    },
-    {
-        "name": "Algebra",
-        "serie_ano":3,
-        "area": "MATEMATICA",
-        "escola": "teste",
-        "id": "23"
-    },
-    {
-        "name": "Geometria",
-        "serie_ano":3,
-        "area": "MATEMATICA",
-        "escola": "teste",
-        "id": "24"
-    },
-]
+# disciplinasAreaMatematica = [ {
+#         "name": "Matemática I",
+#         "serie_ano":1,
+#         "area": "MATEMATICA",
+#         "escola": "teste",
+#         "id": "21"
+#     },
+#     {
+#         "name": "Matemática II",
+#         "serie_ano":2,
+#         "area": "MATEMATICA",
+#         "escola": "teste",
+#         "id": "22"
+#     },
+#     {
+#         "name": "Algebra",
+#         "serie_ano":3,
+#         "area": "MATEMATICA",
+#         "escola": "teste",
+#         "id": "23"
+#     },
+#     {
+#         "name": "Geometria",
+#         "serie_ano":3,
+#         "area": "MATEMATICA",
+#         "escola": "teste",
+#         "id": "24"
+#     },
+# ]
 
-valorResposta1 = {
-    "disciplina": 13,
-    "competencias":{
-        "C8":10,
-        "C6":5,
-        "C1":9,
-    }
-}
+# valorResposta1 = {
+#     "disciplina": 13,
+#     "competencias":{
+#         "C8":10,
+#         "C6":5,
+#         "C1":9,
+#     }
+# }
 
-valorResposta2 = {
-    "disciplina": 15,
-    "competencias":{
-        "C8":10,
-        "C6":5,
-        "C1":7,
-    }
-}
+# valorResposta2 = {
+#     "disciplina": 15,
+#     "competencias":{
+#         "C8":10,
+#         "C6":5,
+#         "C1":7,
+#     }
+# }
 
-grafos = []
-grafos = FormularioUtils.montaRepostaParaDisciplina(disciplinasAreaLinguagens,valorResposta1,grafos)
-grafos = FormularioUtils.montaRepostaParaDisciplina(disciplinasAreaLinguagens,valorResposta2,grafos)
+# grafos = []
+# grafos = FormularioUtils.montaRepostaParaDisciplina(disciplinasAreaLinguagens,valorResposta1,grafos)
+# grafos = FormularioUtils.montaRepostaParaDisciplina(disciplinasAreaLinguagens,valorResposta2,grafos)
 
-for grafo in grafos:
-    grafo.print()
+# for grafo in grafos:
+#     grafo.print()
