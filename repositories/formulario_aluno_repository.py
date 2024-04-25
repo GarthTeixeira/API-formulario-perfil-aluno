@@ -1,8 +1,8 @@
 from .base_repository import BaseRepository
 
 class FormularioAlunoRepository(BaseRepository):
-    def __init__(self):
-        super().__init__()
+    def __init__(self,connection):
+        super().__init__(connection,"formulario_alunos_collection")
 
     # Add your custom repository methods here
 
@@ -11,8 +11,9 @@ class FormularioAlunoRepository(BaseRepository):
                                                "escola": aluno_data["escola"]})
         return aluno_query
     
-    def insert_formulario(self, formulario_data):
-        formulario_query = self._connection.insert_one(formulario_data)
+    def insert_formulario(self, formulario_data)->str:
+        print(self._collection_name)
+        formulario_query = self.insert_one(formulario_data)
         return formulario_query
     
     def update_formulario(self, formulario_data):

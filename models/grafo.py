@@ -28,3 +28,9 @@ class Grafo:
             aresta.print()
             print("  } \n")
         print("]")
+
+    def to_dict(self):
+        return {
+            "competencia": self._competencia,
+            "arestas": [aresta.to_dict() for aresta in self.arestas]
+        }

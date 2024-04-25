@@ -9,3 +9,10 @@ class Resposta:
     
     def print(self):
         print(self.__str__())
+
+    def to_dict(self):
+        return {
+            "origem": self.origem,
+            "valor": self.valor,
+            "destino": self.destino
+        }

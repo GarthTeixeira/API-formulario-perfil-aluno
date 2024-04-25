@@ -21,10 +21,15 @@ class FormularioAlunoService(BaseService):
         return formulario
     
     def insert_formulario(self,data_form:Dict) -> List[Dict]:
-        aluno: Aluno = data_form["aluno"]
+        aluno: Aluno = Aluno(**data_form["aluno"])
         grafo_values: Dict = data_form["respostas"]
 
         disciplineRepository = DisciplineRepository(self._connection)
+
+        if "disciplina" not in grafo_values:
+            print("Disciplina não encontrada")
+            
+            return self._repository.insert_one(FormularioAluno(aluno,[]).to_dict())
 
         disciplina = disciplineRepository.get_by_id(grafo_values["disciplina"])
 

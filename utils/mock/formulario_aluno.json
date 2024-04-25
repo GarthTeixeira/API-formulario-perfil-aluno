@@ -6,7 +6,8 @@
             "idade":20,
             "anos_letivos":[2020,2021],
             "serie_atual": "3º ano",
-            "email":"email@email.com"
+            "email":"email@email.com",
+            "matricula":3134314
         },
 
         "grafos_das_respostas":[ 

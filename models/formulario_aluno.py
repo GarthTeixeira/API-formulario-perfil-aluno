@@ -27,6 +27,18 @@ class FormularioAluno:
 
         return True
     
+    def getAluno(self):
+        return self.__aluno
+    
+    def getGrafos(self):
+        return self.__grafos_das_respostas
+    
     def appendNewGrafo(self,values,disciplinasArea):
         if(self.__validate_data(values)):
             self.__grafos_das_respostas = FormularioUtils.montaRepostaParaDisciplina(disciplinasArea,values,self.__grafos_das_respostas)
+
+    def to_dict(self):
+        return {
+            "aluno": self.__aluno.to_dict(),
+            "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas]
+        }
