@@ -8,3 +8,22 @@ class HttpResponseUtils:
             data['id'] = str(id)
     
         return make_response(arrayData)
+    
+    @staticmethod
+    def responseForAPIFromData(data):
+        id = data.pop('_id')
+        data['id'] = str(id)
+    
+        return make_response(data)
+    
+    @staticmethod
+    def responseForAPIFromMessage(message):
+        return make_response(message)
+    
+    @staticmethod
+    def responseForAPIFromError(error):
+        return make_response(error)
+    
+    @staticmethod
+    def responseForAPIFromStr(str):
+        return make_response(str)
