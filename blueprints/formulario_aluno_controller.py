@@ -10,7 +10,7 @@ student_form_bp = Blueprint('student_form', __name__)
 def insert_form():
     data = request.json
     inserted_data = FormularioAlunoService().insert_formulario(data)
-    return HttpResponseUtils.responseForAPIFromMessage(inserted_data)
+    return HttpResponseUtils.reponseFromPostRequest(inserted_data)
 
 @student_form_bp.route('/get-by-student', methods=['POST'])
 def get_by_student():

@@ -27,3 +27,8 @@ class HttpResponseUtils:
     @staticmethod
     def responseForAPIFromStr(str):
         return make_response(str)
+    
+    @staticmethod
+    def reponseFromPostRequest(id):
+        data= { 'id': str(id)}
+        return make_response(data)
