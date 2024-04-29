@@ -18,6 +18,7 @@ class HttpResponseUtils:
     
     @staticmethod
     def responseForAPIFromMessage(message):
+        print("MESSAGE",message)
         return make_response(message)
     
     @staticmethod

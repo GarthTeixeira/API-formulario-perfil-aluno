@@ -8,8 +8,17 @@ from utils.formularioUtils import FormularioUtils
 # }
 
 class FormularioAluno:
-    def __init__(self,aluno:Aluno,grafos:list[Grafo] = []) -> None:
-        self.__aluno = aluno
+    def __init__(self,_id,aluno:Aluno,grafos:list[Grafo] = []) -> None:
+        self.__id = _id
+        if(not isinstance(aluno,Aluno)):
+            self.__aluno = Aluno(**aluno)
+        else: 
+            self.__aluno = aluno
+        
+        if grafos != []:
+            if not isinstance(grafos[0],Grafo):
+                grafos = FormularioUtils.toGrafoList(grafos)
+        
         self.__grafos_das_respostas = grafos
 
     def __validate_data(data):
@@ -33,12 +42,12 @@ class FormularioAluno:
     def getGrafos(self):
         return self.__grafos_das_respostas
     
-    def appendNewGrafo(self,values,disciplinasArea):
-        if(self.__validate_data(values)):
-            self.__grafos_das_respostas = FormularioUtils.montaRepostaParaDisciplina(disciplinasArea,values,self.__grafos_das_respostas)
+    def appendNewGrafo(self,disciplinasArea,values):
+        self.__grafos_das_respostas = FormularioUtils.montaRepostaParaDisciplina(disciplinasArea,values,self.__grafos_das_respostas)
 
     def to_dict(self):
         return {
+            "_id": self.__id,
             "aluno": self.__aluno.to_dict(),
             "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas]
         }

@@ -11,6 +11,10 @@ class FormularioUtils:
     def add_formulario(self, formulario):
         self.__formularios.append(formulario)
 
+    @staticmethod
+    def toGrafoList(grafos):
+        return [ Grafo(**grafo) for grafo in grafos]
+
     
     def agrupar_reposta_por_competencia(self, repostas_do_questionario):
         competencias = set(map(lambda resposta: resposta.competencia, repostas_do_questionario))
@@ -63,9 +67,9 @@ class FormularioUtils:
                 for disciplina in disciplinasDoAno:
                     arestas_grafo.append(
                         Resposta(
-                            disciplina['id'],
+                            disciplina['_id'],
                             0,
-                            list(map( lambda disciplina: disciplina['id'], disciplinasDoAnoSeguinte))
+                            list(map( lambda disciplina: disciplina['_id'], disciplinasDoAnoSeguinte))
                         )
                     )
 
@@ -147,6 +151,7 @@ class FormularioUtils:
 #         "C6":5,
 #         "C1":9,
 #     }
+#     "formulario": 321
 # }
 
 # valorResposta2 = {
