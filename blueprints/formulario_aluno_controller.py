@@ -12,6 +12,18 @@ def insert_form():
     inserted_data = FormularioAlunoService().insert_formulario(data)
     return HttpResponseUtils.reponseFromPostRequest(inserted_data)
 
+@student_form_bp.route('/insert-aluno', methods=['POST'])
+def insert_aluno():
+    data = request.json
+    inserted_data = FormularioAlunoService().insert_aluno(data)
+    return HttpResponseUtils.reponseFromPostRequest(inserted_data)
+
+@student_form_bp.route('/insert-grafo', methods=['PATCH'])
+def insert_grafo():
+    data = request.json
+    inserted_data = FormularioAlunoService().insert_grafo(data)
+    return HttpResponseUtils.responseForAPIFromMessage(inserted_data)
+
 @student_form_bp.route('/get-by-student', methods=['POST'])
 def get_by_student():
     data = request.json

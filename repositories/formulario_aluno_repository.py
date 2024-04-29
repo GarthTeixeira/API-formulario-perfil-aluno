@@ -6,9 +6,8 @@ class FormularioAlunoRepository(BaseRepository):
 
     # Add your custom repository methods here
 
-    def get_by_aluno_data(self, aluno_data):
-        aluno_query = self._connection.find_one({"matricula": aluno_data["matricula"], "email": aluno_data["email"], 
-                                               "escola": aluno_data["escola"]})
+    def get_by_aluno_data(self, aluno_id):
+        aluno_query = self._connection.find_one({"aluno": {"_id": aluno_id}})
         return aluno_query
     
     def insert_formulario(self, formulario_data)->str:

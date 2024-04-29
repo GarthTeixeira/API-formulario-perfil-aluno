@@ -20,6 +20,36 @@ class FormularioAlunoService(BaseService):
         formulario = self._repository.get_by_aluno(aluno)
         return formulario
     
+
+    def insert_aluno(self, aluno_data: any) -> List[Dict]:
+        aluno: Aluno = Aluno(**aluno_data)
+        formulario = self._repository.insert_one(FormularioAluno(aluno,[]).to_dict())
+        return formulario
+    
+    def insert_grafo(self, grafo_values: Dict ) -> List[Dict]:
+        aluno_id = grafo_values["aluno"]
+        if "disciplina" not in grafo_values:
+            print("Disciplina não encontrada")
+            return []
+        
+        disciplineRepository = DisciplineRepository(self._connection)
+        
+        disciplina = disciplineRepository.get_by_id(grafo_values["disciplina"])
+
+        disciplinasDaArea = disciplineRepository.get_by_area(disciplina["area"])
+
+        formFound:FormularioAluno =  self._repository.get_by_aluno(aluno_id)
+
+        formulario = None
+
+        formFound.appendNewGrafo(FormularioUtils.montaRepostaParaDisciplina(
+            disciplinasDaArea,
+            grafo_values))
+        formulario = self._repository.update_formulario(formFound)            
+
+        return formulario
+        
+    
     def insert_formulario(self,data_form:Dict) -> List[Dict]:
         aluno: Aluno = Aluno(**data_form["aluno"])
         grafo_values: Dict = data_form["respostas"]
