@@ -16,8 +16,8 @@ class FormularioAlunoService(BaseService):
         self._setRepository(FormularioAlunoRepository(self._connection))
         
 
-    def get_by_aluno(self, aluno: Aluno) -> List[Dict]:
-        formulario = self._repository.get_by_aluno(aluno)
+    def get_by_aluno(self, alunoId: str) -> List[Dict]:
+        formulario = self._repository.get_by_id(alunoId)
         return formulario
     
 
@@ -53,21 +53,16 @@ class FormularioAlunoService(BaseService):
         
     
     def insert_formulario(self,data_form:Dict) -> List[Dict]:
-        aluno: Aluno = Aluno(**data_form["aluno"])
+        aluno = data_form["alunoId"]
         grafo_values: Dict = data_form["respostas"]
 
         disciplineRepository = DisciplineRepository(self._connection)
-
-        if "disciplina" not in grafo_values:
-            print("Disciplina não encontrada")
-            
-            return self._repository.insert_one(FormularioAluno(aluno,[]).to_dict())
 
         disciplina = disciplineRepository.get_by_id(grafo_values["disciplina"])
 
         disciplinasDaArea = disciplineRepository.get_by_area(disciplina["area"])
 
-        formFound:FormularioAluno =  self._repository.get_by_aluno(aluno)
+        formFound:FormularioAluno =  self.get_by_aluno(aluno)
 
         formulario = None
 
