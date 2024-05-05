@@ -23,7 +23,7 @@ class FormularioAlunoService(BaseService):
 
     def insert_aluno(self, aluno_data: any) -> List[Dict]:
         aluno: Aluno = Aluno(**aluno_data)
-        formulario = self._repository.insert_one(FormularioAluno(aluno,[]).to_dict())
+        formulario = self._repository.insert_one(FormularioAluno(None,aluno,[]).to_dict())
         return formulario
     
     def insert_grafo(self, grafo_values: Dict ) -> List[Dict]:

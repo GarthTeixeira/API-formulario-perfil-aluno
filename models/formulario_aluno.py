@@ -46,6 +46,11 @@ class FormularioAluno:
         self.__grafos_das_respostas = FormularioUtils.montaRepostaParaDisciplina(disciplinasArea,values,self.__grafos_das_respostas)
 
     def to_dict(self):
+        if self.__id == None:
+            return {
+            "aluno": self.__aluno.to_dict(),
+            "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas]
+        }
         return {
             "_id": self.__id,
             "aluno": self.__aluno.to_dict(),
