@@ -1,8 +1,13 @@
 from .aluno import Aluno 
-
+from .resposta import Resposta
 class Grafo:
     def __init__(self,competencia,arestas):
         self._competencia = competencia
+
+        if arestas != []:
+            if not isinstance(arestas[0],Resposta):
+                arestas = [Resposta(**aresta) for aresta in arestas]
+
         self._arestas = arestas
 
     def getRespostas(self,diciplina_id):
@@ -16,8 +21,8 @@ class Grafo:
         return self._arestas
 
     def setRespostasValue(self,diciplina_id,valor):
-        for index, resposta in enumerate(self._arestas):
-            if resposta.origem == str(diciplina_id):
+        for index, resposta in enumerate(self._arestas):            
+            if str(resposta.origem) == diciplina_id:
                 self._arestas[index].valor = valor
 
     def __str__(self):

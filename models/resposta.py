@@ -1,8 +1,8 @@
 class Resposta:
-    def __init__(self, disciplinaOrigem, valor, disciplinaDestino = []) :
-        self.origem = disciplinaOrigem
+    def __init__(self, origem, valor, destino = []) :
+        self.origem = origem
         self.valor = valor
-        self.destino = disciplinaDestino
+        self.destino = destino
 
     def __str__(self):
         return f"Disciplina de origem: {self.origem}\nValor: {self.valor}\nDisciplina de destino: {self.destino}"

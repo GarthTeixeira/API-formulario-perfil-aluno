@@ -1,4 +1,4 @@
-from flask import make_response
+from flask import make_response, jsonify
 
 class HttpResponseUtils:
     @staticmethod
@@ -33,3 +33,12 @@ class HttpResponseUtils:
     def reponseFromPostRequest(id):
         data= { 'id': str(id)}
         return make_response(data)
+    
+    def responseFromPutRequest(result):
+        
+        if result.modified_count == 0:
+        # No document was updated
+            return jsonify({'success': False, 'message': 'No document found or no new data to update.'}), 404
+        else:
+            # Document was successfully updated
+            return jsonify({'success': True, 'message': 'Document updated successfully.'}), 200
