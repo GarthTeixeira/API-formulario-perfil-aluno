@@ -1,6 +1,9 @@
 from pymongo import MongoClient
 from urllib.parse import quote_plus
-from .db_configs import mongo_db_infos
+import json
+
+with open('db_resources/db_config.json', 'r') as file:
+    mongo_db_infos = json.load(file)
 
 class DBConnectionHandler:
     def __init__(self) -> None:

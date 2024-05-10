@@ -1,17 +1,34 @@
-import requests
+from pymongo import MongoClient
+from urllib.parse import quote_plus
+import json
 
-def fazer_chamada_api():
-    post_url = "https://api.exemplo.com/dados"  # Substitua pela URL da API de destino
+f_config = open('../../db_resources/db_config.json')
+mongo_db_infos = json.load(f_config)
 
-    try:
-        # Fazer chamada HTTP POST
-        
-        payload = {"key": "value"}  # Substitua pelos dados que você deseja enviar
-        response = requests.post(post_url, json=payload)
-        response.raise_for_status()  # Verifica se a resposta da API foi bem-sucedida
-        # Faça algo com a resposta da API de destino
-        
-    except requests.exceptions.RequestException as e:
-        print("Ocorreu um erro ao fazer a chamada para a API:", e)
 
-fazer_chamada_api()
+connection_string = 'mongodb+srv://{}:{}@{}/?retryWrites=true&w=majority&appName=Cluster0&ssl=true'.format(
+            mongo_db_infos['USERNAME'],
+            quote_plus(mongo_db_infos['PASSWORD']),
+            mongo_db_infos['HOST']
+        )
+
+f_disciplinas = open('../mock/disciplinas.json')
+# Connect to the database
+client = MongoClient(connection_string)
+db = client['competencias_enem_data']
+collection = db['escolas']
+
+nome_da_escola = 'third_school'
+disciplinas = json.load(f_disciplinas)
+
+# Define the data to be inserted
+data = {
+    'name': nome_da_escola,
+    'disciplinas': disciplinas
+}
+
+# Insert the data into the collection
+collection.insert_one(data)
+
+# Close the MongoDB connection
+client.close()

@@ -3,226 +3,194 @@
         "name": "Português",
         "serie_ano":1,
         "area": "LINGUAGENS",
-        "escola": "teste",
-        "codigo": "1"
+        "codigoBNCC": "1"
     },
     {
         "name": "Espanhol",
         "serie_ano":1,
         "area": "LINGUAGENS",
-        "escola": "teste",
-        "codigo": "2"
+        "codigoBNCC": "2"
     },
     {
         "name": "Algebra",
         "serie_ano":1,
         "area": "EXATAS",
-        "escola": "teste",
-        "codigo": "3"
+        "codigoBNCC": "3"
 
     },
     {
         "name": "Fisica",
         "serie_ano":1,
         "area": "NATUREZA",
-        "escola": "teste",
-        "codigo": "4"
+        "codigoBNCC": "4"
     },
     {
         "name": "Quimica",
         "serie_ano":1,
         "area": "NATUREZA",
-        "escola": "teste",
-        "codigo": "5"
+        "codigoBNCC": "5"
     },
     {
         "name": "Biologia",
         "serie_ano":1,
         "area": "NATUREZA",
-        "escola": "teste",
-        "codigo": "6"
+        "codigoBNCC": "6"
     },
     {
         "name": "Geografia",
         "serie_ano":1,
         "area": "HUMANAS",
-        "escola": "teste",
-        "codigo": "7"
+        "codigoBNCC": "7"
     },
     {
         "name": "Historia",
         "serie_ano":1,
         "area": "HUMANAS",
-        "escola": "teste",
-        "codigo": "8"
+        "codigoBNCC": "8"
     },
     {
         "name": "Filosofia",
         "serie_ano":1,
         "area": "HUMANAS",
-        "escola": "teste",
-        "codigo": "9"
+        "codigoBNCC": "9"
     },
     {
         "name": "Sociologia",
         "serie_ano":3,
         "area": "HUMANAS",
-        "escola": "teste",
-        "codigo": "10"
+        "codigoBNCC": "10"
     },
     {
         "name": "Artes",
         "serie_ano":1,
         "area": "LINGUAGENS",
-        "escola": "teste",
-        "codigo": "11"
+        "codigoBNCC": "11"
     },
     {
         "name": "Educacao Fisica",
         "serie_ano":1,
         "area": "LINGUAGENS",
-        "escola": "teste",
-        "codigo": "12"
+        "codigoBNCC": "12"
     },
     {
         "name": "Português",
         "serie_ano":2,
         "area": "LINGUAGENS",
-        "escola": "teste",
-        "codigo": "1"
+        "codigoBNCC": "1"
     },
     {
         "name": "Português",
         "serie_ano":3,
         "area": "LINGUAGENS",
-        "escola": "teste",
-        "codigo": "1"
+        "codigoBNCC": "1"
     },
     {
         "name": "Redação",
         "serie_ano":3,
         "area": "LINGUAGENS",
-        "escola": "teste",
-        "codigo": "1"
+        "codigoBNCC": "1"
     },
     {
         "name": "Educacao Fisica",
         "serie_ano":2,
         "area": "LINGUAGENS",
-        "escola": "teste",
-        "codigo": "12"
+        "codigoBNCC": "12"
     },
     {
         "name":"Algebra",
         "serie_ano":2,
         "area":"EXATAS",
-        "escola":"teste",
-        "codigo":"3"
+        "codigoBNCC":"3"
     },
     {
         "name":"Fisica",
         "serie_ano":2,
         "area":"NATUREZA",
-        "escola":"teste",
-        "codigo":"4"
+        "codigoBNCC":"4"
     },
     {
         "name":"Biologia",
         "serie_ano":2,
         "area":"NATUREZA",
-        "escola":"teste",
-        "codigo":"6"
+        "codigoBNCC":"6"
     },
     {
         "name":"Geografia",
         "serie_ano":2,
         "area":"HUMANAS",
-        "escola":"teste",
-        "codigo":"7"
+        "codigoBNCC":"7"
     },
     {
         "name":"Historia",
         "serie_ano":2,
         "area":"HUMANAS",
-        "escola":"teste",
-        "codigo":"8"
+        "codigoBNCC":"8"
     },
     {
         "name":"Filosofia",
         "serie_ano":2,
         "area":"HUMANAS",
-        "escola":"teste",
-        "codigo":"9"
+        "codigoBNCC":"9"
     },
     {
         "name":"Sociologia",
         "serie_ano":2,
         "area":"HUMANAS",
-        "escola":"teste",
-        "codigo":"10"
+        "codigoBNCC":"10"
     },
     {
         "name":"Artes",
         "serie_ano":2,
         "area":"LINGUAGENS",
-        "escola":"teste",
-        "codigo":"11"
+        "codigoBNCC":"11"
     },
     {
         "name":"Espanhol",
         "serie_ano":2,
         "area":"LINGUAGENS",
-        "escola":"teste",
-        "codigo":"2"
+        "codigoBNCC":"2"
     },
     {
         "name":"Quimica",
         "serie_ano":2,
         "area":"NATUREZA",
-        "escola":"teste",
-        "codigo":"5"
+        "codigoBNCC":"5"
     },
    
     {
         "name":"Algebra",
         "serie_ano":3,
         "area":"EXATAS",
-        "escola":"teste",
-        "codigo":"3"
+        "codigoBNCC":"3"
     },
     {
         "name":"Quimica",
         "serie_ano":3,
         "area":"NATUREZA",
-        "escola":"teste",
-        "codigo":"5"
+        "codigoBNCC":"5"
     },
     {
         "name":"Biologia",
         "serie_ano":3,
         "area":"NATUREZA",
-        "escola":"teste",
-        "codigo":"6"
+        "codigoBNCC":"6"
     },
     {
         "name":"Geografia",
         "serie_ano":3,
         "area":"HUMANAS",
-        "escola":"teste",
-        "codigo":"7"
+        "codigoBNCC":"7"
     },
     {
         "name":"Historia",
         "serie_ano":3,
         "area":"HUMANAS",
-        "escola":"teste",
-        "codigo":"8"
+        "codigoBNCC":"8"
     },
     {
         "name":"Fisica",
         "serie_ano":3,
         "area":"NATUREZA",
-        "escola":"teste",
-        "codigo":"4"
+        "codigoBNCC":"4"
     }
 ]
