@@ -1,3 +1,4 @@
+from bson.objectid import ObjectId
 from pymongo import MongoClient
 from urllib.parse import quote_plus
 import json
@@ -20,6 +21,9 @@ collection = db['escolas']
 
 nome_da_escola = 'third_school'
 disciplinas = json.load(f_disciplinas)
+
+for disciplina in disciplinas:
+    disciplina['_id'] = ObjectId()
 
 # Define the data to be inserted
 data = {
