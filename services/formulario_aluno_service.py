@@ -2,6 +2,8 @@ from typing import Dict, List
 from .base_service import BaseService
 from repositories.formulario_aluno_repository import FormularioAlunoRepository
 from repositories.disciplines_repository import DisciplineRepository
+from repositories.escola_repository import EscolaRepository
+from .escolas_service import EscolaService
 
 from models.aluno import Aluno
 from models.grafo import Grafo
@@ -32,22 +34,32 @@ class FormularioAlunoService(BaseService):
             print("Disciplina não encontrada")
             return []
         
-        disciplineRepository = DisciplineRepository(self._connection)
-        
-        disciplina = disciplineRepository.get_by_id(grafo_values["disciplina"])
-
-        disciplinasDaArea = disciplineRepository.get_by_area(disciplina["area"])
-
         formFound = self._repository.get_by_id(formulario_id)
 
         formulario = FormularioAluno(**formFound)
+
+        escola_id = formulario.getAluno().to_dict()['escola']
+
+        disciplina_id = grafo_values["disciplina"]
+
+        disciplina = EscolaService().get_disciplina_by_id(escola_id,disciplina_id)
+
+        disciplinasDaArea = EscolaService().get_school_subjects_by_area(escola_id,disciplina["area"])
+        
+        # disciplineRepository = DisciplineRepository(self._connection)
+        
+        # disciplina = disciplineRepository.get_by_id(grafo_values["disciplina"])
+
+        # disciplinasDaArea = disciplineRepository.get_by_area(disciplina["area"])
+
+        
 
         formulario.appendNewGrafo(
             disciplinasDaArea,
             grafo_values,
            )
         formularioDict = formulario.to_dict()
-        print("formularioDict",formularioDict)
+        # print("formularioDict",formularioDict)
         resposta = self._repository.update_one(formularioDict["_id"],formularioDict)            
 
         return resposta
