@@ -25,6 +25,6 @@ class EscolaService(BaseService):
         disciplina = schoolsFound["disciplinas"][0]
         return disciplina
     
-    def get_shchools_names(self) -> List[Dict]:
+    def get_schools_names(self) -> List[Dict]:
         schools = self._repository.get_shchools_names()
         return schools
