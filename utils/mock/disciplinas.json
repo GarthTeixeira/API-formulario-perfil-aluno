@@ -192,5 +192,65 @@
         "serie_ano":3,
         "area":"NATUREZA",
         "codigoBNCC":"4"
+    },
+    {
+        "name":"Filosofia",
+        "serie_ano":3,
+        "area":"HUMANAS",
+        "codigoBNCC":"9"
+    },
+    {
+        "name":"Sociologia",
+        "serie_ano":3,
+        "area":"HUMANAS",
+        "codigoBNCC":"10"
+    },
+    {
+        "name":"Artes",
+        "serie_ano":3,
+        "area":"LINGUAGENS",
+        "codigoBNCC":"11"
+    },
+    {
+        "name":"Espanhol",
+        "serie_ano":3,
+        "area":"LINGUAGENS",
+        "codigoBNCC":"2"
+    },
+    {
+        "name":"Educacao Fisica",
+        "serie_ano":3,
+        "area":"LINGUAGENS",
+        "codigoBNCC":"12"
+    },
+    {
+        "name":"Redação",
+        "serie_ano":3,
+        "area":"LINGUAGENS",
+        "codigoBNCC":"1"
+    },
+    {
+        "name": "Aprovação Natureza",
+        "serie_ano":4,
+        "area": "NATUREZA",
+        "codigoBNCC": "--"
+    },
+    {
+        "name": "Aprovação Humanas",
+        "serie_ano":4,
+        "area": "HUMANAS",
+        "codigoBNCC": "--"
+    },
+    {
+        "name": "Aprovação Linguagens",
+        "serie_ano":4,
+        "area": "LINGUAGENS",
+        "codigoBNCC": "--"
+    },
+    {
+        "name": "Aprovação Exatas",
+        "serie_ano":4,
+        "area": "EXATAS",
+        "codigoBNCC": "--"
     }
 ]

@@ -1,3 +1,7 @@
 __pycache__
 
 db_config.json
+utils/scripts/*.csv
+utils/scripts/*.xlsx
+utils/scripts/*.~lock.data.csv#
+utils/scripts/*.~lock.data.xlsx#
