@@ -28,3 +28,11 @@ class EscolaService(BaseService):
     def get_schools_names(self) -> List[Dict]:
         schools = self._repository.get_shchools_names()
         return schools
+    
+    def get_school_classes(self, school: str) -> List[Dict]:
+        schoolArray = self._repository.get_school_classes(school)
+        if len(schoolArray) == 0:
+            return []
+        schoolFound = schoolArray[0]
+        classes = schoolFound["turmas"]
+        return classes

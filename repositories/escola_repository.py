@@ -63,3 +63,29 @@ class EscolaRepository(BaseRepository):
         response = list(data)
         
         return response
+    
+    def get_school_classes(self, school_id):
+        collection = self._connection.get_collection(self._collection_name)
+        pipeline = [
+            # Match the school by id
+            { "$match": { "_id": ObjectId(school_id) } },
+
+            # Filter the disciplinas array to only include subdocuments with area "EXATAS"
+            {
+                "$project": {
+                "_id": 0,  # Exclude the _id field from the output
+                "turmas": {
+                    "$map": {
+                    "input": "$turmas",
+                    "as": "turma",
+                    "in": {
+                        "nome": "$$turma.nome"
+                    }
+                    }
+                }
+                }
+            }
+        ]
+        response = collection.aggregate(pipeline)
+        
+        return list(response)

@@ -27,3 +27,8 @@ def insert_disciplines():
     data = request.json
     inserted_data = EscolaService().insert_list_of_documents(data)
     return HttpResponseUtils.responseForAPIFromArrayData(inserted_data)
+
+@schools_bp.route('/get-school-classes/<school_id>', methods=['GET'])
+def get_school_classes(school_id):
+    school_classes = EscolaService().get_school_classes(school_id)
+    return HttpResponseUtils.responseForAPIFromArrayData(school_classes)

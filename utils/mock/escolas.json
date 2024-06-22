@@ -1,0 +1,284 @@
+[
+    {
+        "name": "Instituto Charles Xavier",
+        "disciplinas":[],
+        "turmas":[
+            {
+                "nome": "Turma A",
+                "alunos":[{
+                    "nome": "Scott Summers",
+                    "idade": 15,
+                    "notas": {
+                        "enem":{
+                            "LINGUAGENS":0.0,
+                            "EXATAS":0.0,
+                            "HUMANAS":0.0,
+                            "NATUREZA":0.0
+                        },
+                        "historico_escolar":[]
+                    }
+                },
+                {
+                    "nome": "Hank McCoy",
+                    "idade": 16,
+                    "notas": {
+                        "enem":{
+                            "LINGUAGENS":0.0,
+                            "EXATAS":0.0,
+                            "HUMANAS":0.0,
+                            "NATUREZA":0.0
+                        },
+                        "historico_escolar":[]
+                    }
+                },
+                {
+                    "nome": "Bobby Drake",
+                    "idade": 17,
+                    "notas": {
+                        "enem":{
+                            "LINGUAGENS":0.0,
+                            "EXATAS":0.0,
+                            "HUMANAS":0.0,
+                            "NATUREZA":0.0
+                        },
+                        "historico_escolar":[]
+                    }
+                }]
+            },
+            {
+                "nome": "Turma B",
+                "alunos":[
+                    {
+                        "nome": "Jean Grey",
+                        "idade": 15,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    },
+                    {
+                        "nome": "Warren Worthington",
+                        "idade": 16,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    },
+                    {
+                        "nome": "Kurt Wagner",
+                        "idade": 17,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    {
+        "name": "Escola de Magia e Bruxaria de Hogwarts",
+        "disciplinas":[],
+        "turmas":[
+            {
+                "nome": "Grifinória",
+                "alunos":[
+                    {
+                        "nome": "Harry Potter",
+                        "idade": 15,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    },
+                    {
+                        "nome": "Hermione Granger",
+                        "idade": 16,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    },
+                    {
+                        "nome": "Ronald Weasley",
+                        "idade": 17,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    }
+                ]
+            },
+            {
+                "nome": "Sonserina",
+                "alunos":[
+                    {
+                        "nome": "Draco Malfoy",
+                        "idade": 15,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    },
+                    {
+                        "nome": "Pansy Parkinson",
+                        "idade": 16,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    },
+                    {
+                        "nome": "Vincent Crabbe",
+                        "idade": 17,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+
+    {
+        "name": "Academia Ninja",
+        "disciplinas":[],
+        "turmas":[
+            {
+                "nome": "Time 7",
+                "alunos":[
+                    {
+                        "nome": "Naruto Uzumaki",
+                        "idade": 15,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    },
+                    {
+                        "nome": "Sasuke Uchiha",
+                        "idade": 16,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    },
+                    {
+                        "nome": "Sakura Haruno",
+                        "idade": 17,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    }
+                ]
+            },
+            {
+                "nome": "Time 10",
+                "alunos":[
+                    {
+                        "nome": "Shikamaru Nara",
+                        "idade": 15,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    },
+                    {
+                        "nome": "Ino Yamanaka",
+                        "idade": 16,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    },
+                    {
+                        "nome": "Chouji Akimichi",
+                        "idade": 17,
+                        "notas": {
+                            "enem":{
+                                "LINGUAGENS":0.0,
+                                "EXATAS":0.0,
+                                "HUMANAS":0.0,
+                                "NATUREZA":0.0
+                            },
+                            "historico_escolar":[]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+]
