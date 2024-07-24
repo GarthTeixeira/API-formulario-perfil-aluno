@@ -1,4 +1,4 @@
-from .aluno import Aluno 
+from .professor import Professor 
 from .resposta import Resposta
 class Grafo:
     def __init__(self,competencia,arestas):

@@ -1,16 +1,16 @@
 [
     {
         "id":"fewfewc990asd090q-8e88",
-        "aluno":{
+        "professor":{
             "nome":"João",
-            "idade":20,
-            "anos_letivos":[2020,2021],
-            "serie_atual": "3º ano",
             "email":"email@email.com",
-            "matricula":3134314
+            "ano_referencia":2020,
+            "escola_id:":"fewfewc990asd090q-8e88",
+            "turma":"turma A"
         },
-
-        "grafos_das_respostas":[ 
+        "data_criacao":"2020-10-10",
+        "data_atualizacao":"2020-10-10",
+        "grafos":[ 
             { 
                 "arestas_grafo":[
                         {
@@ -29,7 +29,7 @@
                 "competencia_id": "fewfewc990asd090q-8e88"
             },
             { 
-                "arestas_frago":[
+                "arestas_grafo":[
                         {
                             "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
                             "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
@@ -39,45 +39,6 @@
                             "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
                             "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
                             "valor":0.8
-                        }
-                        
-                    ]
-                ,
-                "competencia_id": "fewfewc990asd090q-8e88"
-            }
-        ]
-    },
-    {
-        "aluno":{},
-        "respostas":[ 
-            { 
-                "arestas_frago":[
-                        {
-                            "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
-                            "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
-                            "valor":null
-                        },
-                        {
-                            "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
-                            "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
-                            "valor":null
-                        }
-                        
-                    ]
-                ,
-                "competencia_id": "fewfewc990asd090q-8e88"
-            },
-            { 
-                "arestas_frago":[
-                        {
-                            "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
-                            "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
-                            "valor":null
-                        },
-                        {
-                            "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
-                            "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
-                            "valor":null
                         }
                         
                     ]

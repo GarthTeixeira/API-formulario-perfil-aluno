@@ -5,7 +5,7 @@ from repositories.disciplines_repository import DisciplineRepository
 from repositories.escola_repository import EscolaRepository
 from .escolas_service import EscolaService
 
-from models.aluno import Aluno
+from models.professor import Professor
 from models.grafo import Grafo
 from models.formulario_aluno import FormularioAluno
 
@@ -23,9 +23,9 @@ class FormularioAlunoService(BaseService):
         return formulario
     
 
-    def insert_aluno(self, aluno_data: any) -> List[Dict]:
-        aluno: Aluno = Aluno(**aluno_data)
-        formulario = self._repository.insert_one(FormularioAluno(None,aluno,[]).to_dict())
+    def insert_professor(self, professor_data: any) -> List[Dict]:
+        professor: Professor = Professor(**professor_data)
+        formulario = self._repository.insert_one(FormularioAluno(None,professor,[]).to_dict())
         return formulario
     
     def insert_grafo(self, grafo_values: Dict ) -> List[Dict]:
@@ -38,7 +38,7 @@ class FormularioAlunoService(BaseService):
 
         formulario = FormularioAluno(**formFound)
 
-        escola_id = formulario.getAluno().to_dict()['escola']
+        escola_id = formulario.getAluno().to_dict()['escola_id']
 
         disciplina_id = grafo_values["disciplina"]
 

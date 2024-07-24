@@ -1,6 +1,8 @@
-from models.aluno import Aluno
+from models.professor import Professor
 from models.grafo import Grafo
 from utils.formularioUtils import FormularioUtils
+from datetime import datetime
+
 # Resquest format
 # {
 #     "disciplina": 0,
@@ -8,18 +10,19 @@ from utils.formularioUtils import FormularioUtils
 # }
 
 class FormularioAluno:
-    def __init__(self,_id,aluno:Aluno,grafos:list[Grafo] = []) -> None:
+    def __init__(self,_id,professor:Professor,grafos:list[Grafo] = []) -> None:
         self.__id = _id
-        if(not isinstance(aluno,Aluno)):
-            self.__aluno = Aluno(**aluno)
+        if(not isinstance(professor,Professor)):
+            self.__professor = Professor(**professor)
         else: 
-            self.__aluno = aluno
+            self.__professor = professor
         
         if grafos != []:
             if not isinstance(grafos[0],Grafo):
                 grafos = FormularioUtils.toGrafoList(grafos)
         
         self.__grafos_das_respostas = grafos
+        self.__data_criacao = datetime.now()
 
     def __validate_data(data):
     # Check if the main keys exist in the dictionary
@@ -37,7 +40,7 @@ class FormularioAluno:
         return True
     
     def getAluno(self):
-        return self.__aluno
+        return self.__professor
     
     def getGrafos(self):
         return self.__grafos_das_respostas
@@ -48,11 +51,14 @@ class FormularioAluno:
     def to_dict(self):
         if self.__id == None:
             return {
-            "aluno": self.__aluno.to_dict(),
-            "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas]
+            "professor": self.__professor.to_dict(),
+            "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas],
+            "data_criacao": self.__data_criacao
+            
         }
         return {
             "_id": self.__id,
-            "aluno": self.__aluno.to_dict(),
-            "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas]
+            "professor": self.__professor.to_dict(),
+            "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas],
+            "data_criacao": self.__data_criacao
         }

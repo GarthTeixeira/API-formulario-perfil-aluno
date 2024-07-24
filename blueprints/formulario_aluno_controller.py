@@ -12,10 +12,10 @@ def insert_form():
     inserted_data = FormularioAlunoService().insert_formulario(data)
     return HttpResponseUtils.reponseFromPostRequest(inserted_data)
 
-@student_form_bp.route('/insert-aluno', methods=['POST'])
-def insert_aluno():
+@student_form_bp.route('/insert-professor', methods=['POST'])
+def insert_professor():
     data = request.json
-    inserted_data = FormularioAlunoService().insert_aluno(data)
+    inserted_data = FormularioAlunoService().insert_professor(data)
     return HttpResponseUtils.reponseFromPostRequest(inserted_data)
 
 @student_form_bp.route('/insert-resposta', methods=['PUT'])

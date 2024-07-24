@@ -34,8 +34,10 @@ class EscolaRepository(BaseRepository):
     
     def get_shchools_names(self):
         collection = self._connection.get_collection(self._collection_name)
-        data = collection.find({},{"name":1})
-        response = list(data)
+        pipeline = [{"$project": {"name": 1,"turmas.nome": 1}}]
+                    # Execute the aggregation
+        results = collection.aggregate(pipeline)
+        response = list(results)
         
         return response
     
@@ -73,7 +75,7 @@ class EscolaRepository(BaseRepository):
             # Filter the disciplinas array to only include subdocuments with area "EXATAS"
             {
                 "$project": {
-                "_id": 0,  # Exclude the _id field from the output
+                "_id": 1,  # Exclude the _id field from the output
                 "turmas": {
                     "$map": {
                     "input": "$turmas",
