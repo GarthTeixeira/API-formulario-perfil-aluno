@@ -34,10 +34,23 @@ class EscolaRepository(BaseRepository):
     
     def get_shchools_names(self):
         collection = self._connection.get_collection(self._collection_name)
-        pipeline = [{"$project": {"name": 1,"turmas.nome": 1}}]
+        pipeline = [{"$project": {"name": 1,"turmas.nome": 1, "turmas.serie": 1, "turmas._id": 1}}]
                     # Execute the aggregation
+         # Execute the aggregation
         results = collection.aggregate(pipeline)
-        response = list(results)
+        response = []
+
+        for doc in results:
+            # Converte o _id da escola para string
+            doc["_id"] = str(doc["_id"])
+            
+            # Converte os _id's das turmas para string
+            if "turmas" in doc:
+                for turma in doc["turmas"]:
+                    if "_id" in turma:
+                        turma["_id"] = str(turma["_id"])
+            
+            response.append(doc)
         
         return response
     
