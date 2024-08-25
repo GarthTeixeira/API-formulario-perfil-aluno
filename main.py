@@ -9,7 +9,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 app.register_blueprint(competences_bp, url_prefix='/competences')
-app.register_blueprint(disciplines_bp, url_prefix='/disciplines')
+app.register_blueprint(disciplines_bp, url_prefix='/disciplinas')
 app.register_blueprint(student_form_bp, url_prefix='/student_form')
 app.register_blueprint(schools_bp, url_prefix='/schools')
 

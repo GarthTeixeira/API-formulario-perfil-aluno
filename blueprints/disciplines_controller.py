@@ -1,9 +1,10 @@
 from flask import Blueprint, request
 from services.disciplines_service import DisciplinesService
+from services.escolas_service import EscolaService
 
 from utils.httpResposeUtils import HttpResponseUtils
 
-disciplines_bp = Blueprint('disciplines', __name__)
+disciplines_bp = Blueprint('disciplinas', __name__)
 
 @disciplines_bp.route('/get-area/<area_tag>', methods=['GET'])
 def get_area(area_tag):
@@ -17,7 +18,7 @@ def get_all():
 
 @disciplines_bp.route('/get-by-school/<school_id>', methods=['GET'])
 def get_by_school(school_id):
-    all_data = DisciplinesService().get_by_school(school_id)
+    all_data = EscolaService().get_all_disciplinas_by_school(school_id)
     return HttpResponseUtils.responseForAPIFromArrayData(all_data)
 
 @disciplines_bp.route('/insert-disciplines', methods=['POST'])

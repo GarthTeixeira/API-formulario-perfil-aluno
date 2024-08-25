@@ -66,6 +66,34 @@ class EscolaRepository(BaseRepository):
         
         return response
     
+    def get_school_disciplinas(self, school_id):
+        collection = self._connection.get_collection(self._collection_name)
+        pipeline = [
+            { "$match": { "_id": ObjectId(school_id) } },
+
+            {
+                "$project":{
+                    "_id":1,
+                    "disciplinas":{
+                        "$map": {
+                            "input": "$disciplinas",
+                            "as": "disciplina",
+                                "in": {
+                                    "_id": "$$disciplina._id",
+                                    "name": "$$disciplina.name",
+                                    "serie_ano": "$$disciplina.serie_ano"
+                                }
+                        }
+                    }
+                }
+            }
+           
+            ]
+        
+        response = collection.aggregate(pipeline)
+        return list(response)
+    
+    
     def get_school_classes(self, school_id):
         collection = self._connection.get_collection(self._collection_name)
         pipeline = [
@@ -78,11 +106,12 @@ class EscolaRepository(BaseRepository):
                 "_id": 1,  # Exclude the _id field from the output
                 "turmas": {
                     "$map": {
-                    "input": "$turmas",
-                    "as": "turma",
-                    "in": {
-                        "nome": "$$turma.nome"
-                    }
+                        "input": "$turmas",
+                        "as": "turma",
+                        "in": {
+                            "nome": "$$turma.nome",
+                            "serie_ano": "$$turma.serie"
+                        }
                     }
                 }
                 }
@@ -91,3 +120,33 @@ class EscolaRepository(BaseRepository):
         response = collection.aggregate(pipeline)
         
         return list(response)
+    
+    def get_school_by_id_and_subjects_by_area_and_serie_ano(self,school, serie_ano, area = ''):
+        collection = self._connection.get_collection(self._collection_name)
+        condition = {}
+        if(area == ''):
+            condition = {"$eq": ["$$disciplina.serie_ano", serie_ano] }
+        else:
+            condition = { "$and":[{"$eq": ["$$disciplina.area", area] },{"$eq": ["$$disciplina.serie_ano", serie_ano] }]}
+        
+        pipeline = [
+            # Match the school by id
+            { "$match": { "_id": ObjectId(school) } },
+
+            # Filter the disciplinas array to only include subdocuments with area "EXATAS"
+            { 
+                "$addFields": {
+                    "disciplinas": {
+                        "$filter": {
+                            "input": "$disciplinas",
+                            "as": "disciplina",
+                            "cond": condition
+                        }
+                    }
+                }
+            }
+        ]
+        data = collection.aggregate(pipeline)
+        response = list(data)
+        
+        return response

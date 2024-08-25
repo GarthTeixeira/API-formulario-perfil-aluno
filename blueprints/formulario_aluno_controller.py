@@ -19,10 +19,11 @@ def insert_professor():
     return HttpResponseUtils.reponseFromPostRequest(inserted_data)
 
 @student_form_bp.route('/insert-resposta', methods=['PUT'])
-def insert_grafo():
+def insert_resposta():
     data = request.json
-    inserted_data = FormularioAlunoService().insert_grafo(data)
+    inserted_data = FormularioAlunoService().insert_resposta(data)
     return HttpResponseUtils.responseFromPutRequest(inserted_data)
+
 
 @student_form_bp.route('/get-by-student', methods=['POST'])
 def get_by_student():

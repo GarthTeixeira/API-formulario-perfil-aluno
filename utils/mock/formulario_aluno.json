@@ -4,9 +4,13 @@
         "professor":{
             "nome":"João",
             "email":"email@email.com",
-            "ano_referencia":2020,
+            "ano_escolar":2020,
             "escola_id:":"fewfewc990asd090q-8e88",
-            "turma":"turma A"
+            "turma":{
+                "_id":"",
+                "nome": "Turma A",
+                "serie":"1° Ano"
+            }
         },
         "data_criacao":"2020-10-10",
         "data_atualizacao":"2020-10-10",

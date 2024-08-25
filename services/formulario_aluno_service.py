@@ -28,12 +28,9 @@ class FormularioAlunoService(BaseService):
         formulario = self._repository.insert_one(FormularioAluno(None,professor,[]).to_dict())
         return formulario
     
-    def insert_grafo(self, grafo_values: Dict ) -> List[Dict]:
-        formulario_id = grafo_values["id"]
-        if "disciplina" not in grafo_values:
-            print("Disciplina não encontrada")
-            return []
-        
+    def insert_resposta(self, grafo_values: Dict ) -> List[Dict]:
+        area = grafo_values["area"]
+        reponse = {}
         formFound = self._repository.get_by_id(formulario_id)
 
         formulario = FormularioAluno(**formFound)
@@ -41,28 +38,45 @@ class FormularioAlunoService(BaseService):
         escola_id = formulario.getAluno().to_dict()['escola_id']
 
         disciplina_id = grafo_values["disciplina"]
-
+        
         disciplina = EscolaService().get_disciplina_by_id(escola_id,disciplina_id)
-
-        disciplinasDaArea = EscolaService().get_school_subjects_by_area(escola_id,disciplina["area"])
         
-        # disciplineRepository = DisciplineRepository(self._connection)
-        
-        # disciplina = disciplineRepository.get_by_id(grafo_values["disciplina"])
-
-        # disciplinasDaArea = disciplineRepository.get_by_area(disciplina["area"])
+        print(school)
 
         
+        if area != 'COGNITIVOS':
+            formulario_id = grafo_values["professor"]
+            
+            # ???? o q isso faz?
+            if "disciplina" not in grafo_values:
+                print("Disciplina não encontrada")
+                return []
+            
+           
+            if(area != disciplina['area']):
+                raise ValueError("Area not compatible with subject")
 
-        formulario.appendNewGrafo(
-            disciplinasDaArea,
-            grafo_values,
-           )
-        formularioDict = formulario.to_dict()
-        # print("formularioDict",formularioDict)
-        resposta = self._repository.update_one(formularioDict["_id"],formularioDict)            
+            serie_ano = disciplina['serie_ano']
 
-        return resposta
+            disciplinasDaArea = EscolaService().get_school_subjects_by_area_and_serie_ano(escola_id,disciplina["area"], serie_ano + 1)
+            
+
+            formulario.appendNewGrafo(
+                disciplinasDaArea,
+                grafo_values,
+            )
+            formularioDict = formulario.to_dict()
+            # print("formularioDict",formularioDict)
+            reponse = self._repository.update_one(formularioDict["_id"],formularioDict)            
+
+        else:
+
+            disciplinas = EscolaService().get_school_subject_by_seria_ano(escola_id,disciplina['serie_ano'])
+            
+
+            reponse
+
+        return reponse
         
     
     def insert_formulario(self,data_form:Dict) -> List[Dict]:
