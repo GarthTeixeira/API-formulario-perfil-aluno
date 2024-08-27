@@ -7,10 +7,15 @@ schools_bp = Blueprint('schools', __name__)
 
 @schools_bp.route('/get-by-area', methods=['GET'])
 def get_school_subjects_by_area():
+    response = {} 
     area_tag = request.args.get('area')
     school_id = request.args.get('school')
-    area_data = EscolaService().get_school_subjects_by_area(school_id,area_tag)
-    return HttpResponseUtils.responseForAPIFromArrayData(area_data)
+    serie_ano = request.args.get('serie')
+    if (serie_ano):
+        response = EscolaService().get_school_subjects_by_area_and_serie_ano(school_id,area_tag,serie_ano)
+    else:
+        response = EscolaService().get_school_subjects_by_area(school_id,area_tag)
+    return HttpResponseUtils.responseForAPIFromArrayData(response)
 
 @schools_bp.route('/get-all', methods=['GET'])
 def get_all():

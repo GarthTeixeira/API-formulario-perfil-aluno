@@ -140,8 +140,7 @@ class EscolaRepository(BaseRepository):
         if(area == ''):
             condition = {"$eq": ["$$disciplina.serie_ano", serie_ano] }
         else:
-            condition = { "$and":[{"$eq": ["$$disciplina.area", area] },{"$eq": ["$$disciplina.serie_ano", serie_ano] }]}
-        
+            condition = { "$and":[{"$eq": ["$$disciplina.area", area] },{"$eq": ["$$disciplina.serie_ano", int(serie_ano)] }]}
         pipeline = [
             # Match the school by id
             { "$match": { "_id": ObjectId(school) } },
