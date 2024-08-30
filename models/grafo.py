@@ -1,7 +1,7 @@
 from .professor import Professor 
 from .resposta import Resposta
 class Grafo:
-    def __init__(self,competencia,arestas):
+    def __init__(self,competencia, arestas):
         self._competencia = competencia
 
         if arestas != []:
@@ -20,10 +20,24 @@ class Grafo:
     def getArestas(self):
         return self._arestas
 
-    def setRespostasValue(self,diciplina_id,valor):
-        for index, resposta in enumerate(self._arestas):            
-            if str(resposta.origem) == diciplina_id:
-                self._arestas[index].valor = valor
+    def setRespostasValue(self,disciplina_origem,valor,disciplinas_destino):
+        # aresta = next((resposta for resposta in self._arestas if resposta['origem'] == disciplina_origem), None)
+        for resposta in  self._arestas:
+            print(type(resposta))
+            if resposta.origem == disciplina_origem:
+                resposta.valor = valor
+                return
+        else:
+            self._arestas.append(Resposta(disciplina_origem,valor,disciplinas_destino))
+
+      
+
+    def montaArestaGrafo(disciplinaOrigem,valor,disciplinasDestino):
+        disciplinasDestinoStr = list(map(lambda disciplina: str(disciplina['_id']), disciplinasDestino))
+        return [
+            Resposta(disciplinaOrigem,valor,disciplinasDestinoStr)
+        ]
+        
 
     def __str__(self):
         return f"Competencia: {self._competencia}\nArestas: {len(self._arestas)}"

@@ -6,11 +6,6 @@ from utils.httpResposeUtils import HttpResponseUtils
 
 student_form_bp = Blueprint('student_form', __name__)
 
-@student_form_bp.route('/insert-form', methods=['POST'])
-def insert_form():
-    data = request.json
-    inserted_data = FormularioAlunoService().insert_formulario(data)
-    return HttpResponseUtils.reponseFromPostRequest(inserted_data)
 
 @student_form_bp.route('/insert-professor', methods=['POST'])
 def insert_professor():

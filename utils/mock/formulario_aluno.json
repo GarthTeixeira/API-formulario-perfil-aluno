@@ -4,8 +4,7 @@
         "professor":{
             "nome":"João",
             "email":"email@email.com",
-            "ano_escolar":2020,
-            "escola_id:":"fewfewc990asd090q-8e88",
+            "escola:":"fewfewc990asd090q-8e88",
             "turma":{
                 "_id":"",
                 "nome": "Turma A",
@@ -13,36 +12,36 @@
             }
         },
         "data_criacao":"2020-10-10",
-        "data_atualizacao":"2020-10-10",
+        "data_atualizacao":"2020-10-10", /*a implementar*/
         "grafos":[ 
             { 
-                "arestas_grafo":[
+                "arestas":[
                         {
-                            "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
-                            "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
-                            "valor":0.8
+                            "origem":"fewfewc990asd090q-8e88",
+                            "destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"], /*Hoje tem o objeto todo, (a definir)*/
+                            "valor": [0.8, 3.3, 1.4]
                         },
                         {
-                            "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
-                            "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
-                            "valor":0.8
+                            "origem":"fewfewc990asd090q-8e88",
+                            "destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
+                            "valor":[0.8, 3.3, 1.4]
                         }
                         
                     ]
                 ,
-                "competencia_id": "fewfewc990asd090q-8e88"
+                " ": "fewfewc990asd090q-8e88"
             },
             { 
-                "arestas_grafo":[
+                "arestas":[
                         {
-                            "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
-                            "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
-                            "valor":0.8
+                            "origem":"fewfewc990asd090q-8e88",
+                            "destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
+                            "valor":[0.8, 3.3, 1.4]
                         },
                         {
-                            "disciplina_id_vertice_origem":"fewfewc990asd090q-8e88",
-                            "disciplinas_ids_vertices_destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
-                            "valor":0.8
+                            "origem":"fewfewc990asd090q-8e88",
+                            "destino":["fewfewc990asd090q-8e88","fewfewc990asd090q-8e88"],
+                            "valor":[0.8, 3.3, 1.4]
                         }
                         
                     ]

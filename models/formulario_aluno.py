@@ -10,7 +10,7 @@ from datetime import datetime
 # }
 
 class FormularioAluno:
-    def __init__(self,_id,professor:Professor,grafos:list[Grafo] = []) -> None:
+    def __init__(self,_id,professor,data_criacao,grafos:list[Grafo] = []) -> None:
         self.__id = _id
         if(not isinstance(professor,Professor)):
             self.__professor = Professor(**professor)
@@ -45,8 +45,11 @@ class FormularioAluno:
     def getGrafos(self):
         return self.__grafos_das_respostas
     
-    def appendNewGrafo(self,disciplinasArea,values):
-        self.__grafos_das_respostas = FormularioUtils.montaRepostaParaDisciplina(disciplinasArea,values,self.__grafos_das_respostas)
+    def getId(self):
+        return self.__id
+    
+    def appendNewGrafo(self,disciplinasExistentes,valuesFromNewForm):
+        self.__grafos_das_respostas = FormularioUtils.montaRepostaParaDisciplina(disciplinasExistentes,valuesFromNewForm,self.__grafos_das_respostas)
 
     def to_dict(self):
         if self.__id == None:

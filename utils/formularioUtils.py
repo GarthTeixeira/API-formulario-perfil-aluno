@@ -32,50 +32,27 @@ class FormularioUtils:
     
 
     @staticmethod
-    def montaRepostaParaDisciplina(discipinas,valoresResposta, grafos: list[Grafo]) -> list[Grafo]: 
+    def montaRepostaParaDisciplina(discipinasExistentes, valoresResposta, grafosJaExistentes: list[Grafo]) -> list[Grafo]: 
+
+        print('disciplinasExistentes', discipinasExistentes)
+        print('valores Resposta', valoresResposta)
+        disciplinaOrigem = valoresResposta['disciplina']
            
         for key,value in valoresResposta['competencias'].items():
-            keys = set(map(lambda grafo: grafo.getCompetencia(), grafos))
-            if key in keys:
-                for grafo in grafos:
+            keysCompetencias = set(map(lambda grafo: grafo.getCompetencia(), grafosJaExistentes)) #Atualiza conjunto de de chaves de competências a cada iteração
+            if key in keysCompetencias:
+                for grafo in grafosJaExistentes:
                     if grafo.getCompetencia() == key:
-                        grafo.setRespostasValue(valoresResposta['disciplina'],value)
+                        grafo.setRespostasValue(disciplinaOrigem,value,discipinasExistentes)
               
             else:
-                newGrafo = Grafo(key,FormularioUtils.montaArestaGrafo(discipinas))
-                newGrafo.setRespostasValue(valoresResposta['disciplina'],value)
-                grafos.append(newGrafo)
+                newGrafo = Grafo(key,[])
+                newGrafo.setRespostasValue(disciplinaOrigem,value,discipinasExistentes)
+                grafosJaExistentes.append(newGrafo)
         
-        return grafos
+        return grafosJaExistentes
 
-                
-
-    @staticmethod
-    def montaArestaGrafo(disciplinasDaArea):
-        
-        disciplinasDaAreaOrdenadasPorSeries = sorted(disciplinasDaArea, key=lambda disciplina: disciplina['serie_ano'])
-        anosSet = set(map(lambda disciplina: disciplina['serie_ano'], disciplinasDaAreaOrdenadasPorSeries))
-
-        arestas_grafo = []
-
-        for ano in anosSet:
-            disciplinasDoAno = list(filter(lambda disciplina: disciplina['serie_ano'] == ano, disciplinasDaAreaOrdenadasPorSeries))
-            disciplinasDoAnoSeguinte = list(filter(lambda disciplina: disciplina['serie_ano'] == ano + 1, disciplinasDaAreaOrdenadasPorSeries))
-
-            if len(disciplinasDoAnoSeguinte) != 0:
-                
-                for disciplina in disciplinasDoAno:
-                    arestas_grafo.append(
-                        Resposta(
-                            disciplina['_id'],
-                            0,
-                            list(map( lambda disciplina: disciplina['_id'], disciplinasDoAnoSeguinte))
-                        )
-                    )
-
-        
-        return arestas_grafo
-    
+                    
   
     
 # disciplinasAreaLinguagens = [ {
