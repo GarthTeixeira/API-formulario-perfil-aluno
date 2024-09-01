@@ -15,21 +15,6 @@ class FormularioUtils:
     def toGrafoList(grafos):
         return [ Grafo(**grafo) for grafo in grafos]
 
-    
-    def agrupar_reposta_por_competencia(self, repostas_do_questionario):
-        competencias = set(map(lambda resposta: resposta.competencia, repostas_do_questionario))
-        repostas_agrupadas = []
-
-        for competencia in competencias:
-
-            disciplina_valor_da_competencia = list(filter(lambda resposta: resposta.competencia == competencia, repostas_do_questionario))
-            mapa = {objeto.disciplina: objeto.valor for objeto in disciplina_valor_da_competencia}
-            
-            resposta_agrupada = { 'competencia': competencia, 'mapa': mapa } 
-            repostas_agrupadas.append(resposta_agrupada)
-
-        return repostas_agrupadas
-    
 
     @staticmethod
     def montaRepostaParaDisciplina(discipinasExistentes, valoresResposta, grafosJaExistentes: list[Grafo]) -> list[Grafo]: 

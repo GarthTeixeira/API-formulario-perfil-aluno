@@ -61,7 +61,7 @@ class FormularioAlunoService(BaseService):
             )
           
         else:
-            disciplinas = EscolaService().get_school_subject_by_seria_ano(escola_id,disciplina['serie_ano'])
+            disciplinas = EscolaService().get_school_subjects_by_serie_ano(escola_id,disciplina['serie_ano'])
             formulario.appendNewGrafo(
                 disciplinas,
                 grafo_values,

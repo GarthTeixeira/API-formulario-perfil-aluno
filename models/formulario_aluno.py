@@ -23,21 +23,6 @@ class FormularioAluno:
         
         self.__grafos_das_respostas = grafos
         self.__data_criacao = datetime.now()
-
-    def __validate_data(data):
-    # Check if the main keys exist in the dictionary
-        if not isinstance(data, dict):
-            return False
-        if 'disciplina' not in data or 'competencias' not in data:
-            return False
-
-        # Check if the types of the values are correct
-        if not isinstance(data['disciplina'], int):
-            return False
-        if not isinstance(data['competencias'], dict):
-            return False
-
-        return True
     
     def getAluno(self):
         return self.__professor
