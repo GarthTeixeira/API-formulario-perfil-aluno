@@ -22,6 +22,9 @@ class FormularioAlunoService(BaseService):
         formulario = self._repository.get_by_id(alunoId)
         return formulario
     
+    def get_by_school(self, schoolId:str)->List[Dict]:
+        return self._repository.get_by_school_id(schoolId)
+        
 
     def insert_professor(self, professor_data: any) -> List[Dict]:
         professor: Professor = Professor(**professor_data)

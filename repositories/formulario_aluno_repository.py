@@ -13,3 +13,8 @@ class FormularioAlunoRepository(BaseRepository):
     def update_formulario(self, formulario_data):
         formulario_query = self._connection.update_one({"_id": formulario_data["_id"]}, {"$set": formulario_data})
         return formulario_query
+    
+    def get_by_school_id(self, school_id):
+        collection = self._connection.get_collection(self._collection_name)
+        response = collection.find( {"professor.escola": school_id}, {"grafos":0})
+        return list(response)
