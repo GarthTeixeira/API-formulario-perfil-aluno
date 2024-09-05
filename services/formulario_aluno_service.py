@@ -44,6 +44,8 @@ class FormularioAlunoService(BaseService):
         disciplina_id = grafo_values['disciplina']
         
         disciplina = EscolaService().get_disciplina_by_id(escola_id,disciplina_id)        
+
+        serie_ano_seguinte = disciplina['serie_ano'] + 1;
         
         if area != 'COGNITIVOS':
             # ???? o q isso faz?
@@ -54,9 +56,7 @@ class FormularioAlunoService(BaseService):
             if(area != disciplina['area']):
                 raise ValueError("Area not compatible with subject")
 
-            serie_ano = disciplina['serie_ano']
-
-            disciplinasDaArea = EscolaService().get_school_subjects_by_area_and_serie_ano(escola_id,disciplina["area"], serie_ano + 1)
+            disciplinasDaArea = EscolaService().get_school_subjects_by_area_and_serie_ano(escola_id,disciplina["area"], serie_ano_seguinte)
             
             formulario.appendNewGrafo(
                 disciplinasDaArea,
@@ -64,7 +64,7 @@ class FormularioAlunoService(BaseService):
             )
           
         else:
-            disciplinas = EscolaService().get_school_subjects_by_serie_ano(escola_id,disciplina['serie_ano'])
+            disciplinas = EscolaService().get_school_subjects_by_serie_ano(escola_id, serie_ano_seguinte)
             formulario.appendNewGrafo(
                 disciplinas,
                 grafo_values,
