@@ -7,10 +7,11 @@ with open('db_resources/db_config.json', 'r') as file:
 
 class DBConnectionHandler:
     def __init__(self) -> None:
-        self.__connection_string = 'mongodb+srv://{}:{}@{}/?retryWrites=true&w=majority&appName=Cluster0&ssl=true'.format(
+        self.__connection_string = 'mongodb+srv://{}:{}@{}/?retryWrites=true&w=majority&appName={}&ssl=true'.format(
             mongo_db_infos['USERNAME'],
             quote_plus(mongo_db_infos['PASSWORD']),
-            mongo_db_infos['HOST']
+            mongo_db_infos['HOST'],
+            mongo_db_infos['CLUSTER']
         )
         self.__database_name = mongo_db_infos['DB_NAME']
         self.__client = None

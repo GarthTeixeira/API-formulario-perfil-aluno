@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from blueprints.competences.competeces_controller import competences_bp
+from blueprints.competeces_controller import competences_bp
 from blueprints.disciplines_controller import disciplines_bp
 from blueprints.formulario_aluno_controller import professor_form_bp
 from blueprints.escolas_controller import schools_bp
