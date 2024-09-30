@@ -1,5 +1,5 @@
-from .professor import Professor 
 from .resposta import Resposta
+
 class Grafo:
     def __init__(self,competencia, arestas):
         self._competencia = competencia
@@ -22,21 +22,12 @@ class Grafo:
 
     def setRespostasValue(self,disciplina_origem,valor,disciplinas_destino):
         # aresta = next((resposta for resposta in self._arestas if resposta['origem'] == disciplina_origem), None)
-        for resposta in  self._arestas:
-            print(type(resposta))
-            if resposta.origem == disciplina_origem:
+        for resposta in self._arestas:
+            if resposta.origem['_id'] == disciplina_origem['_id']:
                 resposta.valor = valor
                 return
         else:
             self._arestas.append(Resposta(disciplina_origem,valor,disciplinas_destino))
-
-      
-
-    def montaArestaGrafo(disciplinaOrigem,valor,disciplinasDestino):
-        disciplinasDestinoStr = list(map(lambda disciplina: str(disciplina['_id']), disciplinasDestino))
-        return [
-            Resposta(disciplinaOrigem,valor,disciplinasDestinoStr)
-        ]
         
 
     def __str__(self):

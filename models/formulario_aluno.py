@@ -33,8 +33,8 @@ class FormularioAluno:
     def getId(self):
         return self.__id
     
-    def appendNewGrafo(self,disciplinasExistentes,valuesFromNewForm):
-        self.__grafos_das_respostas = FormularioUtils.montaRepostaParaDisciplina(disciplinasExistentes,valuesFromNewForm,self.__grafos_das_respostas)
+    def appendNewGrafo(self,disciplinasExistentes,disciplinaOrigem, competencias):
+        self.__grafos_das_respostas = FormularioUtils.montaRepostaParaDisciplina(disciplinasExistentes,disciplinaOrigem, competencias,self.__grafos_das_respostas)
 
     def to_dict(self):
         if self.__id == None:

@@ -17,23 +17,23 @@ class FormularioUtils:
 
 
     @staticmethod
-    def montaRepostaParaDisciplina(discipinasExistentes, valoresResposta, grafosJaExistentes: list[Grafo]) -> list[Grafo]: 
-
-        print('disciplinasExistentes', discipinasExistentes)
-        print('valores Resposta', valoresResposta)
-        disciplinaOrigem = valoresResposta['disciplina']
+    def montaRepostaParaDisciplina(discipinasExistentes ,disciplinaOrigem, competencias, grafosJaExistentes: list[Grafo]) -> list[Grafo]: 
            
-        for key,value in valoresResposta['competencias'].items():
+        for key,value in competencias.items():
             keysCompetencias = set(map(lambda grafo: grafo.getCompetencia(), grafosJaExistentes)) #Atualiza conjunto de de chaves de competências a cada iteração
             if key in keysCompetencias:
                 for grafo in grafosJaExistentes:
                     if grafo.getCompetencia() == key:
                         grafo.setRespostasValue(disciplinaOrigem,value,discipinasExistentes)
+                        grafo.print()
+                        print("Atualizado !")
               
             else:
                 newGrafo = Grafo(key,[])
                 newGrafo.setRespostasValue(disciplinaOrigem,value,discipinasExistentes)
                 grafosJaExistentes.append(newGrafo)
+                newGrafo.print()
+                print("Adicionado !")
         
         return grafosJaExistentes
 

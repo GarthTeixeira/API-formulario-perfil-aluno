@@ -29,6 +29,8 @@ class FormularioAlunoService(BaseService):
     def insert_professor(self, professor_data: any) -> List[Dict]:
         professor: Professor = Professor(**professor_data)
         formulario = self._repository.insert_one(FormularioAluno(None,professor,[]).to_dict())
+        print("Novo Professor Inserido")
+        professor.exibir_informacoes()
         return formulario
     
     def insert_resposta(self, grafo_values: Dict ) -> List[Dict]:
@@ -60,14 +62,16 @@ class FormularioAlunoService(BaseService):
             
             formulario.appendNewGrafo(
                 disciplinasDaArea,
-                grafo_values,
+                disciplina,
+                grafo_values['competencias']
             )
           
         else:
             disciplinas = EscolaService().get_school_subjects_by_serie_ano(escola_id, serie_ano_seguinte)
             formulario.appendNewGrafo(
                 disciplinas,
-                grafo_values,
+                disciplina,
+                grafo_values['competencias']
             )
 
         
