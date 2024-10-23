@@ -35,8 +35,9 @@ for escola in escolas:
     novas_turmas = []
     escola['_id'] = ObjectId()
     for disciplina in disciplinas:
-        disciplina['_id'] = ObjectId()
-        escola['disciplinas'].append(disciplina)
+        nova_disciplina = copy.deepcopy(disciplina)
+        nova_disciplina['_id'] = ObjectId()
+        escola['disciplinas'].append(nova_disciplina)
     
     turmas = escola['turmas']
     
