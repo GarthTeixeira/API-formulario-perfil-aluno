@@ -18,7 +18,7 @@ connection_string = 'mongodb+srv://{}:{}@{}/?retryWrites=true&w=majority&appName
             mongo_db_infos['HOST']
         )
 
-f_disciplinas = open('{}/utils/mock/disciplinas.json'.format(os.getcwd()))
+f_disciplinas = open('{}/utils/mock/disciplinas.if.json'.format(os.getcwd()))
 f_escolas = open('{}/utils/mock/escolas.json'.format(os.getcwd()))
 
 # Connect to the database
@@ -65,7 +65,7 @@ for escola in escolas:
                     for d in disciplinas_from_serie
                 ]
                 aluno['notas']['historico_escolar'] = aluno['notas']['historico_escolar'] + novo_historico
-
+                aluno['_id'] = ObjectId()
             novas_turmas.append(nova_turma)
 
     escola['turmas'] = novas_turmas
