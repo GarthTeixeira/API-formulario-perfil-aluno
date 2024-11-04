@@ -134,6 +134,33 @@ class EscolaRepository(BaseRepository):
         
         return list(response)
     
+    def get_school_by_id_last_node(self,school):
+        collection = self._connection.get_collection(self._collection_name)
+        pipeline = [
+            { "$match": { "_id": ObjectId(school) } },
+            { 
+                "$addFields": {
+                    "disciplinas": {
+                        "$filter": {
+                            "input": "$disciplinas",
+                            "as": "disciplina",
+                            "cond": {"$eq": ["$$disciplina.serie_ano", 4] }
+                        }
+                    }
+                }
+            },
+            {
+                "$project":{
+                    "disciplinas":1
+                }
+            }
+        ]
+
+        data = collection.aggregate(pipeline)
+        response = list(data)
+        
+        return response
+    
     def get_school_by_id_and_subjects_by_area_and_serie_ano(self,school, serie_ano, area = ''):
         collection = self._connection.get_collection(self._collection_name)
         condition = {}

@@ -48,31 +48,34 @@ class FormularioAlunoService(BaseService):
         disciplina = EscolaService().get_disciplina_by_id(escola_id,disciplina_id)        
 
         serie_ano_seguinte = disciplina['serie_ano'] + 1;
-        
-        if area != 'COGNITIVOS':
-            # ???? o q isso faz?
-            if "disciplina" not in grafo_values:
-                print("Disciplina não encontrada")
-                return []
-             
-            if(area != disciplina['area']):
-                raise ValueError("Area not compatible with subject")
 
-            disciplinasDaArea = EscolaService().get_school_subjects_by_area_and_serie_ano(escola_id,disciplina["area"], serie_ano_seguinte)
-            
-            formulario.appendNewGrafo(
-                disciplinasDaArea,
-                disciplina,
-                grafo_values['competencias']
-            )
-          
+        if serie_ano_seguinte == 4:
+            lastNode = EscolaService().get_last_node(escola_id)
+            formulario.appendNewGrafo(lastNode,disciplina,grafo_values['competencias'])
         else:
-            disciplinas = EscolaService().get_school_subjects_by_serie_ano(escola_id, serie_ano_seguinte)
-            formulario.appendNewGrafo(
-                disciplinas,
-                disciplina,
-                grafo_values['competencias']
-            )
+            if area != 'COGNITIVOS':
+                if "disciplina" not in grafo_values:
+                    print("Disciplina não encontrada")
+                    return []
+                
+                if(area != disciplina['area']):
+                    raise ValueError("Area not compatible with subject")
+
+                disciplinasDaArea = EscolaService().get_school_subjects_by_area_and_serie_ano(escola_id,disciplina["area"], serie_ano_seguinte)
+                
+                formulario.appendNewGrafo(
+                    disciplinasDaArea,
+                    disciplina,
+                    grafo_values['competencias']
+                )
+            
+            else:
+                disciplinas = EscolaService().get_school_subjects_by_serie_ano(escola_id, serie_ano_seguinte)
+                formulario.appendNewGrafo(
+                    disciplinas,
+                    disciplina,
+                    grafo_values['competencias']
+                )
 
         
         formularioDict = formulario.to_dict()

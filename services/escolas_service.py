@@ -27,6 +27,18 @@ class EscolaService(BaseService):
         disciplinas = schoolFound["disciplinas"]
         return disciplinas
     
+    def get_last_node(self,school:str):
+        schoolArray = self._repository.get_school_by_id_last_node(school)
+        if(len(schoolArray)) == 0:
+            return []
+        schoolFound = schoolArray[0]
+        last_node_array = schoolFound["disciplinas"]
+        if (len(last_node_array)) !=1:
+            print("erro, mais de uma formatura encontrada!!!!")
+
+        return last_node_array
+        
+    
     def get_all_disciplinas_by_school(self, school: str):
         schoolArray = self._repository.get_school_disciplinas(school)
         if len(schoolArray) == 0:
