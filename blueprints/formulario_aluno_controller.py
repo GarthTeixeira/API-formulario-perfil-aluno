@@ -7,6 +7,10 @@ from utils.httpResposeUtils import HttpResponseUtils
 professor_form_bp = Blueprint('professor-form', __name__)
 
 
+@professor_form_bp.route('health-check', methods=['GET'])
+def health_check():
+    return HttpResponseUtils.success()
+
 @professor_form_bp.route('/insert-professor', methods=['POST'])
 def insert_professor():
     data = request.json

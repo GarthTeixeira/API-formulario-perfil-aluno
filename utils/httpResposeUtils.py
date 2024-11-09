@@ -35,6 +35,9 @@ class HttpResponseUtils:
         data= { 'id': str(id)}
         return make_response(data)
     
+    def success():
+        return jsonify({'success': True, 'message': 'Ok'}), 200
+
     def responseFromPutRequest(result):
         
         if result.modified_count == 0:

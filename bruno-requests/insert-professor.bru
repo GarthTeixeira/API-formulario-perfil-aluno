@@ -1,0 +1,25 @@
+meta {
+  name: insert-professor
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{local}}/professor-form/insert-professor
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nome":"Teste novo formulário",
+    "turma":{
+      "_id":"6719709a0b0f879f0c36a312",
+      "nome":"Grifinória",
+      "serie":"1º ano"
+    },
+    "email":"email@email.com",
+    "escola":"6719709a0b0f879f0c36a2e7"
+  }
+  
+}

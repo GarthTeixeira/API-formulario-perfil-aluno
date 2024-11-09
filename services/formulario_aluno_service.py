@@ -26,28 +26,31 @@ class FormularioAlunoService(BaseService):
         return self._repository.get_by_school_id(schoolId)
         
 
-    def insert_professor(self, professor_data: any, school: any) -> List[Dict]:
+    def insert_professor(self, professor_data: any) -> List[Dict]:
+        school: any = professor_data['escola']
+        turma:any = professor_data['turma']['_id']
         professor: Professor = Professor(**professor_data)
-        form = self._repository.get_by_school(school)
+       
+        form = self._repository.get_by_school_and_turma(school,turma)
         response = {}
         if (form):
-            form['professores'].add(professor)
+            form['professores'].append(professor)
             response = self._repository.update(form)
         else:
-            response = self._repository.insert_one(FormularioAluno(None,professor,school[]).to_dict())
+            response = self._repository.insert_one(FormularioAluno(None,professor,school,turma,[]).to_dict())
         print("Novo Professor Inserido")
         professor.exibir_informacoes()
         return response
     
     def insert_resposta(self, grafo_values: Dict ) -> List[Dict]:
         area = grafo_values['area']
-        formulario_id = grafo_values["professor"]
+        formulario_id = grafo_values["_id"]
         reponse = {}
         formFound = self._repository.get_by_id(formulario_id)
 
         formulario = FormularioAluno(**formFound)
 
-        escola_id = formulario.getAluno().to_dict()['escola']
+        escola_id = formulario.getEscola().to_dict()
 
         disciplina_id = grafo_values['disciplina']
         
