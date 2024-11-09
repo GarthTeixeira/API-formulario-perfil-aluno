@@ -26,12 +26,18 @@ class FormularioAlunoService(BaseService):
         return self._repository.get_by_school_id(schoolId)
         
 
-    def insert_professor(self, professor_data: any) -> List[Dict]:
+    def insert_professor(self, professor_data: any, school: any) -> List[Dict]:
         professor: Professor = Professor(**professor_data)
-        formulario = self._repository.insert_one(FormularioAluno(None,professor,[]).to_dict())
+        form = self._repository.get_by_school(school)
+        response = {}
+        if (form):
+            form['professores'].add(professor)
+            response = self._repository.update(form)
+        else:
+            response = self._repository.insert_one(FormularioAluno(None,professor,school[]).to_dict())
         print("Novo Professor Inserido")
         professor.exibir_informacoes()
-        return formulario
+        return response
     
     def insert_resposta(self, grafo_values: Dict ) -> List[Dict]:
         area = grafo_values['area']

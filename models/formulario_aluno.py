@@ -10,12 +10,14 @@ from datetime import datetime
 # }
 
 class FormularioAluno:
-    def __init__(self,_id,professor,data_criacao,grafos:list[Grafo] = []) -> None:
+    def __init__(self,_id,professor,school,data_criacao,grafos:list[Grafo] = []) -> None:
         self.__id = _id
+        self.__escola = school
+        self.__professores = []
         if(not isinstance(professor,Professor)):
-            self.__professor = Professor(**professor)
+            self.__professores.add(Professor(**professor))
         else: 
-            self.__professor = professor
+            self.__professores.add(professor)
         
         if grafos != []:
             if not isinstance(grafos[0],Grafo):
@@ -39,14 +41,16 @@ class FormularioAluno:
     def to_dict(self):
         if self.__id == None:
             return {
-            "professor": self.__professor.to_dict(),
+            "escola": self.__escola,
+            "professores": [professor.to_dict() for professor in self.__professores],
             "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas],
             "data_criacao": self.__data_criacao
             
         }
         return {
             "_id": self.__id,
-            "professor": self.__professor.to_dict(),
+            "escola": self.__escola,
+            "professores": [professor.to_dict() for professor in self.__professores],
             "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas],
             "data_criacao": self.__data_criacao
         }
