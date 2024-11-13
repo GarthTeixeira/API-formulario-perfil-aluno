@@ -1,0 +1,21 @@
+meta {
+  name: get-schools-by-area
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{local}}/schools/get-by-area?school=6719709a0b0f879f0c36a2e7&area=LINGUAGENS&serie=1
+  body: none
+  auth: none
+}
+
+params:query {
+  school: 6719709a0b0f879f0c36a2e7
+  area: LINGUAGENS
+  serie: 1
+}
+
+headers {
+  User-Agent: insomnia/9.3.3
+}

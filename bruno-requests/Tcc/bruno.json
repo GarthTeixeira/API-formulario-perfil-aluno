@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "tcc",
+  "name": "Tcc",
   "type": "collection",
   "ignore": [
     "node_modules",

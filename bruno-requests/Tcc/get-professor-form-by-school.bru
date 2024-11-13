@@ -1,0 +1,19 @@
+meta {
+  name: get-professor-form-by-school
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{local}}/professor-form/get-by-school/:school_id
+  body: none
+  auth: none
+}
+
+params:path {
+  school_id: 6719709a0b0f879f0c36a2e7
+}
+
+headers {
+  User-Agent: insomnia/9.3.3
+}
