@@ -45,13 +45,13 @@ class FormularioAlunoService(BaseService):
     
     def insert_resposta(self, grafo_values: Dict ) -> List[Dict]:
         area = grafo_values['area']
-        formulario_id = grafo_values["_id"]
+        formulario_id = grafo_values["professor"]
         reponse = {}
         formFound = self._repository.get_by_id(formulario_id)
 
         formulario = FormularioAluno(**formFound)
 
-        escola_id = formulario.getEscola().to_dict()
+        escola_id = formulario.getEscola()
 
         disciplina_id = grafo_values['disciplina']
         
