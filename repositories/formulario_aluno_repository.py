@@ -1,4 +1,5 @@
 from .base_repository import BaseRepository
+from bson.objectid import ObjectId
 
 class FormularioAlunoRepository(BaseRepository):
     def __init__(self,connection):
@@ -11,8 +12,12 @@ class FormularioAlunoRepository(BaseRepository):
         return formulario_query
     
     def update_formulario(self, formulario_data):
-        formulario_query = self._connection.update_one({"_id": formulario_data["_id"]}, {"$set": formulario_data})
-        return formulario_query
+        formulario_query = self.update_one(formulario_data["_id"], formulario_data)
+        if (formulario_query.raw_result['n'] == 1):
+            return str(formulario_data["_id"])
+        else :
+            return ''
+
     
     def get_by_school_id(self, school_id):
         collection = self._connection.get_collection(self._collection_name)
@@ -27,7 +32,7 @@ class FormularioAlunoRepository(BaseRepository):
             {
                 "$match":{
                     "escola":school,
-                    "turma._id":turma
+                    "turma":turma
                 }
             }
         ]

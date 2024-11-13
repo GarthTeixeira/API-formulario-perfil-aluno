@@ -1,5 +1,5 @@
-from models.resposta import Resposta
 from models.grafo import Grafo
+from models.professor import Professor
 
 class FormularioUtils:
     def __init__(self):
@@ -14,6 +14,10 @@ class FormularioUtils:
     @staticmethod
     def toGrafoList(grafos):
         return [ Grafo(**grafo) for grafo in grafos]
+    
+    @staticmethod
+    def toProfessoresList(professores):
+        return [ Professor(**professor) for professor in professores]
 
 
     @staticmethod

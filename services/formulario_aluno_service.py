@@ -29,15 +29,16 @@ class FormularioAlunoService(BaseService):
     def insert_professor(self, professor_data: any) -> List[Dict]:
         school: any = professor_data['escola']
         turma:any = professor_data['turma']['_id']
-        professor: Professor = Professor(**professor_data)
+        professor: Professor = Professor(professor_data["nome"],professor_data["email"])
        
-        form = self._repository.get_by_school_and_turma(school,turma)
+        form_response = self._repository.get_by_school_and_turma(school,turma)
         response = {}
-        if (form):
-            form['professores'].append(professor)
-            response = self._repository.update(form)
+        if (len(form_response) != 0):
+            form = FormularioAluno(**form_response[0])
+            form.appendNewProfessor(professor)
+            response = self._repository.update_formulario(form.to_dict())
         else:
-            response = self._repository.insert_one(FormularioAluno(None,professor,school,turma,[]).to_dict())
+            response = self._repository.insert_one(FormularioAluno(None,[professor],school,turma).to_dict())
         print("Novo Professor Inserido")
         professor.exibir_informacoes()
         return response

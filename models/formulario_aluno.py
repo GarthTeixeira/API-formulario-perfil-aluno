@@ -10,24 +10,27 @@ from datetime import datetime
 # }
 
 class FormularioAluno:
-    def __init__(self,_id,professor,school,turma,grafos:list[Grafo] = []) -> None:
+    def __init__(self,_id,professores:list[Professor],escola,turma,data_criacao = None,data_atualizacao = None,grafos:list[Grafo] = []) -> None:
         self.__id = _id
-        self.__escola = school
+        self.__escola = escola
         self.__turma = turma
-        self.__professores = []
-        if(not isinstance(professor,Professor)):
-            self.__professores.append(Professor(**professor))
-        else: 
-            self.__professores.append(professor)
-        
+        if(professores != []):
+            if not isinstance(professores[0],Professor):
+                professores = FormularioUtils.toProfessoresList(professores)
+            
         if grafos != []:
             if not isinstance(grafos[0],Grafo):
                 grafos = FormularioUtils.toGrafoList(grafos)
         
+        self.__professores = professores
         self.__grafos_das_respostas = grafos
-        self.__data_criacao = datetime.now()
-        self.__data_atualizacao = self.__data_criacao
-    
+
+        if(data_criacao == None):
+            self.__data_criacao = datetime.now()
+            self.__data_atualizacao = self.__data_criacao
+        else:
+            self.__data_criacao = data_criacao
+            self.__data_atualizacao = data_atualizacao
     def getAluno(self):
         return self.__professor
     
@@ -44,11 +47,15 @@ class FormularioAluno:
         self.__grafos_das_respostas = FormularioUtils.montaRepostaParaDisciplina(disciplinasExistentes,disciplinaOrigem, competencias,self.__grafos_das_respostas)
         self.__data_atualizacao = datetime.now()
 
+    def appendNewProfessor(self,professor):
+        self.__professores.append(professor)
+        self.__data_atualizacao = datetime.now()
+
     def to_dict(self):
         if self.__id == None:
             return {
             "escola": self.__escola,
-            "truma":self.__turma,
+            "turma":self.__turma,
             "professores": [professor.to_dict() for professor in self.__professores],
             "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas],
             "data_criacao": self.__data_criacao,
@@ -58,7 +65,7 @@ class FormularioAluno:
         return {
             "_id": self.__id,
             "escola": self.__escola,
-            "truma":self.__turma,
+            "turma":self.__turma,
             "professores": [professor.to_dict() for professor in self.__professores],
             "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas],
             "data_criacao": self.__data_criacao,

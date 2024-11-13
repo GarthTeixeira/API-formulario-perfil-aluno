@@ -1,5 +1,5 @@
 class Professor:
-    def __init__(self, nome, email,escola,turma):
+    def __init__(self, nome, email):
         self.nome = nome
         self.email = email
         self.disciplinas = []
