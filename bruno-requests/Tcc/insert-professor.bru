@@ -12,14 +12,18 @@ post {
 
 body:json {
   {
-    "nome":"Teste novo formulário 4",
+    "nome":"Teste novo formulário 4000",
     "turma":{
-      "_id":{{turma_id_selected}},
+      "_id":"{{turma_id_selected}}",
       "nome":"Grifinória",
       "serie":"1º ano"
     },
     "email":"email@email.com",
-    "escola":{{school_id_selected}}
+    "escola":"{{school_id_selected}}"
   }
   
+}
+
+vars:post-response {
+  inserted_professor_form_id: res.body["id"]
 }
