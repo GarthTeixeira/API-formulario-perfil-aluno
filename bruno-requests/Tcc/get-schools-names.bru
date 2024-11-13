@@ -9,3 +9,8 @@ get {
   body: none
   auth: none
 }
+
+vars:post-response {
+  school_id_selected: res.body[0]["id"]
+  turma_id_selected: res.body[0]["turmas"][0]["_id"]
+}
