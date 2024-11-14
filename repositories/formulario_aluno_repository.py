@@ -3,7 +3,7 @@ from bson.objectid import ObjectId
 
 class FormularioAlunoRepository(BaseRepository):
     def __init__(self,connection):
-        super().__init__(connection,"formulario_alunos_collection")
+        super().__init__(connection,"formularios_professor")
 
     # Add your custom repository methods here
     
