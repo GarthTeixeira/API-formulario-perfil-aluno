@@ -2,11 +2,7 @@
     {
         "_id":ObjectId("ffwfewc990asd090q-8e88"),
         "escola:":"fee9fewc990asd090q-8e88",
-        "turma":{
-                    "_id":"e4322332432-4324-32432",
-                    "nome": "Turma A",
-                    "serie":"1° Ano"
-                },
+        "turma":"e4322332432-4324-32432",
         
         "professores":[{
                 "nome":"João",

@@ -7,7 +7,8 @@ import random
 import os
 import argparse
 
-print("Current Working Directory:", os.getcwd())
+dir_path = os.path.dirname(__file__)
+print("Local path",dir_path)
 # Configuração do argparse para receber parâmetros
 parser = argparse.ArgumentParser(description="Insere escola no banco de dados - modo de alunos e notas randômicas.")
 
@@ -30,11 +31,11 @@ connection_string = 'mongodb+srv://{}:{}@{}/?retryWrites=true&w=majority&appName
 arquivos = {}
 
 if (args.school != ""):
-    arquivos['f_disciplinas'] = open('{}/utils/data/disciplinas.{}.json'.format(os.getcwd(),args.school))
-    arquivos['f_escolas'] = open('{}/utils/data/escolas.{}.json'.format(os.getcwd(),args.school))
+    arquivos['f_disciplinas'] = open('{}/data/disciplinas.{}.json'.format(dir_path, args.school))
+    arquivos['f_escolas'] = open('{}/data/escolas.{}.json'.format(dir_path, args.school))
 else:
-    arquivos['f_disciplinas'] = open('{}/utils/mock/disciplinas.CEFET.json'.format(os.getcwd()))
-    arquivos['f_escolas'] = open('{}/utils/mock/escolas.CEFET.json'.format(os.getcwd()))
+    arquivos['f_disciplinas'] = open('{}/mock/disciplinas.CEFET.json'.format(dir_path))
+    arquivos['f_escolas'] = open('{}/mock/escolas.CEFET.json'.format(dir_path))
 
 # Connect to the database
 
