@@ -1,0 +1,60 @@
+[
+    {
+        "name": "Centro Federal de Educação Tecnológina",
+        "disciplinas":[],
+        "turmas":[
+            {
+                "nome": "ELT C",
+                "ano":2015,
+                "alunos":[{
+                    "nome": "Gabriel Arthur",
+                    "idade": 17,
+                    "notas": {
+                        "enem":{
+                            "LINGUAGENS":0.0,
+                            "EXATAS":0.0,
+                            "HUMANAS":0.0,
+                            "NATUREZA":0.0
+                        },
+                        "historico_escolar":[]
+                    }
+                }]
+            },
+            {
+                "nome": "ELT C",
+                "ano":2016,
+                "alunos":[{
+                    "nome": "Gabriel Arthur",
+                    "idade": 18,
+                    "notas": {
+                        "enem":{
+                            "LINGUAGENS":378.4,
+                            "EXATAS":423.8,
+                            "HUMANAS":599.8,
+                            "NATUREZA":590.6
+                        },
+                        "historico_escolar":[]
+                    }
+                }]
+            },
+            {
+                "nome": "ELT C",
+                "ano":2017,
+                "alunos":[{
+                    "nome": "Gabriel Arthur",
+                    "idade": 19,
+                    "notas": {
+                        "enem":{
+                            "LINGUAGENS":556.5,
+                            "EXATAS":717.5,
+                            "HUMANAS":597.0,
+                            "NATUREZA":563.0
+                        },
+                        "historico_escolar":[]
+                    }
+                }]
+            }
+        ]
+    }
+    
+]
