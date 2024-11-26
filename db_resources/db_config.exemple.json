@@ -1,7 +1,8 @@
 {
     "HOST": "",
+    "SRV": "",
     "USERNAME": "",
     "PASSWORD": "",
     "DB_NAME": "",
-    "CLUSTER": ""
+    "PARAMS": ""
 }

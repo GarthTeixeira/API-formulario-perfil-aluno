@@ -7,12 +7,20 @@ class BaseService:
     def __init__(self) -> None:
         db_handler = DBConnectionHandler()
         db_handler.connect_to_db()
+        self._handler = db_handler
         self._connection = db_handler.get_db_connection()
+        print('connection started')
         self._repository = None
 
     def _setRepository(self, repository):
         self._repository = repository
 
+    def closeConnection(self):
+        self._handler.close_connection()
+
+    def reconnect(self):
+        self._handler.connect_to_db()
+        self._connection = self._handler.get_db_connection()
     
     def get_all(self) -> List[Dict]:
         if(self._repository == None):
