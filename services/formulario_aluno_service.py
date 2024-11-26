@@ -41,6 +41,7 @@ class FormularioAlunoService(BaseService):
             response = self._repository.insert_one(FormularioAluno(None,[professor],school,turma).to_dict())
         print("Novo Professor Inserido")
         professor.exibir_informacoes()
+        self.closeConnection()
         return response
     
     def insert_resposta(self, grafo_values: Dict ) -> List[Dict]:
@@ -91,6 +92,6 @@ class FormularioAlunoService(BaseService):
         formularioDict = formulario.to_dict()
         # print("formularioDict",formularioDict)
         reponse = self._repository.update_one(formularioDict["_id"],formularioDict)
-
+        self.closeConnection()
         return reponse
         

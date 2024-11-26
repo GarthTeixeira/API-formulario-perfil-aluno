@@ -13,19 +13,27 @@ print("Local path",dir_path)
 parser = argparse.ArgumentParser(description="Insere escola no banco de dados - modo de alunos e notas randômicas.")
 
 parser.add_argument("--school", type=str, default="", help="Nome da escola")
+parser.add_argument("--env", type=str, default="", help = "Ambiente selecionado")
 
 # Parse dos argumentos
 args = parser.parse_args()
+f_config = {}
+
+try:
+    f_config = open('/home/garth/Documents/Projetos/API-formulario-perfil-aluno/db_resources/db_config{}.json'.format("."+args.env))
+except:
+    print("O ambiente {} está correto?".format(args.env))
 
 
-f_config = open('/home/garth/Documents/Projetos/API-formulario-perfil-aluno/db_resources/db_config.json')
 mongo_db_infos = json.load(f_config)
 
 
-connection_string = 'mongodb+srv://{}:{}@{}/?retryWrites=true&w=majority&appName=Cluster0&ssl=true'.format(
+connection_string = 'mongodb{}://{}:{}@{}/{}'.format(
+            mongo_db_infos['SRV'],
             mongo_db_infos['USERNAME'],
             quote_plus(mongo_db_infos['PASSWORD']),
-            mongo_db_infos['HOST']
+            mongo_db_infos['HOST'],
+            mongo_db_infos['PARAMS']
         )
 
 arquivos = {}

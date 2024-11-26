@@ -64,7 +64,9 @@ class EscolaService(BaseService):
         return disciplina
     
     def get_schools_names(self) -> List[Dict]:
+        self.reconnect()
         schools = self._repository.get_shchools_names()
+        self.closeConnection()
         return schools
     
     def get_school_classes(self, school: str) -> List[Dict]:
