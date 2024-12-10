@@ -3,7 +3,7 @@
 Form API to collect high-school students skills/competences data of ENEM (Brazil's Nacional Entrance Exam) for further analysis. *Api para formulário dos alunos do ensino médio para estudos de suas competências para o ENEM*
 
 ## Requriments
-- python
+- python 3.12.6
 
 ## Installation *Instalação*
 
@@ -11,6 +11,16 @@ Form API to collect high-school students skills/competences data of ENEM (Brazil
 
     ```bash
     $ sudo apt install python3-pip
+    ```
+- (Optinal) Is very recomended that you use an vitural enviroment, to no compromise your system with intaling the packages, for that use the following command to create it.
+
+    ```bash
+    $ python3 -m venv .env
+    ```
+    and the next to active
+    
+    ```bash
+    $ source .env/bin/active
     ```
 
 2. Install the required dependencies by running the following command. *Instale as dependências necessárias executando o comando*:
@@ -21,6 +31,27 @@ Form API to collect high-school students skills/competences data of ENEM (Brazil
 
     This will install all the necessary packages specified in the `requirements.txt` file.
 
+3. Other dependencies for plot graphs. *Instale dependências para os plot dos grafos.*
+
+    ```bash
+    $ pip install networkx
+    $ pip install matplotlib
+    $ python -m pip install PyQt5
+    ```
+
+## Create database locally (optional)  *Criar base de dados localmente(opcional)*
+
+1 - Executar o arquivo docker-compose no seu diretório
+
+```bash
+$ docker compose up
+```
+ou se utiliza o comando ```docker-compose```
+```bash
+$ docker-compose up
+```
+2 - Use os scripts localizados no direório mock
+
 ## Running *Excutar o programa*
 
 1. Running by using command
@@ -30,7 +61,7 @@ $ python3 main.py
 ```
 
 > [!IMPORTANT]
-> Antes de executar o servidor, certifique-se de verificar se o endereço IP da máquina onde o servidor está rodando foi adicionado ao banco de dados para conexão.  
+> Caso esteja acessando o ambiente de produção remotamente, antes de executar o servidor, certifique-se de verificar se o endereço IP da máquina onde o servidor está rodando foi adicionado ao banco de dados para conexão.  
 > Before running the server, make sure to check if the IP address of the machine where the server is running is added to the database for connection.
 
 > [!NOTE]  

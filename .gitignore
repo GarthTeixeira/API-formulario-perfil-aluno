@@ -6,3 +6,5 @@ utils/scripts/*.xlsx
 utils/scripts/*.~lock.data.csv#
 utils/scripts/*.~lock.data.xlsx#
 utils/scripts/data/*
+
+.env
