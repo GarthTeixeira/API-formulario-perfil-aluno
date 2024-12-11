@@ -3,220 +3,195 @@
         "name": "Lingua Portuguesa, Literatura e Cultura",
         "serie_ano":1,
         "area": "LINGUAGENS",
-        "codigoBNCC": "1POR.021",
-        "nota":70
+        "codigoBNCC": "1POR.021"
     },
     {
         "name": "Lingua Portuguesa, Literatura e Cultura",
         "serie_ano":2,
         "area": "LINGUAGENS",
-        "codigoBNCC": "1POR.016",
-        "nota":84
+        "codigoBNCC": "1POR.016"
     },
     {
         "name": "Lingua Portuguesa, Literatura e Cultura",
         "serie_ano":3,
         "area": "LINGUAGENS",
-        "codigoBNCC": "1POR.017",
-        "nota":73
+        "codigoBNCC": "1POR.017"
     },
     {
         "name": "Artes",
         "serie_ano":1,
         "area": "LINGUAGENS",
-        "codigoBNCC": "1EDA.002 ",
-        "nota":78
+        "codigoBNCC": "1EDA.002 "
     },
     {
         "name": "Lingua Estangeira: Inglês",
         "serie_ano":1,
         "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.002",
-        "nota":70
+        "codigoBNCC": "1LIN.002"
     },
     {
         "name": "Redação e estudos linguísticos",
         "serie_ano":1,
         "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.002",
-        "nota":64
+        "codigoBNCC": "1LIN.002"
     },
     {
         "name": "Redação e estudos linguísticos",
         "serie_ano":2,
         "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.002",
-        "nota":78
+        "codigoBNCC": "1LIN.002"
     },
     {
         "name": "Redação e estudos linguísticos",
         "serie_ano":3,
         "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.002",
-        "nota":69
+        "codigoBNCC": "1LIN.002"
     },
     {
         "name": "Lingua Estangeira: Inglês",
         "serie_ano":2,
         "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.003",
-        "nota":84
+        "codigoBNCC": "1LIN.003"
     },
     {
         "name": "Lingua Estangeira: Inglês",
         "serie_ano":3,
         "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.03",
-        "nota":79
+        "codigoBNCC": "1LIN.03"
     },
     {
         "name": "Educação Física",
         "serie_ano":3,
         "area": "LINGUAGENS",
-        "codigoBNCC": "EDF1.001",
-        "nota":72
+        "codigoBNCC": "EDF1.001"
     },
     {
         "name": "Educação Física",
         "serie_ano":2,
         "area": "LINGUAGENS", 
-        "codigoBNCC": "EM13LGG",
-        "nota":87
+        "codigoBNCC": "EM13LGG"
     },
     {
         "name": "Educação Física",
         "serie_ano":1,
         "area": "LINGUAGENS",
-        "codigoBNCC": "EM13LGG",
-        "nota":66
+        "codigoBNCC": "EM13LGG"
     },
     {
         "name":"Geografia",
         "serie_ano":1,
         "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS",
-        "nota":70
+        "codigoBNCC":"EM13CHS"
     },
     {
         "name":"Historia",
         "serie_ano":1,
         "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS",
-        "nota":78
+        "codigoBNCC":"EM13CHS"
     },
     {
         "name":"Historia",
         "serie_ano":3,
         "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS",
-        "nota":83
+        "codigoBNCC":"EM13CHS"
     },
     {
         "name":"Geografia",
         "serie_ano":2,
         "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS",
-        "nota":86
+        "codigoBNCC":"EM13CHS"
     },
     {
         "name":"Historia",
         "serie_ano":2,
         "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS",
-        "nota":70
+        "codigoBNCC":"EM13CHS"
     },
     {
         "name":"Filosofia",
         "serie_ano":1,
         "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS",
-        "nota":61
+        "codigoBNCC":"EM13CHS"
     },
     {
         "name":"Sociologia",
         "serie_ano":3,
         "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS",
-        "nota":66
+        "codigoBNCC":"EM13CHS"
     },
     {
         "name": "Matemática",
         "serie_ano":1,
         "area": "EXATAS",
-        "codigoBNCC": "EM13MAT",
-        "nota": 68
+        "codigoBNCC": "EM13MAT"
 
     },
     {
         "name": "Matemática",
         "serie_ano":2,
         "area": "EXATAS",
-        "codigoBNCC": "EM13MAT",
-        "nota":64
+        "codigoBNCC": "EM13MAT"
 
     },
     {
         "name": "Matemática",
         "serie_ano":3,
         "area": "EXATAS",
-        "codigoBNCC": "EM13MAT",
-        "nota":70
+        "codigoBNCC": "EM13MAT"
 
     },
     {
         "name": "Fisica",
         "serie_ano":1,
         "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT",
-        "nota":72
+        "codigoBNCC": "EM13CNT"
     },
     {
         "name": "Quimica",
         "serie_ano":1,
         "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT",
-        "nota":70
+        "codigoBNCC": "EM13CNT"
     },
     {
         "name": "Biologia",
         "serie_ano":1,
         "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT",
-        "nota":64
+        "codigoBNCC": "EM13CNT"
     }, {
         "name": "Fisica",
         "serie_ano":2,
         "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT",
-        "nota":79
+        "codigoBNCC": "EM13CNT"
     },
     {
         "name": "Quimica",
         "serie_ano":2,
         "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT",
-        "nota":65
+        "codigoBNCC": "EM13CNT"
     },
     {
         "name": "Biologia",
         "serie_ano":2,
         "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT",
-        "nota":77
+        "codigoBNCC": "EM13CNT"
     },
     {
         "name": "Fisica",
         "serie_ano":3,
         "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT",
-        "nota":68
+        "codigoBNCC": "EM13CNT"
     },
     {
         "name": "Quimica",
         "serie_ano":3,
         "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT",
-        "nota":63
+        "codigoBNCC": "EM13CNT"
+    },
+    {
+        "name":"Aprovado/Fim",
+        "serie_ano":4,
+        "area":"--",
+        "codigoBNCC":"--"
     }
     
 ]

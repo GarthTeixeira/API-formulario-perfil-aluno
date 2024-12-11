@@ -230,27 +230,9 @@
         "codigoBNCC":"1"
     },
     {
-        "name": "Aprovação Natureza",
+        "name":"Aprovado/Fim",
         "serie_ano":4,
-        "area": "NATUREZA",
-        "codigoBNCC": "--"
-    },
-    {
-        "name": "Aprovação Humanas",
-        "serie_ano":4,
-        "area": "HUMANAS",
-        "codigoBNCC": "--"
-    },
-    {
-        "name": "Aprovação Linguagens",
-        "serie_ano":4,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "--"
-    },
-    {
-        "name": "Aprovação Exatas",
-        "serie_ano":4,
-        "area": "EXATAS",
-        "codigoBNCC": "--"
+        "area":"--",
+        "codigoBNCC":"--"
     }
 ]

@@ -1,3 +1,19 @@
+""" 
+O script a seguir funcionam apenas em ambiente local. Para que os dados sejam carregados em produção, realize a importação do ambiente local.
+*The following script works only in local environment. To load data in production import from local environment.*
+
+Script de inserção de valores de competência:
+
+Como os resultados dos formulários serão preenchidos por várias pessoas em um longo período de tempo, este script consegue preencher todas
+as respostas de professores fakes de todas as disciplinas das turmas.
+
+*
+Insertion competence values script:
+As the form results are filed by several people over a long period this script can fill in every fake teacher answer from every class subject.
+*
+
+"""
+
 from bson.objectid import ObjectId
 from pymongo import MongoClient
 from urllib.parse import quote_plus
@@ -72,7 +88,7 @@ async def post_all(urls_and_payloads):
 parser = argparse.ArgumentParser(description="Cria formularios com valores de competências randômicas.")
 
 parser.add_argument("--school", type=str, default="", help="Id escola")
-parser.add_argument("--env", type= str, default="", help =  "Ambiente" )
+
 # Parse dos argumentos
 args = parser.parse_args()
 

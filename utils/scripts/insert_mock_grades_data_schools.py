@@ -1,3 +1,18 @@
+""" 
+O script a seguir funcionam apenas em ambiente local. Para que os dados sejam carregados em produção, realize a importação do ambiente local.
+*The following script works only in local environment. To load data in production import from local environment.*
+
+Script de inserção de valores de nota:
+Este script insere uma escola que contém alunos que não possuem notas, atribuindo notas aleatórias para os alunos. O script também extende as turmas,
+no mock carregado o estudante contém apenas a turma inicial de 1° ano, este script cria para o mesmo turmas dos anos seguintes.
+
+*
+Insertion grade values script:
+This script inserts a school containing students without grades assigning random grade values to every student. The script also extends the classes,
+on the loaded mock file the student is only included in the first high school class year, this script creates the following years for it.
+*
+
+"""
 from bson.objectid import ObjectId
 from pymongo import MongoClient
 from urllib.parse import quote_plus
@@ -13,17 +28,12 @@ print("Local path",dir_path)
 parser = argparse.ArgumentParser(description="Insere escola no banco de dados - modo de alunos e notas randômicas.")
 
 parser.add_argument("--school", type=str, default="", help="Nome da escola")
-parser.add_argument("--env", type=str, default="", help = "Ambiente selecionado")
 
 # Parse dos argumentos
 args = parser.parse_args()
 f_config = {}
 
-try:
-    f_config = open('/home/garth/Documents/Projetos/API-formulario-perfil-aluno/db_resources/db_config{}.json'.format("."+args.env))
-except:
-    print("O ambiente {} está correto?".format(args.env))
-
+f_config = open('/home/garth/Documents/Projetos/API-formulario-perfil-aluno/db_resources/db_config.local.json')
 
 mongo_db_infos = json.load(f_config)
 
