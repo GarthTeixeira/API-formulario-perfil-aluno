@@ -1,3 +1,5 @@
+# TODO: Deprecated!!! update script to make more sense
+
 from bson.objectid import ObjectId
 from pymongo import MongoClient
 from urllib.parse import quote_plus
