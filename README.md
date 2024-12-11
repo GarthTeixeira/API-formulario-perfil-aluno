@@ -41,7 +41,7 @@ Form API to collect high-school students skills/competences data of ENEM (Brazil
 
 ## Create database locally (optional)  *Criar base de dados localmente(opcional)*
 
-1 - Executar o arquivo docker-compose no seu diretório
+1 - Executar o arquivo docker-compose no seu diretório, navegue até a pasta ```db_resources```
 
 ```bash
 $ docker compose up
@@ -51,6 +51,8 @@ ou se utiliza o comando ```docker-compose```
 $ docker-compose up
 ```
 2 - Use os scripts localizados no direório mock
+
+$
 
 ## Running *Excutar o programa*
 
