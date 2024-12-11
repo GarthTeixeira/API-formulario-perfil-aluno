@@ -8,3 +8,4 @@ utils/scripts/*.~lock.data.xlsx#
 utils/scripts/data/*
 
 .env
+venv312
