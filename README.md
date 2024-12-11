@@ -41,18 +41,19 @@ Form API to collect high-school students skills/competences data of ENEM (Brazil
 
 ## Create database locally (optional)  *Criar base de dados localmente(opcional)*
 
-1 - Executar o arquivo docker-compose no seu diretório, navegue até a pasta ```db_resources```
-
-```bash
-$ docker compose up
-```
-ou se utiliza o comando ```docker-compose```
+1 - Execute the docker-compose file on your directory navigate to `db_resources` folder  *Executar o arquivo docker-compose no seu diretório, navegue até a pasta `db_resources`*
 ```bash
 $ docker-compose up
 ```
-2 - Use os scripts localizados no direório mock
+2 - Use the scripts located in `mock` directory to insertions and tests *Use os scripts localizados no diretório `mock` para inserções e testes*
 
-$
+```bash
+$ python /utils/scripts/<insert-script>
+```
+> [!IMPORTANT]
+> In case to use your own data model of school or subjects insert your model on `data` directory (created by you), located in `scripts` directory
+> *Caso queira utilizara algum modelo de escola ou disciplina, modificar o exemplo e adicionar no diretório `data` (criado por você), dentro do diretório `scripts`*
+
 
 ## Running *Excutar o programa*
 
@@ -63,8 +64,9 @@ $ python3 main.py
 ```
 
 > [!IMPORTANT]
-> Caso esteja acessando o ambiente de produção remotamente, antes de executar o servidor, certifique-se de verificar se o endereço IP da máquina onde o servidor está rodando foi adicionado ao banco de dados para conexão.  
 > Before running the server, make sure to check if the IP address of the machine where the server is running is added to the database for connection.
+> *Caso esteja acessando o ambiente de produção remotamente, antes de executar o servidor, certifique-se de verificar se o endereço IP da máquina onde o servidor está rodando foi adicionado ao banco de dados para conexão.*  
+
 
 > [!NOTE]  
 > Find ways to host application to doesn't need run locally
