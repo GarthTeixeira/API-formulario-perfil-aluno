@@ -212,7 +212,7 @@ list_competencias =  list(competencias_collection.aggregate(pipeline_num_habilid
 list_turmas = list(escolas_collection.aggregate(pipeline_turmas))
 list_disciplinas = list(escolas_collection.aggregate(pipeline_disciplinas))
 
-
+#TODO: isolate these codes lines in fuctions
 form_ids = []
 turma_form_dict = {}
 
