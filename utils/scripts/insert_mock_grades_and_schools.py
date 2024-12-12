@@ -22,9 +22,14 @@ import random
 import os
 import argparse
 
-dir_path = os.path.dirname(__file__)
-print("Local path",dir_path)
-# Configuração do argparse para receber parâmetros
+#Caminho Local
+local_path = os.path.dirname(__file__)
+print("Local path",local_path)
+# Caminho relativo até "db_resources"
+db_resources_path = os.path.join(local_path, '..', '..', 'db_resources')
+# Normalizando o caminho
+db_resources_path = os.path.abspath(db_resources_path)
+
 parser = argparse.ArgumentParser(description="Insere escola no banco de dados - modo de alunos e notas randômicas.")
 
 parser.add_argument("--school", type=str, default="", help="Nome da escola")
@@ -33,7 +38,7 @@ parser.add_argument("--school", type=str, default="", help="Nome da escola")
 args = parser.parse_args()
 f_config = {}
 
-f_config = open('/home/garth/Documents/Projetos/API-formulario-perfil-aluno/db_resources/db_config.local.json')
+f_config = open('{}/db_config.local.json'.format(db_resources_path))
 
 mongo_db_infos = json.load(f_config)
 
@@ -49,11 +54,11 @@ connection_string = 'mongodb{}://{}:{}@{}/{}'.format(
 arquivos = {}
 
 if (args.school != ""):
-    arquivos['f_disciplinas'] = open('{}/data/disciplinas.{}.json'.format(dir_path, args.school))
-    arquivos['f_escolas'] = open('{}/data/escolas.{}.json'.format(dir_path, args.school))
+    arquivos['f_disciplinas'] = open('{}/data/disciplinas.{}.json'.format(local_path, args.school))
+    arquivos['f_escolas'] = open('{}/data/escolas.{}.json'.format(local_path, args.school))
 else:
-    arquivos['f_disciplinas'] = open('{}/mock/disciplinas.CEFET.json'.format(dir_path))
-    arquivos['f_escolas'] = open('{}/mock/escolas.CEFET.json'.format(dir_path))
+    arquivos['f_disciplinas'] = open('{}/mock/disciplinas.CEFET.json'.format(local_path))
+    arquivos['f_escolas'] = open('{}/mock/escolas.CEFET.json'.format(local_path))
 
 # Connect to the database
 

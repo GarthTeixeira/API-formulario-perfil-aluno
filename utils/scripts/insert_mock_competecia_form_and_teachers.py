@@ -26,6 +26,15 @@ import argparse
 import time
 import requests
 import pprint
+import os
+
+#Caminho Local
+local_path = os.path.dirname(__file__)
+print("Local path",local_path)
+# Caminho relativo até "db_resources"
+db_resources_path = os.path.join(local_path, '..', '..', 'db_resources')
+# Normalizando o caminho
+db_resources_path = os.path.abspath(db_resources_path)
 
 def put_request(url, payload):
     try:
@@ -92,7 +101,7 @@ parser.add_argument("--school", type=str, default="", help="Id escola")
 # Parse dos argumentos
 args = parser.parse_args()
 
-f_config = open('/home/garth/Documents/Projetos/API-formulario-perfil-aluno/db_resources/db_config.local.json')
+f_config = open('{}/db_config.local.json'.format(db_resources_path))
 mongo_db_infos = json.load(f_config)
 
 
