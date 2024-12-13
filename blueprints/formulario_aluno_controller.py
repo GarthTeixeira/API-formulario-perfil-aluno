@@ -26,5 +26,5 @@ def insert_resposta():
 
 @professor_form_bp.route('/get-by-school/<school_id>',  methods=['GET'])
 def get_by_school(school_id):
-    inserted_data = FormularioAlunoService().get_by_school(school_id)
+    inserted_data = FormularioAlunoService().get_teatcher_and_class_by_school(school_id)
     return HttpResponseUtils.responseForAPIFromArrayData(inserted_data)

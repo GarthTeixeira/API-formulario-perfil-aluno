@@ -24,6 +24,39 @@ class FormularioAlunoRepository(BaseRepository):
         response = collection.find( {"escola": school_id}, {"grafos":0})
         return list(response)
     
+    def get_teacher_by_school_id(self, school_id):
+        collection = self._connection.get_collection(self._collection_name)
+
+        pipeline = [
+            {
+                '$match': {
+                    'escola': school_id
+                }
+            }, {
+                '$project': {
+                    'turma': 1, 
+                    'professores': 1, 
+                    'formulario': '$_id', 
+                    '_id': 0
+                }
+            }, {
+                '$unwind': {
+                    'path': '$professores'
+                }
+            }, {
+                '$project': {
+                    'nome': '$professores.nome', 
+                    'email': '$professores.email', 
+                    'turma': 1, 
+                    'formulario': {
+                        '$toString': [
+                            '$formulario'
+                        ]
+                    }
+                }
+            }
+        ]
+        return list(collection.aggregate(pipeline))
         
     def get_by_school_and_turma(self,school,turma):
         collection = self._connection.get_collection(self._collection_name)
