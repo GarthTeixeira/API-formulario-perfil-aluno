@@ -1,8 +1,8 @@
 class Professor:
-    def __init__(self, nome, email):
+    def __init__(self, nome, email, disciplinas = []):
         self.nome = nome
         self.email = email
-        self.disciplinas = []
+        self.disciplinas = disciplinas
 
     def exibir_informacoes(self):
         print(f"Nome: {self.nome}")
@@ -13,4 +13,5 @@ class Professor:
         return {
             "nome": self.nome,
             "email": self.email,
+            "disciplinas": self.disciplinas
         }

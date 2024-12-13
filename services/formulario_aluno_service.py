@@ -48,7 +48,7 @@ class FormularioAlunoService(BaseService):
     
     def insert_resposta(self, grafo_values: Dict ) -> List[Dict]:
         area = grafo_values['area']
-        formulario_id = grafo_values["professor"]
+        formulario_id = grafo_values["formulario"]
         reponse = {}
         formFound = self._repository.get_by_id(formulario_id)
 
@@ -88,6 +88,11 @@ class FormularioAlunoService(BaseService):
                     disciplinas,
                     disciplina,
                     grafo_values['competencias']
+                )
+            
+            formulario.appendNewRegisterToProfessor(
+                    disciplina,
+                    **grafo_values["professor"]
                 )
 
         
