@@ -51,10 +51,10 @@ class FormularioAluno:
         self.__professores.append(professor)
         self.__data_atualizacao = datetime.now()
 
-    def appendNewRegisterToProfessor(self,disciplina,nome,email):
+    def appendNewRegisterToProfessor(self,disciplina,tipo,nome,email):
         professor = next( prof for prof in self.__professores if (prof.email==email and prof.nome == nome))
         resumed_disciplina = {"id":disciplina['_id'], "nome": '{} - {}° ano'.format(disciplina['name'],disciplina['serie_ano'])}
-        professor.disciplinas.append({"disciplina": resumed_disciplina, "data_resposta":self.__data_atualizacao})
+        professor.disciplinas.append({"disciplina": resumed_disciplina, "data_resposta":self.__data_atualizacao,"tipo":tipo})
     
 
     def to_dict(self):

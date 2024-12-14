@@ -51,6 +51,7 @@ class FormularioAlunoService(BaseService):
         formulario_id = grafo_values["formulario"]
         reponse = {}
         formFound = self._repository.get_by_id(formulario_id)
+        tipo = ""
 
         formulario = FormularioAluno(**formFound)
 
@@ -81,6 +82,7 @@ class FormularioAlunoService(BaseService):
                     disciplina,
                     grafo_values['competencias']
                 )
+                tipo = "COG"
             
             else:
                 disciplinas = EscolaService().get_school_subjects_by_serie_ano(escola_id, serie_ano_seguinte)
@@ -89,13 +91,15 @@ class FormularioAlunoService(BaseService):
                     disciplina,
                     grafo_values['competencias']
                 )
+                tipo = "AREA"
             
             formulario.appendNewRegisterToProfessor(
                     disciplina,
+                    tipo
                     **grafo_values["professor"]
                 )
 
-        
+                
         formularioDict = formulario.to_dict()
         # print("formularioDict",formularioDict)
         reponse = self._repository.update_one(formularioDict["_id"],formularioDict)
