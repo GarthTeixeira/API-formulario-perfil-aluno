@@ -5,6 +5,9 @@ from blueprints.formulario_aluno_controller import professor_form_bp
 from blueprints.escolas_controller import schools_bp
 from flask_cors import CORS
 
+#TODO: padronizar definição de nomes portugues-ingles
+#TODO: adicionar parâmetros mudança de ambiente
+
 
 app = Flask(__name__)
 CORS(app)
