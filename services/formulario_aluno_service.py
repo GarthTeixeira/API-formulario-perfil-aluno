@@ -27,6 +27,9 @@ class FormularioAlunoService(BaseService):
     
     def get_teatcher_and_class_by_school(self, schoolId:str)-> List[Dict]:
         return self._repository.get_teacher_by_school_id(schoolId)
+    
+    def get_subject_teatchers_registers(self, form_id) -> List[Dict]:
+        return self._repository.get_subject_teatchers_registers(form_id)
 
     def insert_professor(self, professor_data: any) -> List[Dict]:
         school: any = professor_data['escola']
