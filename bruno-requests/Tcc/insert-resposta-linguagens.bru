@@ -32,9 +32,14 @@ body:json {
       },
     "formulario":"{{inserted_professor_form_id}}",
     "professor":{
-      "email":"email@email.com",
-      "nome":"Teste novo formulário 4000"
+      "email":"{{professor_email}}",
+      "nome":"{{professor_nome}}"
     },
     "area":"LINGUAGENS"
   }
+}
+
+vars:pre-request {
+  professor_nome: {{professor_name_default}}
+  professor_email: {{professor_email_default}}
 }

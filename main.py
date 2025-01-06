@@ -5,6 +5,7 @@ from blueprints.formulario_aluno_controller import professor_form_bp
 from blueprints.escolas_controller import schools_bp
 from flask_cors import CORS
 
+#FIX-ME: fazer tratamento de exceptions
 #TODO: padronizar definição de nomes portugues-ingles
 #TODO: adicionar parâmetros mudança de ambiente
 

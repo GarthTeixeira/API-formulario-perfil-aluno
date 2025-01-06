@@ -95,10 +95,10 @@ class FormularioAlunoService(BaseService):
                     grafo_values['competencias']
                 )
                 tipo = "AREA"
-            
+                
             formulario.appendNewRegisterToProfessor(
                     disciplina,
-                    tipo
+                    tipo,
                     **grafo_values["professor"]
                 )
 

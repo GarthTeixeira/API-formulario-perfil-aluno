@@ -28,3 +28,8 @@ def insert_resposta():
 def get_by_school(school_id):
     inserted_data = FormularioAlunoService().get_teatcher_and_class_by_school(school_id)
     return HttpResponseUtils.responseForAPIFromArrayData(inserted_data)
+
+@professor_form_bp.route('/get-subject-registers/<form_id>', methods=['GET'])
+def get_subject_registers(form_id):
+    registers = FormularioAlunoService().get_subject_teatchers_registers(form_id)
+    return HttpResponseUtils.responseForAPIFromArrayData(registers)

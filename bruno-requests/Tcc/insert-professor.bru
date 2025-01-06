@@ -10,18 +10,27 @@ post {
   auth: none
 }
 
+params:query {
+  : 
+}
+
 body:json {
   {
-    "nome":"Teste novo formulário 4000",
+    "nome":"{{professor_name}}",
     "turma":{
       "_id":"{{turma_id_selected}}",
       "nome":"Grifinória",
-      "serie":"1º ano"
+      "serie":"2º ano"
     },
-    "email":"email@email.com",
+    "email":"{{professor_email}}",
     "escola":"{{school_id_selected}}"
   }
   
+}
+
+vars:pre-request {
+  professor_name: {{professor_name_default}}
+  professor_email: {{professor_email_default}}
 }
 
 vars:post-response {
