@@ -1,0 +1,17 @@
+meta {
+  name: generate
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{local}}/question/generate
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "question": "Why the sky is blue?"
+  }
+}
