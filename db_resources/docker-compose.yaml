@@ -3,6 +3,20 @@ version: '3.1'
 
 services:
 
+  app:
+    build:
+      context: ..
+      dockerfile: db_resources/Dockerfile
+    ports:
+      - "8000:5000"
+    environment:
+      - FLASK_ENV=local
+      - HOST=mongo
+    depends_on:
+      - mongo
+    volumes:
+      - ../:/app
+
   mongo:
     image: mongo
     restart: always

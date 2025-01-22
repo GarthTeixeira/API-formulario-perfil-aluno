@@ -1,0 +1,11 @@
+{
+    "local":{
+        "HOST": "",
+        "PORT":"",
+        "SRV":"",
+        "USERNAME": "",
+        "PASSWORD": "",
+        "DB_NAME": "",
+        "PARAMS": ""
+    }
+}

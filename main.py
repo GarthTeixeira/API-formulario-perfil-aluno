@@ -8,7 +8,14 @@ from flask_cors import CORS
 #FIX-ME: fazer tratamento de exceptions
 #TODO: padronizar definição de nomes portugues-ingles
 #TODO: adicionar parâmetros mudança de ambiente
+import os
 
+# Acessar variáveis de ambiente
+flask_app = os.getenv("FLASK_APP")  # Retorna 'app.py'
+flask_env = os.getenv("FLASK_ENV")  # Retorna 'production'
+
+print(f"FLASK_APP: {flask_app}")
+print(f"FLASK_ENV: {flask_env}")
 
 app = Flask(__name__)
 CORS(app)
