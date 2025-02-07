@@ -11,13 +11,15 @@ def load_config(json_path="db_resources/db_config.json"):
         config = json.load(file)[os.getenv("FLASK_ENV")]
 
     # Sobrescrever variáveis com valores do ambiente, se definidos
-    config["HOST"] = os.getenv("HOST", config["HOST"])
+    host = os.getenv("HOST", config["HOST"])
+    port = os.getenv("PORT", config["PORT"])
+
+    config["CLUSTER"] = os.getenv("CLUSTER",host+":"+port)
     config["SRV"] = os.getenv("SRV", config["SRV"])
-    config["USERNAME"] = os.getenv("USERNAME", config["USERNAME"])
+    config["USER"] = os.getenv("USER", config["USER"])
     config["PASSWORD"] = os.getenv("PASSWORD", config["PASSWORD"])
     config["DB_NAME"] = os.getenv("DB_NAME", config["DB_NAME"])
     config["PARAMS"] = os.getenv("PARAMS", config["PARAMS"])
-    config["PORT"] = os.getenv("PORT", config["PORT"])
 
     return config
 

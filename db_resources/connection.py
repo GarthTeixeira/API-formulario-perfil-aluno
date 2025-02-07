@@ -6,12 +6,11 @@ mongo_db_infos = load_config()
 
 class DBConnectionHandler:
     def __init__(self) -> None:
-        self.__connection_string = 'mongodb{}://{}:{}@{}:{}/{}'.format(
+        self.__connection_string = 'mongodb{}://{}:{}@{}/{}'.format(
             mongo_db_infos['SRV'],
-            mongo_db_infos['USERNAME'],
+            mongo_db_infos['USER'],
             quote_plus(mongo_db_infos['PASSWORD']),
-            mongo_db_infos['HOST'],
-            mongo_db_infos['PORT'],
+            mongo_db_infos['CLUSTER'],
             mongo_db_infos['PARAMS']
         )
         self.__database_name = mongo_db_infos['DB_NAME']

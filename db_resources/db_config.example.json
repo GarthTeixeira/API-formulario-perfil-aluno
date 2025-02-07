@@ -3,7 +3,7 @@
         "HOST": "",
         "PORT":"",
         "SRV":"",
-        "USERNAME": "",
+        "USER": "",
         "PASSWORD": "",
         "DB_NAME": "",
         "PARAMS": ""
