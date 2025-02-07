@@ -1,2 +1,6 @@
 __pycache__/
-.vscode
+.vscode/
+README.md
+utils/scripts/*
+utils/*.json
+bruno-requests/
