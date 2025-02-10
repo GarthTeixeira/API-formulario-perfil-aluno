@@ -1,17 +1,16 @@
 from pymongo import MongoClient
 from urllib.parse import quote_plus
-import json
+from .load_config import load_config
 
-with open('db_resources/db_config.local.json', 'r') as file:
-    mongo_db_infos = json.load(file)
+mongo_db_infos = load_config()
 
 class DBConnectionHandler:
     def __init__(self) -> None:
         self.__connection_string = 'mongodb{}://{}:{}@{}/{}'.format(
             mongo_db_infos['SRV'],
-            mongo_db_infos['USERNAME'],
+            mongo_db_infos['USER'],
             quote_plus(mongo_db_infos['PASSWORD']),
-            mongo_db_infos['HOST'],
+            mongo_db_infos['CLUSTER'],
             mongo_db_infos['PARAMS']
         )
         self.__database_name = mongo_db_infos['DB_NAME']
