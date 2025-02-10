@@ -1,0 +1,8 @@
+{
+    "HOST": "localhost:27017",
+    "SRV":"",
+    "USERNAME": "root",
+    "PASSWORD": "example",
+    "DB_NAME": "competencias_enem_data",
+    "PARAMS": "?authSource=admin"
+}
