@@ -33,21 +33,25 @@ db_resources_path = os.path.abspath(db_resources_path)
 parser = argparse.ArgumentParser(description="Insere escola no banco de dados - modo de alunos e notas randômicas.")
 
 parser.add_argument("--school", type=str, default="", help="Nome da escola")
+parser.add_argument("--env", type=str, default="", help="ambiente")
 
 # Parse dos argumentos
 args = parser.parse_args()
 f_config = {}
 
-f_config = open('{}/db_config.local.json'.format(db_resources_path))
-
+f_config = open('{}/db_config.json'.format(db_resources_path))
 mongo_db_infos = json.load(f_config)
+mongo_db_infos = mongo_db_infos[args.env]
+
+if 'CLUSTER' not in mongo_db_infos:
+    mongo_db_infos['CLUSTER'] = mongo_db_infos['HOST'] + ":" + mongo_db_infos['PORT']
 
 
 connection_string = 'mongodb{}://{}:{}@{}/{}'.format(
             mongo_db_infos['SRV'],
-            mongo_db_infos['USERNAME'],
+            mongo_db_infos['USER'],
             quote_plus(mongo_db_infos['PASSWORD']),
-            mongo_db_infos['HOST'],
+            mongo_db_infos['CLUSTER'],
             mongo_db_infos['PARAMS']
         )
 
