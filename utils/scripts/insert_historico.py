@@ -24,7 +24,7 @@ db_resources_path = os.path.join(local_path, '..', '..', 'db_resources')
 # Normalizando o caminho
 db_resources_path = os.path.abspath(db_resources_path)
 
-parser = argparse.ArgumentParser(description="Insere escola no banco de dados.")
+parser = argparse.ArgumentParser(description="Insere historico no banco de dados.")
 
 #Recupera argumentos
 parser.add_argument("--record", type=str, default="", help="Historico Escolar")
