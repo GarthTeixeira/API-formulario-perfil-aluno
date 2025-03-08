@@ -81,7 +81,7 @@ for nome_antigo, novo_nome in mapeamento_nomes.items():
     # Atualizar todos os documentos onde o nome do aluno aparece
     collection.update_many(
         { "turmas.alunos.nome": nome_antigo },  # Filtro para encontrar documentos com o nome antigo
-        { "$set": { "turmas.$[].alunos.$[aluno].nome": novo_nome } },  # Atualização do nome
+        { "$set": { "turmas.$[].alunos.$[aluno].nome": novo_nome } },  # Atualização do nome para todas as turmas (turmas$[]) em alunos específicosc ($[aluno])
         array_filters=[{ "aluno.nome": nome_antigo }]  # Filtro para identificar o aluno
     )
 
