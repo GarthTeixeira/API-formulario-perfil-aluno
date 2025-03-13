@@ -32,7 +32,7 @@ db_resources_path = os.path.abspath(db_resources_path)
 
 parser = argparse.ArgumentParser(description="Insere escola no banco de dados - modo de alunos e notas randômicas.")
 
-parser.add_argument("--school", type=str, default="", help="Nome da escola")
+parser.add_argument("--school", type=str, default="", help="Nome do arquivo da escola")
 parser.add_argument("--env", type=str, default="", help="ambiente")
 
 # Parse dos argumentos
@@ -40,8 +40,8 @@ args = parser.parse_args()
 f_config = {}
 
 f_config = open('{}/db_config.json'.format(db_resources_path))
-mongo_db_infos = json.load(f_config)
-mongo_db_infos = mongo_db_infos[args.env]
+config = json.load(f_config)
+mongo_db_infos = config[args.env]
 
 if 'CLUSTER' not in mongo_db_infos:
     mongo_db_infos['CLUSTER'] = mongo_db_infos['HOST'] + ":" + mongo_db_infos['PORT']
@@ -61,8 +61,8 @@ if (args.school != ""):
     arquivos['f_disciplinas'] = open('{}/data/disciplinas.{}.json'.format(local_path, args.school))
     arquivos['f_escolas'] = open('{}/data/escolas.{}.json'.format(local_path, args.school))
 else:
-    arquivos['f_disciplinas'] = open('{}/mock/disciplinas.CEFET.json'.format(local_path))
-    arquivos['f_escolas'] = open('{}/mock/escolas.CEFET.json'.format(local_path))
+    arquivos['f_disciplinas'] = open('{}/mock/disciplinas.ET.json'.format(local_path))
+    arquivos['f_escolas'] = open('{}/mock/escolas.ET.json'.format(local_path))
 
 # Connect to the database
 
@@ -79,7 +79,7 @@ series = ["1º ano", "2º ano", "3º ano"]
 
 for escola in escolas:
     novas_turmas = []
-    escola['_id'] = ObjectId()
+    escola['_id'] = config['params']['school_id'] if len(escolas) ==1 else ObjectId()
     for disciplina in disciplinas:
         nova_disciplina = copy.deepcopy(disciplina)
         nova_disciplina['_id'] = ObjectId()
@@ -107,7 +107,7 @@ for escola in escolas:
                     {
                         "disciplina_id":d["_id"],
                         "disciplina_titulo":d["name"] + "-" + str(d["serie_ano"]),
-                        "nota": round(random.uniform(0, 10), 1)
+                        "nota": round(random.uniform(6, 10), 1)
                     } 
                     for d in disciplinas_from_serie
                 ]
