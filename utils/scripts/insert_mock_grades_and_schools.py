@@ -79,7 +79,7 @@ series = ["1º ano", "2º ano", "3º ano"]
 
 for escola in escolas:
     novas_turmas = []
-    escola['_id'] = config['params']['school_id'] if len(escolas) ==1 else ObjectId()
+    escola['_id'] = ObjectId(config['params']['school_id']) if len(escolas) ==1 else ObjectId()
     for disciplina in disciplinas:
         nova_disciplina = copy.deepcopy(disciplina)
         nova_disciplina['_id'] = ObjectId()

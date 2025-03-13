@@ -103,8 +103,11 @@ parser.add_argument("--env", type=str, default="", help="ambiente")
 args = parser.parse_args()
 
 f_config = open('{}/db_config.json'.format(db_resources_path))
-mongo_db_infos = json.load(f_config)
-mongo_db_infos = mongo_db_infos[args.env]
+config = json.load(f_config)
+
+mongo_db_infos = config[args.env]
+school_id = config["params"]["school_id"] if (args.school == "") else args.school
+
 
 if 'CLUSTER' not in mongo_db_infos:
     mongo_db_infos['CLUSTER'] = mongo_db_infos['HOST'] + ":" + mongo_db_infos['PORT']
@@ -164,7 +167,7 @@ pipeline_num_habilidades = [
 pipeline_turmas = [
     {
         '$match': {
-            '_id': ObjectId(args.school)
+            '_id': ObjectId(school_id)
         }
     }, {
         '$project': {
@@ -195,7 +198,7 @@ pipeline_turmas = [
 pipeline_disciplinas = [
     {
         '$match': {
-            '_id': ObjectId(args.school)
+            '_id': ObjectId(school_id)
         }
     }, {
         '$project': {
@@ -234,7 +237,7 @@ for turma in list_turmas:
     payload = {
         'nome': Faker().name(),
         'email': Faker().email(),
-        'escola': args.school,
+        'escola': school_id,
         'turma': turma
     }
     response = post_request(url_insert_professor,payload)
