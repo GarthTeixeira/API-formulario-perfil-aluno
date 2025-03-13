@@ -22,6 +22,15 @@ Form API to collect high-school students skills/competences data of ENEM (Brazil
     ```bash
     $ source .env/bin/active
     ```
+as you can do it the same for windows:
+
+    ```bash
+    > python3 -m venv env
+    ```
+    
+    ```bash
+    > .\env\Scripts\active
+    ```
 
 2. Install the required dependencies by running the following command. *Instale as dependências necessárias executando o comando*:
 
