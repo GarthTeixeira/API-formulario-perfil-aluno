@@ -94,6 +94,69 @@ async def post_all(urls_and_payloads):
         responses = await asyncio.gather(*tasks, return_exceptions=True)
         return responses
 
+def insert_resposta(turma_form_dict, list_disciplinas, list_competencias):
+    
+    formularios = turma_form_dict.keys()
+    insert_resposta_url_and_payloads = []
+    response = []
+    form_num = len(formularios)
+
+    print("Inserindo respostas para {} formulários".format(form_num))
+
+    for index,formulario in enumerate(formularios):
+
+        serie_da_turma = turma_form_dict[formulario]['serie_ano']
+        professor = turma_form_dict[formulario]['professor']
+
+        disciplinas_da_turma = list(filter(lambda disc: disc['serie_ano'] == serie_da_turma, list_disciplinas))
+        competencias_cognitivas = list(filter(lambda comp: comp['tag']== 'COGNITIVOS', list_competencias))
+
+        for disciplina in disciplinas_da_turma:
+
+            competencias_by_area = list(filter(lambda comp: comp['tag'] == disciplina['area'], list_competencias))
+            comp_map = {}
+
+            for comp in competencias_by_area:
+                comp_map[comp['_id']] = [random.uniform(0, 10) for _ in range(comp['competencias_habilidades'])]
+            
+            payload = {
+                'disciplina': disciplina['_id'],
+                'formulario': formulario,
+                'area': disciplina['area'],
+                'competencias': comp_map,
+                'professor': professor
+            }
+
+            nome_diciplina = disciplina["name"] + '-' + str(disciplina["serie_ano"])
+
+            print('Formulario {} referente a disciplina {} possui {} competencias com professor {}'
+                  .format(payload['formulario'],nome_diciplina, len(comp_map.values()), professor['nome']))
+
+            insert_resposta_url_and_payloads.append(
+                (url_insert_resposta,payload.copy())
+            )
+
+            cog_map = {}
+            for comp in competencias_cognitivas:
+                cog_map[comp['_id']] = [random.uniform(0, 10)]
+
+            payload['area'] = 'COGNITIVOS'
+            payload['competencias'] = cog_map
+
+
+            insert_resposta_url_and_payloads.append(
+                (url_insert_resposta,payload.copy())
+            )
+
+
+        print("Inserindo {} respostas para o formulário do professor {} índice {}/{}".format(len(insert_resposta_url_and_payloads),professor['nome'],index +1 ,form_num))
+
+        for url,request in insert_resposta_url_and_payloads:            
+            response.append(put_request(url, request))
+    
+    return response
+
+
 parser = argparse.ArgumentParser(description="Cria formularios com valores de competências randômicas.")
 
 parser.add_argument("--school", type=str, default="", help="Id escola")
@@ -107,7 +170,6 @@ config = json.load(f_config)
 
 mongo_db_infos = config[args.env]
 school_id = config["params"]["school_id"] if (args.school == "") else args.school
-
 
 if 'CLUSTER' not in mongo_db_infos:
     mongo_db_infos['CLUSTER'] = mongo_db_infos['HOST'] + ":" + mongo_db_infos['PORT']
@@ -240,71 +302,10 @@ for turma in list_turmas:
         'escola': school_id,
         'turma': turma
     }
-    response = post_request(url_insert_professor,payload)
-    print(response)
+    response = post_request(url_insert_professor, payload)
+    turma['professor'] = {'nome': response['professor']['nome'], 'email': response['professor']['email'] }
     turma_form_dict[response['id']] = turma
 
+pprint.pprint(turma_form_dict)
 
-def insert_resposta():
-    print("Getting teatchers")
-    formularios = turma_form_dict.keys()
-
-    insert_resposta_url_and_payloads = []
-    response = []
-    form_num = len(formularios)
-
-    print("{} formularios encontrados".format(form_num))
-
-    for index,formulario in enumerate(formularios):
-
-        serie_da_turma = turma_form_dict[formulario]['serie_ano']
-        
-        disciplinas_da_turma = list(filter(lambda disc: disc['serie_ano'] == serie_da_turma, list_disciplinas))
-        competencias_cognitivas = list(filter(lambda comp: comp['tag']== 'COGNITIVOS', list_competencias))
-
-        for disciplina in disciplinas_da_turma:
-            competencias_by_area = list(filter(lambda comp: comp['tag'] == disciplina['area'], list_competencias))
-            
-
-            comp_map = {}
-
-            for comp in competencias_by_area:
-                comp_map[comp['_id']] = [random.uniform(0, 10) for _ in range(comp['competencias_habilidades'])]
-            
-            
-            payload = {
-                'disciplina': disciplina['_id'],
-                'professor': formulario,
-                'area': disciplina['area'],
-                'competencias':comp_map
-            }
-
-            nome_diciplina = disciplina["name"] + '-' + str(disciplina["serie_ano"])
-
-            print('formulario {} referente a disciplina {} possui {} competencias'.format(payload['professor'],nome_diciplina, len(comp_map.values())))
-
-            insert_resposta_url_and_payloads.append(
-                (url_insert_resposta,payload.copy())
-            )
-
-            cog_map = {}
-            for comp in competencias_cognitivas:
-                cog_map[comp['_id']] = [random.uniform(0, 10)]
-
-            payload['area'] = 'COGNITIVOS'
-            payload['competencias'] = cog_map
-
-
-            insert_resposta_url_and_payloads.append(
-                (url_insert_resposta,payload.copy())
-            )
-
-
-        print("Inserting {} answers to form {}/{}".format(len(insert_resposta_url_and_payloads),index +1 ,form_num))
-
-        for url,request in insert_resposta_url_and_payloads:            
-            response.append(put_request(url, request))
-    
-    return response
-
-insert_resposta()
+insert_resposta(turma_form_dict, list_disciplinas, list_competencias)
