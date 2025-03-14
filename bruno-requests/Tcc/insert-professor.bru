@@ -15,8 +15,8 @@ body:json {
     "nome":"{{professor_name}}",
     "turma":{
       "_id":"{{turma_id_selected}}",
-      "nome":"Grifinória",
-      "serie":"2º ano"
+      "nome":"{{turma_name_selected}}",
+      "serie":"{{turma_serie_selected}}"
     },
     "email":"{{professor_email}}",
     "escola":"{{school_id_selected}}"
@@ -24,11 +24,11 @@ body:json {
   
 }
 
-vars:pre-request {
-  professor_name: {{professor_name_default}}
-  professor_email: {{professor_email_default}}
-}
-
 vars:post-response {
   inserted_professor_form_id: res.body["id"]
+}
+
+script:pre-request {
+  bru.setVar("professor_name","professor bruno")
+  bru.setVar("professor_email","professorbruno@email.com")
 }

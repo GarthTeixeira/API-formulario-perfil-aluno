@@ -18,9 +18,14 @@ headers {
 body:json {
   {
     "area": "COGNITIVOS",
-     "competencias": {
-       "67409642832a969b69c1c18c": [3.697096519559635],                      "67409642832a969b69c1c18d": [3.1343328478136745],                    "67409642832a969b69c1c18e": [3.23768901434215],                      "67409642832a969b69c1c18f": [0.49671597269825507],                    "67409642832a969b69c1c190": [2.8675863853901906]},
-     "disciplina": "6745d2d81110de442bd4eb38",
-     "professor": "{{inserted_professor_form_id}}"
+    "competencias": {
+      "67409642832a969b69c1c18c": [3.697096519559635],
+      "67409642832a969b69c1c18d": [3.1343328478136745],             "67409642832a969b69c1c18e": [3.23768901434215],               "67409642832a969b69c1c18f": [0.49671597269825507],             "67409642832a969b69c1c190": [2.8675863853901906]},
+    "disciplina": "{{selected_disciplina_id}}",
+    "formulario":"{{inserted_professor_form_id}}",
+    "professor":{
+      "email":"{{professor_email}}",
+      "nome":"{{professor_name}}"
+    }
   }
 }

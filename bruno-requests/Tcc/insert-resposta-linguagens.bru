@@ -17,7 +17,7 @@ headers {
 
 body:json {
   {
-    "disciplina":"675b071928ac0f4c8cbea508",
+    "disciplina":"{{selected_disciplina_id}}",
     "competencias":
       {
         "65e5b54cee5163af85171e93":[9.5,3,7,8],
@@ -33,13 +33,8 @@ body:json {
     "formulario":"{{inserted_professor_form_id}}",
     "professor":{
       "email":"{{professor_email}}",
-      "nome":"{{professor_nome}}"
+      "nome":"{{professor_name}}"
     },
     "area":"LINGUAGENS"
   }
-}
-
-vars:pre-request {
-  professor_nome: {{professor_name_default}}
-  professor_email: {{professor_email_default}}
 }

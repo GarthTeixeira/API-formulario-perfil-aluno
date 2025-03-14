@@ -13,4 +13,6 @@ get {
 vars:post-response {
   school_id_selected: res.body[0]["id"]
   turma_id_selected: res.body[0]["turmas"][0]["_id"]
+  turma_name_selected: res.body[0]["turmas"][0]["nome"]
+  turma_serie_selected: res.body[0]["turmas"][0]["serie"]
 }
