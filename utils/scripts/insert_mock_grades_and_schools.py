@@ -15,6 +15,7 @@ on the loaded mock file the student is only included in the first high school cl
 """
 from bson.objectid import ObjectId
 from pymongo import MongoClient
+from pymongo.errors import BulkWriteError, DuplicateKeyError, OperationFailure
 from urllib.parse import quote_plus
 import json
 import copy
@@ -121,11 +122,20 @@ for escola in escolas:
 
     escola['turmas'] = novas_turmas
 
-
-
 # Insert all the data into the collection
-collection.insert_many(escolas)
+try:
+    collection.insert_many(escolas)
+    print('Inserção realizada com sucesso!')
+except DuplicateKeyError:
+    print("Error: Chave duplicada. Talvez esteja rodando o script errado! (´•⌢•｀) ")
+except BulkWriteError as e:
+    print("BulkWriteError ocorreu.  Talvez esteja rodando o script errado!  (´•⌢•｀) Veja o relatório:")
+    print(f"Num. documentos inseridos: {e.details['nInserted']}")
+    print("Errors:")
+    for error in e.details['writeErrors']:
+        print(f"Index: {error['index']}, Error Code: {error['code']}, Message: {error['errmsg']}")
+except Exception as e:
+     print(f"Um erro inesperado aconteceu: {e}")
 
-print('Inserção realizada com sucesso!')
 # Close the MongoDB connection
 client.close()
