@@ -58,8 +58,10 @@ class EscolaService(BaseService):
     def get_disciplina_by_id(self, school: str, disciplina: str) -> List[Dict]:
         schoolsFound = self._repository.get_school_and_disciplina_by_id(school, disciplina)
         if len(schoolsFound) == 0:
-            return []
+            return None
         schoolsFound = schoolsFound[0]
+        if(len(schoolsFound['disciplinas']) == 0):
+            return None
         disciplina = schoolsFound["disciplinas"][0]
         return disciplina
     

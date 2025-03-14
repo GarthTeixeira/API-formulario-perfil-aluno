@@ -41,12 +41,13 @@ class FormularioAlunoService(BaseService):
         if (len(form_response) != 0):
             form = FormularioAluno(**form_response[0])
             form.appendNewProfessor(professor)
-            response = self._repository.update_formulario(form.to_dict())
+            response['_id'] = self._repository.update_formulario(form.to_dict())
         else:
-            response = self._repository.insert_one(FormularioAluno(None,[professor],school,turma).to_dict())
+            response['_id'] = self._repository.insert_one(FormularioAluno(None,[professor],school,turma).to_dict())
         print("Novo Professor Inserido")
         professor.exibir_informacoes()
         self.closeConnection()
+        response['professor'] = professor.to_dict()
         return response
     
     def insert_resposta(self, grafo_values: Dict ) -> List[Dict]:
@@ -62,9 +63,11 @@ class FormularioAlunoService(BaseService):
 
         disciplina_id = grafo_values['disciplina']
         
-        disciplina = EscolaService().get_disciplina_by_id(escola_id,disciplina_id)        
+        disciplina = EscolaService().get_disciplina_by_id(escola_id,disciplina_id)
+        if(disciplina is None):
+            raise Exception(f"Não existem disciplinas correspondentes a escola_id:'{escola_id}', disciplina_id:'{disciplina_id}'")         
 
-        serie_ano_seguinte = disciplina['serie_ano'] + 1;
+        serie_ano_seguinte = disciplina['serie_ano'] + 1
 
         if serie_ano_seguinte == 4:
             lastNode = EscolaService().get_last_node(escola_id)
