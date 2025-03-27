@@ -12,7 +12,7 @@ def load_config(json_path="db_resources/db_config.json"):
         "HOST": "",
         "PORT": "",
         "SRV": "",
-        "USER": "",
+        "USER_NAME": "",
         "PASSWORD": "",
         "DB_NAME": "",
         "PARAMS": ""
@@ -36,12 +36,17 @@ def load_config(json_path="db_resources/db_config.json"):
     host = os.getenv("HOST", config["HOST"])
     port = os.getenv("PORT", config["PORT"])
 
-    config["CLUSTER"] = os.getenv("CLUSTER",host+":"+port)
+    if("CLUSTER" not in config):
+        config["CLUSTER"] = os.getenv("CLUSTER",host+":"+port)
+    else:
+        config["CLUSTER"] = os.getenv("CLUSTER", config["CLUSTER"])
     config["SRV"] = os.getenv("SRV", config["SRV"])
-    config["USER"] = os.getenv("USER", config["USER"])
+    config["USER_NAME"] = os.getenv("USER_NAME", config["USER_NAME"])
     config["PASSWORD"] = os.getenv("PASSWORD", config["PASSWORD"])
     config["DB_NAME"] = os.getenv("DB_NAME", config["DB_NAME"])
     config["PARAMS"] = os.getenv("PARAMS", config["PARAMS"])
+
+    print(config)
 
     return config
 

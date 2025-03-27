@@ -45,7 +45,7 @@ if 'CLUSTER' not in mongo_db_infos:
 # Connect to the database
 connection_string = 'mongodb{}://{}:{}@{}/{}'.format(
             mongo_db_infos['SRV'],
-            mongo_db_infos['USER'],
+            mongo_db_infos['USER_NAME'],
             quote_plus(mongo_db_infos['PASSWORD']),
             mongo_db_infos['CLUSTER'],
             mongo_db_infos['PARAMS']
