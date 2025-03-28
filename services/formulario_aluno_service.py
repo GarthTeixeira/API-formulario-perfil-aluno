@@ -34,7 +34,7 @@ class FormularioAlunoService(BaseService):
     def insert_professor(self, professor_data: any) -> List[Dict]:
         school: any = professor_data['escola']
         turma:any = professor_data['turma']['_id']
-        professor: Professor = Professor(professor_data["nome"],professor_data["email"])
+        professor: Professor = Professor(professor_data["nome"],professor_data["email"], professor_data["telefone"])
        
         form_response = self._repository.get_by_school_and_turma(school,turma)
         response = {}
