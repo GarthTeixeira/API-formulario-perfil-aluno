@@ -30,7 +30,7 @@ class FormularioAlunoRepository(BaseRepository):
         pipeline = [
             {
                 '$match': {
-                    'escola': school_id
+                    'escola.id': school_id
                 }
             }, {
                 '$project': {
@@ -69,6 +69,8 @@ class FormularioAlunoRepository(BaseRepository):
                 }
             }
         ]
+
+        print(pipeline)
 
         response = list(collection.aggregate(pipeline))
         return response
