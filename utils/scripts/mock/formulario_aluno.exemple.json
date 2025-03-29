@@ -31,14 +31,14 @@
                 "arestas":[
                         {
                             "origem":{
-                                "name:":"Português",
+                                "nome:":"Português",
                                 "serie_ano":1,
                                 "area":"LINGUAGENS",
                                 "codigoBNCC":"1",
                                 "_id": ObjectId("6719709a0b0f879f0c36a2b7")
                             },
                             "destino":[{
-                                "name:":"Português",
+                                "nome:":"Português",
                                 "serie_ano":2,
                                 "area":"LINGUAGENS",
                                 "codigoBNCC":"2",
@@ -48,14 +48,14 @@
                         },
                         {
                             "origem":{
-                                "name:":"Português",
+                                "nome:":"Português",
                                 "serie_ano":3,
                                 "area":"LINGUAGENS",
                                 "codigoBNCC":"3",
                                 "_id": ObjectId("6719709a0b0f879f0c36a2b9")
                             },
                             "destino":[{
-                                "name:":"Português",
+                                "nome:":"Português",
                                 "serie_ano":3,
                                 "area":"LINGUAGENS",
                                 "codigoBNCC":"3",
@@ -72,14 +72,14 @@
                 "arestas":[
                         {
                             "origem":{
-                                "name:":"Português",
+                                "nome:":"Português",
                                 "serie_ano":1,
                                 "area":"LINGUAGENS",
                                 "codigoBNCC":"1",
                                 "_id": ObjectId("6719709a0b0f879f0c36a2b7")
                             },
                             "destino":[{
-                                "name:":"Português",
+                                "nome:":"Português",
                                 "serie_ano":2,
                                 "area":"LINGUAGENS",
                                 "codigoBNCC":"2",
@@ -89,14 +89,14 @@
                         },
                         {
                             "origem":{
-                                "name:":"Português",
+                                "nome:":"Português",
                                 "serie_ano":3,
                                 "area":"LINGUAGENS",
                                 "codigoBNCC":"3",
                                 "_id": ObjectId("6719709a0b0f879f0c36a2b9")
                             },
                             "destino":[{
-                                "name:":"Português",
+                                "nome:":"Português",
                                 "serie_ano":3,
                                 "area":"LINGUAGENS",
                                 "codigoBNCC":"3",

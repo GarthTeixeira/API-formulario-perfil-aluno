@@ -107,7 +107,7 @@ for escola in escolas:
                 novo_historico = [
                     {
                         "disciplina_id":d["_id"],
-                        "disciplina_titulo":d["name"] + "-" + str(d["serie_ano"]),
+                        "disciplina_titulo":d["nome"] + "-" + str(d["serie_ano"]),
                         "nota": round(random.uniform(6, 10), 1)
                     } 
                     for d in disciplinas_from_serie

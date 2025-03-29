@@ -1,197 +1,194 @@
 [
-    {
-        "name": "Lingua Portuguesa, Literatura e Cultura",
-        "serie_ano":1,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1POR.021"
-    },
-    {
-        "name": "Lingua Portuguesa, Literatura e Cultura",
-        "serie_ano":2,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1POR.016"
-    },
-    {
-        "name": "Lingua Portuguesa, Literatura e Cultura",
-        "serie_ano":3,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1POR.017"
-    },
-    {
-        "name": "Artes",
-        "serie_ano":1,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1EDA.002 "
-    },
-    {
-        "name": "Lingua Estangeira: Inglês",
-        "serie_ano":1,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.002"
-    },
-    {
-        "name": "Redação e estudos linguísticos",
-        "serie_ano":1,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.002"
-    },
-    {
-        "name": "Redação e estudos linguísticos",
-        "serie_ano":2,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.002"
-    },
-    {
-        "name": "Redação e estudos linguísticos",
-        "serie_ano":3,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.002"
-    },
-    {
-        "name": "Lingua Estangeira: Inglês",
-        "serie_ano":2,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.003"
-    },
-    {
-        "name": "Lingua Estangeira: Inglês",
-        "serie_ano":3,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1LIN.03"
-    },
-    {
-        "name": "Educação Física",
-        "serie_ano":3,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "EDF1.001"
-    },
-    {
-        "name": "Educação Física",
-        "serie_ano":2,
-        "area": "LINGUAGENS", 
-        "codigoBNCC": "EM13LGG"
-    },
-    {
-        "name": "Educação Física",
-        "serie_ano":1,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "EM13LGG"
-    },
-    {
-        "name":"Geografia",
-        "serie_ano":1,
-        "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS"
-    },
-    {
-        "name":"Historia",
-        "serie_ano":1,
-        "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS"
-    },
-    {
-        "name":"Historia",
-        "serie_ano":3,
-        "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS"
-    },
-    {
-        "name":"Geografia",
-        "serie_ano":2,
-        "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS"
-    },
-    {
-        "name":"Historia",
-        "serie_ano":2,
-        "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS"
-    },
-    {
-        "name":"Filosofia",
-        "serie_ano":1,
-        "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS"
-    },
-    {
-        "name":"Sociologia",
-        "serie_ano":3,
-        "area":"HUMANAS",
-        "codigoBNCC":"EM13CHS"
-    },
-    {
-        "name": "Matemática",
-        "serie_ano":1,
-        "area": "EXATAS",
-        "codigoBNCC": "EM13MAT"
-
-    },
-    {
-        "name": "Matemática",
-        "serie_ano":2,
-        "area": "EXATAS",
-        "codigoBNCC": "EM13MAT"
-
-    },
-    {
-        "name": "Matemática",
-        "serie_ano":3,
-        "area": "EXATAS",
-        "codigoBNCC": "EM13MAT"
-
-    },
-    {
-        "name": "Fisica",
-        "serie_ano":1,
-        "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT"
-    },
-    {
-        "name": "Quimica",
-        "serie_ano":1,
-        "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT"
-    },
-    {
-        "name": "Biologia",
-        "serie_ano":1,
-        "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT"
-    }, {
-        "name": "Fisica",
-        "serie_ano":2,
-        "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT"
-    },
-    {
-        "name": "Quimica",
-        "serie_ano":2,
-        "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT"
-    },
-    {
-        "name": "Biologia",
-        "serie_ano":2,
-        "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT"
-    },
-    {
-        "name": "Fisica",
-        "serie_ano":3,
-        "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT"
-    },
-    {
-        "name": "Quimica",
-        "serie_ano":3,
-        "area": "NATUREZA",
-        "codigoBNCC": "EM13CNT"
-    },
-    {
-        "name":"Aprovado/Fim",
-        "serie_ano":4,
-        "area":"--",
-        "codigoBNCC":"--"
-    }
-    
+  {
+    "nome": "Lingua Portuguesa, Literatura e Cultura",
+    "serie_ano": 1,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1POR.021"
+  },
+  {
+    "nome": "Lingua Portuguesa, Literatura e Cultura",
+    "serie_ano": 2,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1POR.016"
+  },
+  {
+    "nome": "Lingua Portuguesa, Literatura e Cultura",
+    "serie_ano": 3,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1POR.017"
+  },
+  {
+    "nome": "Artes",
+    "serie_ano": 1,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1EDA.002 "
+  },
+  {
+    "nome": "Lingua Estangeira: Inglês",
+    "serie_ano": 1,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1LIN.002"
+  },
+  {
+    "nome": "Redação e estudos linguísticos",
+    "serie_ano": 1,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1LIN.002"
+  },
+  {
+    "nome": "Redação e estudos linguísticos",
+    "serie_ano": 2,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1LIN.002"
+  },
+  {
+    "nome": "Redação e estudos linguísticos",
+    "serie_ano": 3,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1LIN.002"
+  },
+  {
+    "nome": "Lingua Estangeira: Inglês",
+    "serie_ano": 2,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1LIN.003"
+  },
+  {
+    "nome": "Lingua Estangeira: Inglês",
+    "serie_ano": 3,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1LIN.03"
+  },
+  {
+    "nome": "Educação Física",
+    "serie_ano": 3,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "EDF1.001"
+  },
+  {
+    "nome": "Educação Física",
+    "serie_ano": 2,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "EM13LGG"
+  },
+  {
+    "nome": "Educação Física",
+    "serie_ano": 1,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "EM13LGG"
+  },
+  {
+    "nome": "Geografia",
+    "serie_ano": 1,
+    "area": "HUMANAS",
+    "codigoBNCC": "EM13CHS"
+  },
+  {
+    "nome": "Historia",
+    "serie_ano": 1,
+    "area": "HUMANAS",
+    "codigoBNCC": "EM13CHS"
+  },
+  {
+    "nome": "Historia",
+    "serie_ano": 3,
+    "area": "HUMANAS",
+    "codigoBNCC": "EM13CHS"
+  },
+  {
+    "nome": "Geografia",
+    "serie_ano": 2,
+    "area": "HUMANAS",
+    "codigoBNCC": "EM13CHS"
+  },
+  {
+    "nome": "Historia",
+    "serie_ano": 2,
+    "area": "HUMANAS",
+    "codigoBNCC": "EM13CHS"
+  },
+  {
+    "nome": "Filosofia",
+    "serie_ano": 1,
+    "area": "HUMANAS",
+    "codigoBNCC": "EM13CHS"
+  },
+  {
+    "nome": "Sociologia",
+    "serie_ano": 3,
+    "area": "HUMANAS",
+    "codigoBNCC": "EM13CHS"
+  },
+  {
+    "nome": "Matemática",
+    "serie_ano": 1,
+    "area": "EXATAS",
+    "codigoBNCC": "EM13MAT"
+  },
+  {
+    "nome": "Matemática",
+    "serie_ano": 2,
+    "area": "EXATAS",
+    "codigoBNCC": "EM13MAT"
+  },
+  {
+    "nome": "Matemática",
+    "serie_ano": 3,
+    "area": "EXATAS",
+    "codigoBNCC": "EM13MAT"
+  },
+  {
+    "nome": "Fisica",
+    "serie_ano": 1,
+    "area": "NATUREZA",
+    "codigoBNCC": "EM13CNT"
+  },
+  {
+    "nome": "Quimica",
+    "serie_ano": 1,
+    "area": "NATUREZA",
+    "codigoBNCC": "EM13CNT"
+  },
+  {
+    "nome": "Biologia",
+    "serie_ano": 1,
+    "area": "NATUREZA",
+    "codigoBNCC": "EM13CNT"
+  },
+  {
+    "nome": "Fisica",
+    "serie_ano": 2,
+    "area": "NATUREZA",
+    "codigoBNCC": "EM13CNT"
+  },
+  {
+    "nome": "Quimica",
+    "serie_ano": 2,
+    "area": "NATUREZA",
+    "codigoBNCC": "EM13CNT"
+  },
+  {
+    "nome": "Biologia",
+    "serie_ano": 2,
+    "area": "NATUREZA",
+    "codigoBNCC": "EM13CNT"
+  },
+  {
+    "nome": "Fisica",
+    "serie_ano": 3,
+    "area": "NATUREZA",
+    "codigoBNCC": "EM13CNT"
+  },
+  {
+    "nome": "Quimica",
+    "serie_ano": 3,
+    "area": "NATUREZA",
+    "codigoBNCC": "EM13CNT"
+  },
+  {
+    "nome": "Aprovado/Fim",
+    "serie_ano": 4,
+    "area": "--",
+    "codigoBNCC": "--"
+  }
 ]

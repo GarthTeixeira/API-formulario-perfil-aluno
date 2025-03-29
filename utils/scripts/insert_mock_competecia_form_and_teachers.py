@@ -127,7 +127,7 @@ def insert_resposta(turma_form_dict, list_disciplinas, list_competencias):
                 'professor': professor
             }
 
-            nome_diciplina = disciplina["name"] + '-' + str(disciplina["serie_ano"])
+            nome_diciplina = disciplina["nome"] + '-' + str(disciplina["serie_ano"])
 
             print('Formulario {} referente a disciplina {} possui {} competencias com professor {}'
                   .format(payload['formulario'],nome_diciplina, len(comp_map.values()), professor['nome']))
@@ -236,7 +236,7 @@ pipeline_turmas = [
             'turmas.alunos': 0, 
             'disciplinas': 0, 
             '_id': 0, 
-            'name': 0
+            'nome': 0
         }
     }, {
         '$unwind': {
@@ -290,6 +290,7 @@ pipeline_disciplinas = [
 list_competencias =  list(competencias_collection.aggregate(pipeline_num_habilidades))
 list_turmas = list(escolas_collection.aggregate(pipeline_turmas))
 list_disciplinas = list(escolas_collection.aggregate(pipeline_disciplinas))
+school = escolas_collection.find_one({"_id":ObjectId(school_id)})
 
 #TODO: isolate these codes lines in fuctions
 form_ids = []
@@ -299,11 +300,11 @@ for turma in list_turmas:
     payload = {
         'nome': Faker().name(),
         'email': Faker().email(),
-        'escola': school_id,
+        'escola': school,
         'turma': turma
     }
     response = post_request(url_insert_professor, payload)
-    turma['professor'] = {'nome': response['professor']['nome'], 'email': response['professor']['email'] }
+    turma['professor'] = {'nome': response['professor']['nome'], 'email': response['professor']['email'], 'telefone':response['professor']['telefone'] }
     turma_form_dict[response['id']] = turma
 
 pprint.pprint(turma_form_dict)

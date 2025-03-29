@@ -55,7 +55,7 @@ collection = db['escolas']
 escola = json.load(f_escolas)
 disciplinas = json.load(f_disciplinas)
 
-result = collection.delete_one({'name':escola['name']})
+result = collection.delete_one({'nome':escola['nome']})
 
 series = ["1º ano", "2º ano", "3º ano"]
 
@@ -86,7 +86,7 @@ for turma in turmas:
         novo_historico = [
                     {
                         "disciplina_id":str(d["_id"]),
-                        "disciplina_titulo":d["name"] + "-" + str(d["serie_ano"]),
+                        "disciplina_titulo":d["nome"] + "-" + str(d["serie_ano"]),
                         "nota": 0
                     } 
                     for d in disciplinas_from_serie

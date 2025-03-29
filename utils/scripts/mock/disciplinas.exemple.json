@@ -1,238 +1,237 @@
 [
-    {
-        "name": "Português",
-        "serie_ano":1,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1"
-    },
-    {
-        "name": "Espanhol",
-        "serie_ano":1,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "2"
-    },
-    {
-        "name": "Algebra",
-        "serie_ano":1,
-        "area": "EXATAS",
-        "codigoBNCC": "3"
+  {
+    "nome": "Português",
+    "serie_ano": 1,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1"
+  },
+  {
+    "nome": "Espanhol",
+    "serie_ano": 1,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "2"
+  },
+  {
+    "nome": "Algebra",
+    "serie_ano": 1,
+    "area": "EXATAS",
+    "codigoBNCC": "3"
+  },
+  {
+    "nome": "Fisica",
+    "serie_ano": 1,
+    "area": "NATUREZA",
+    "codigoBNCC": "4"
+  },
+  {
+    "nome": "Quimica",
+    "serie_ano": 1,
+    "area": "NATUREZA",
+    "codigoBNCC": "5"
+  },
+  {
+    "nome": "Biologia",
+    "serie_ano": 1,
+    "area": "NATUREZA",
+    "codigoBNCC": "6"
+  },
+  {
+    "nome": "Geografia",
+    "serie_ano": 1,
+    "area": "HUMANAS",
+    "codigoBNCC": "7"
+  },
+  {
+    "nome": "Historia",
+    "serie_ano": 1,
+    "area": "HUMANAS",
+    "codigoBNCC": "8"
+  },
+  {
+    "nome": "Filosofia",
+    "serie_ano": 1,
+    "area": "HUMANAS",
+    "codigoBNCC": "9"
+  },
+  {
+    "nome": "Sociologia",
+    "serie_ano": 3,
+    "area": "HUMANAS",
+    "codigoBNCC": "10"
+  },
+  {
+    "nome": "Artes",
+    "serie_ano": 1,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "11"
+  },
+  {
+    "nome": "Educacao Fisica",
+    "serie_ano": 1,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "12"
+  },
+  {
+    "nome": "Português",
+    "serie_ano": 2,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1"
+  },
+  {
+    "nome": "Português",
+    "serie_ano": 3,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1"
+  },
+  {
+    "nome": "Redação",
+    "serie_ano": 3,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1"
+  },
+  {
+    "nome": "Educacao Fisica",
+    "serie_ano": 2,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "12"
+  },
+  {
+    "nome": "Algebra",
+    "serie_ano": 2,
+    "area": "EXATAS",
+    "codigoBNCC": "3"
+  },
+  {
+    "nome": "Fisica",
+    "serie_ano": 2,
+    "area": "NATUREZA",
+    "codigoBNCC": "4"
+  },
+  {
+    "nome": "Biologia",
+    "serie_ano": 2,
+    "area": "NATUREZA",
+    "codigoBNCC": "6"
+  },
+  {
+    "nome": "Geografia",
+    "serie_ano": 2,
+    "area": "HUMANAS",
+    "codigoBNCC": "7"
+  },
+  {
+    "nome": "Historia",
+    "serie_ano": 2,
+    "area": "HUMANAS",
+    "codigoBNCC": "8"
+  },
+  {
+    "nome": "Filosofia",
+    "serie_ano": 2,
+    "area": "HUMANAS",
+    "codigoBNCC": "9"
+  },
+  {
+    "nome": "Sociologia",
+    "serie_ano": 2,
+    "area": "HUMANAS",
+    "codigoBNCC": "10"
+  },
+  {
+    "nome": "Artes",
+    "serie_ano": 2,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "11"
+  },
+  {
+    "nome": "Espanhol",
+    "serie_ano": 2,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "2"
+  },
+  {
+    "nome": "Quimica",
+    "serie_ano": 2,
+    "area": "NATUREZA",
+    "codigoBNCC": "5"
+  },
 
-    },
-    {
-        "name": "Fisica",
-        "serie_ano":1,
-        "area": "NATUREZA",
-        "codigoBNCC": "4"
-    },
-    {
-        "name": "Quimica",
-        "serie_ano":1,
-        "area": "NATUREZA",
-        "codigoBNCC": "5"
-    },
-    {
-        "name": "Biologia",
-        "serie_ano":1,
-        "area": "NATUREZA",
-        "codigoBNCC": "6"
-    },
-    {
-        "name": "Geografia",
-        "serie_ano":1,
-        "area": "HUMANAS",
-        "codigoBNCC": "7"
-    },
-    {
-        "name": "Historia",
-        "serie_ano":1,
-        "area": "HUMANAS",
-        "codigoBNCC": "8"
-    },
-    {
-        "name": "Filosofia",
-        "serie_ano":1,
-        "area": "HUMANAS",
-        "codigoBNCC": "9"
-    },
-    {
-        "name": "Sociologia",
-        "serie_ano":3,
-        "area": "HUMANAS",
-        "codigoBNCC": "10"
-    },
-    {
-        "name": "Artes",
-        "serie_ano":1,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "11"
-    },
-    {
-        "name": "Educacao Fisica",
-        "serie_ano":1,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "12"
-    },
-    {
-        "name": "Português",
-        "serie_ano":2,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1"
-    },
-    {
-        "name": "Português",
-        "serie_ano":3,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1"
-    },
-    {
-        "name": "Redação",
-        "serie_ano":3,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "1"
-    },
-    {
-        "name": "Educacao Fisica",
-        "serie_ano":2,
-        "area": "LINGUAGENS",
-        "codigoBNCC": "12"
-    },
-    {
-        "name":"Algebra",
-        "serie_ano":2,
-        "area":"EXATAS",
-        "codigoBNCC":"3"
-    },
-    {
-        "name":"Fisica",
-        "serie_ano":2,
-        "area":"NATUREZA",
-        "codigoBNCC":"4"
-    },
-    {
-        "name":"Biologia",
-        "serie_ano":2,
-        "area":"NATUREZA",
-        "codigoBNCC":"6"
-    },
-    {
-        "name":"Geografia",
-        "serie_ano":2,
-        "area":"HUMANAS",
-        "codigoBNCC":"7"
-    },
-    {
-        "name":"Historia",
-        "serie_ano":2,
-        "area":"HUMANAS",
-        "codigoBNCC":"8"
-    },
-    {
-        "name":"Filosofia",
-        "serie_ano":2,
-        "area":"HUMANAS",
-        "codigoBNCC":"9"
-    },
-    {
-        "name":"Sociologia",
-        "serie_ano":2,
-        "area":"HUMANAS",
-        "codigoBNCC":"10"
-    },
-    {
-        "name":"Artes",
-        "serie_ano":2,
-        "area":"LINGUAGENS",
-        "codigoBNCC":"11"
-    },
-    {
-        "name":"Espanhol",
-        "serie_ano":2,
-        "area":"LINGUAGENS",
-        "codigoBNCC":"2"
-    },
-    {
-        "name":"Quimica",
-        "serie_ano":2,
-        "area":"NATUREZA",
-        "codigoBNCC":"5"
-    },
-   
-    {
-        "name":"Algebra",
-        "serie_ano":3,
-        "area":"EXATAS",
-        "codigoBNCC":"3"
-    },
-    {
-        "name":"Quimica",
-        "serie_ano":3,
-        "area":"NATUREZA",
-        "codigoBNCC":"5"
-    },
-    {
-        "name":"Biologia",
-        "serie_ano":3,
-        "area":"NATUREZA",
-        "codigoBNCC":"6"
-    },
-    {
-        "name":"Geografia",
-        "serie_ano":3,
-        "area":"HUMANAS",
-        "codigoBNCC":"7"
-    },
-    {
-        "name":"Historia",
-        "serie_ano":3,
-        "area":"HUMANAS",
-        "codigoBNCC":"8"
-    },
-    {
-        "name":"Fisica",
-        "serie_ano":3,
-        "area":"NATUREZA",
-        "codigoBNCC":"4"
-    },
-    {
-        "name":"Filosofia",
-        "serie_ano":3,
-        "area":"HUMANAS",
-        "codigoBNCC":"9"
-    },
-    {
-        "name":"Sociologia",
-        "serie_ano":3,
-        "area":"HUMANAS",
-        "codigoBNCC":"10"
-    },
-    {
-        "name":"Artes",
-        "serie_ano":3,
-        "area":"LINGUAGENS",
-        "codigoBNCC":"11"
-    },
-    {
-        "name":"Espanhol",
-        "serie_ano":3,
-        "area":"LINGUAGENS",
-        "codigoBNCC":"2"
-    },
-    {
-        "name":"Educacao Fisica",
-        "serie_ano":3,
-        "area":"LINGUAGENS",
-        "codigoBNCC":"12"
-    },
-    {
-        "name":"Redação",
-        "serie_ano":3,
-        "area":"LINGUAGENS",
-        "codigoBNCC":"1"
-    },
-    {
-        "name":"Aprovado/Fim",
-        "serie_ano":4,
-        "area":"--",
-        "codigoBNCC":"--"
-    }
+  {
+    "nome": "Algebra",
+    "serie_ano": 3,
+    "area": "EXATAS",
+    "codigoBNCC": "3"
+  },
+  {
+    "nome": "Quimica",
+    "serie_ano": 3,
+    "area": "NATUREZA",
+    "codigoBNCC": "5"
+  },
+  {
+    "nome": "Biologia",
+    "serie_ano": 3,
+    "area": "NATUREZA",
+    "codigoBNCC": "6"
+  },
+  {
+    "nome": "Geografia",
+    "serie_ano": 3,
+    "area": "HUMANAS",
+    "codigoBNCC": "7"
+  },
+  {
+    "nome": "Historia",
+    "serie_ano": 3,
+    "area": "HUMANAS",
+    "codigoBNCC": "8"
+  },
+  {
+    "nome": "Fisica",
+    "serie_ano": 3,
+    "area": "NATUREZA",
+    "codigoBNCC": "4"
+  },
+  {
+    "nome": "Filosofia",
+    "serie_ano": 3,
+    "area": "HUMANAS",
+    "codigoBNCC": "9"
+  },
+  {
+    "nome": "Sociologia",
+    "serie_ano": 3,
+    "area": "HUMANAS",
+    "codigoBNCC": "10"
+  },
+  {
+    "nome": "Artes",
+    "serie_ano": 3,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "11"
+  },
+  {
+    "nome": "Espanhol",
+    "serie_ano": 3,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "2"
+  },
+  {
+    "nome": "Educacao Fisica",
+    "serie_ano": 3,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "12"
+  },
+  {
+    "nome": "Redação",
+    "serie_ano": 3,
+    "area": "LINGUAGENS",
+    "codigoBNCC": "1"
+  },
+  {
+    "nome": "Aprovado/Fim",
+    "serie_ano": 4,
+    "area": "--",
+    "codigoBNCC": "--"
+  }
 ]
