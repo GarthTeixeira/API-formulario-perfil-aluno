@@ -1,4 +1,5 @@
 from models.professor import Professor
+from models.escola import Escola
 from models.grafo import Grafo
 from utils.formularioUtils import FormularioUtils
 from datetime import datetime
@@ -12,7 +13,7 @@ from datetime import datetime
 class FormularioAluno:
     def __init__(self,_id,professores:list[Professor],escola,turma,data_criacao = None,data_atualizacao = None,grafos:list[Grafo] = []) -> None:
         self.__id = _id
-        self.__escola = escola
+        self.__escola = Escola(**escola) if not isinstance(escola,Escola) else escola
         self.__turma = turma
         if(professores != []):
             if not isinstance(professores[0],Professor):
@@ -31,7 +32,8 @@ class FormularioAluno:
         else:
             self.__data_criacao = data_criacao
             self.__data_atualizacao = data_atualizacao
-    def getAluno(self):
+            
+    def getProfessor(self):
         return self.__professor
     
     def getEscola(self):
@@ -63,7 +65,7 @@ class FormularioAluno:
     def to_dict(self):
         if self.__id == None:
             return {
-            "escola": self.__escola,
+            "escola": self.__escola.to_dict(), 
             "turma":self.__turma,
             "professores": [professor.to_dict() for professor in self.__professores],
             "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas],
@@ -73,7 +75,7 @@ class FormularioAluno:
         }
         return {
             "_id": self.__id,
-            "escola": self.__escola,
+            "escola": self.__escola.to_dict(),
             "turma":self.__turma,
             "professores": [professor.to_dict() for professor in self.__professores],
             "grafos": [grafo.to_dict() for grafo in self.__grafos_das_respostas],

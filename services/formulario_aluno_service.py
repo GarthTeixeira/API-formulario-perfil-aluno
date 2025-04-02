@@ -59,7 +59,7 @@ class FormularioAlunoService(BaseService):
 
         formulario = FormularioAluno(**formFound)
 
-        escola_id = formulario.getEscola()
+        escola_id = formulario.getEscola().getEscolaId()
 
         disciplina_id = grafo_values['disciplina']
         
