@@ -58,22 +58,9 @@ class FormularioAlunoRepository(BaseRepository):
         ]
         return list(collection.aggregate(pipeline))
         
-    def get_by_school_and_turma(self,school,turma):
+    def get_by_turma(self, turma):
         collection = self._connection.get_collection(self._collection_name)
-
-        pipeline = [
-            {
-                "$match":{
-                    "escola":school,
-                    "turma":turma
-                }
-            }
-        ]
-
-        print(pipeline)
-
-        response = list(collection.aggregate(pipeline))
-        return response
+        return collection.find_one({ "turma":turma})
     
     def get_subject_teatchers_registers(self,form_id):
         collection = self._connection.get_collection(self._collection_name)

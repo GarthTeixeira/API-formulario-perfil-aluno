@@ -36,10 +36,10 @@ class FormularioAlunoService(BaseService):
         turma:any = professor_data['turma']['_id']
         professor: Professor = Professor(professor_data["nome"],professor_data["email"], professor_data["telefone"])
        
-        form_response = self._repository.get_by_school_and_turma(school,turma)
+        form_response = self._repository.get_by_turma(turma)
         response = {}
-        if (len(form_response) != 0):
-            form = FormularioAluno(**form_response[0])
+        if (form_response is not None):
+            form = FormularioAluno(**form_response)
             form.appendNewProfessor(professor)
             response['_id'] = self._repository.update_formulario(form.to_dict())
         else:
