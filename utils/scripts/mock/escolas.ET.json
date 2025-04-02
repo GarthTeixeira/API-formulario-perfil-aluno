@@ -1,54 +1,56 @@
 [
-    {
-        "name": "Escola Teste",
-        "disciplinas":[],
-        "turmas":[
-            {
-                "nome": "ET TURMA C",
-                "ano":2015,
-                "alunos":[{
-                    "nome": "Gabriel",
-                    "notas": {
-                        "enem":{
-                            "LINGUAGENS":560.0,
-                            "EXATAS":781.2,
-                            "HUMANAS":677.5,
-                            "NATUREZA":700.0
-                        },
-                        "historico_escolar":[]
-                    }
-                },
-                {
-                    "nome": "Gustavo",
-                    "notas": {
-                        "enem":{
-                            "LINGUAGENS":560.0,
-                            "EXATAS":561.2,
-                            "HUMANAS":797.5,
-                            "NATUREZA":780.0
-                        },
-                        "historico_escolar":[]
-                    }
-                }
-            ]
-            },
-            {
-                "nome": "ET TURMA B",
-                "ano":2015,
-                "alunos":[{
-                    "nome": "Guilherme",
-                    "notas": {
-                        "enem":{
-                            "LINGUAGENS":860.0,
-                            "EXATAS":481.2,
-                            "HUMANAS":524.2,
-                            "NATUREZA":430.0
-                        },
-                        "historico_escolar":[]
-                    }
-                }]
+  {
+    "nome": "Escola Teste",
+    "disciplinas": [],
+    "turmas": [
+      {
+        "nome": "ET TURMA C",
+        "ano": 2015,
+        "alunos": [
+          {
+            "nome": "Gabriel",
+            "notas": {
+              "enem": {
+                "LINGUAGENS": 560.0,
+                "EXATAS": 781.2,
+                "HUMANAS": 677.5,
+                "NATUREZA": 700.0
+              },
+              "historico_escolar": []
             }
+          },
+          {
+            "nome": "Gustavo",
+            "notas": {
+              "enem": {
+                "LINGUAGENS": 560.0,
+                "EXATAS": 561.2,
+                "HUMANAS": 797.5,
+                "NATUREZA": 780.0
+              },
+              "historico_escolar": []
+            }
+          }
         ]
-    }
-    
+      },
+      {
+        "nome": "ET TURMA B",
+        "ano": 2015,
+        "alunos": [
+          {
+            "nome": "Guilherme",
+            "notas": {
+              "enem": {
+                "LINGUAGENS": 860.0,
+                "EXATAS": 481.2,
+                "HUMANAS": 524.2,
+                "NATUREZA": 430.0
+              },
+              "historico_escolar": []
+            }
+          }
+        ]
+      }
+    ]
+  }
 ]
