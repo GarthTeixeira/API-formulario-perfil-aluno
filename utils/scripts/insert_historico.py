@@ -54,20 +54,23 @@ client = MongoClient(connection_string)
 db = client['competencias_enem_data']
 collection = db['escolas']
 historico={}
+historico_raw={}
 with open('{}/data/{}.json'.format(local_path, args.record), "r", encoding="utf-8") as file:
-    historico = json.loads(file.read())
+    historico_raw = json.loads(file.read())
+
+historico = historico_raw[0]['historico']
 
 #Recupera escola associada ao estudante
 student = args.student
 query = {"turmas.alunos.nome": student}
 results = []
+print(historico)
 
 for key,value in historico.items():
 
     result = collection.find_one({'turmas.serie':key})
 
-    historico_escolar = list(map(convert_historico_id,value))
-   
+    historico_escolar = value
     # # Atualização para modificar o histórico do aluno específico
     update = {
         "$set": {
@@ -83,5 +86,4 @@ for key,value in historico.items():
     # # Executar a atualização
     results.append(collection.update_one(query, update, array_filters=array_filters))
 
-print(reduce(lambda acc, result: acc + result.modified_count,results,0))
-print("Inserção realizada, {}/3 históricos por serie atualizados")
+print("Inserção realizada, {}/3 históricos por serie atualizados".format(reduce(lambda acc, result: acc + result.modified_count,results,0)))
