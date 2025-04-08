@@ -34,6 +34,7 @@ class FormularioAlunoService(BaseService):
     
     def insert_professor_for_multiple_turmas(self,professor_data:any) -> List[Dict]:
         list_reponse = []
+        #TODO: não otimizado, pois está iterando sobre o dado e realizando operação por operação
         for turma in professor_data['escola']['turmas']:
             professor_data['turma'] = turma
             list_reponse.append(self.insert_professor(professor_data))
