@@ -8,6 +8,7 @@ from .escolas_service import EscolaService
 from models.professor import Professor
 from models.grafo import Grafo
 from models.formulario_aluno import FormularioAluno
+from models.escola import Escola
 
 from utils.formularioUtils import FormularioUtils
 
@@ -30,23 +31,31 @@ class FormularioAlunoService(BaseService):
     
     def get_subject_teatchers_registers(self, form_id) -> List[Dict]:
         return self._repository.get_subject_teatchers_registers(form_id)
+    
+    def insert_professor_for_multiple_turmas(self,professor_data:any) -> List[Dict]:
+        list_reponse = []
+        for turma in professor_data['escola']['turmas']:
+            professor_data['turma'] = turma
+            list_reponse.append(self.insert_professor(professor_data))
+        self.closeConnection()
+        return list_reponse
 
-    def insert_professor(self, professor_data: any) -> List[Dict]:
-        school: any = professor_data['escola']
-        turma:any = professor_data['turma']['_id']
+    def insert_professor(self, professor_data: any) -> Dict:
+        school: Escola = Escola(professor_data['escola']['id'],professor_data['escola']['nome'])
+        turma:any = professor_data['turma']
         professor: Professor = Professor(professor_data["nome"],professor_data["email"], professor_data["telefone"])
        
-        form_response = self._repository.get_by_turma(turma)
+        form_response = self._repository.get_by_turma(turma['_id'])
         response = {}
         if (form_response is not None):
             form = FormularioAluno(**form_response)
             form.appendNewProfessor(professor)
             response['_id'] = self._repository.update_formulario(form.to_dict())
         else:
-            response['_id'] = self._repository.insert_one(FormularioAluno(None,[professor],school,turma).to_dict())
-        print("Novo Professor Inserido")
+            response['_id'] = self._repository.insert_one(FormularioAluno(None,[professor],school,turma['_id']).to_dict())
+        
+        print("Novo Professor Inserido no formulário {} (turma: {} serie {})".format(response['_id'], turma['nome'], turma['serie']))
         professor.exibir_informacoes()
-        self.closeConnection()
         response['professor'] = professor.to_dict()
         return response
     

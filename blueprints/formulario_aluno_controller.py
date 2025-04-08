@@ -14,8 +14,8 @@ def health_check():
 @professor_form_bp.route('/insert-professor', methods=['POST'])
 def insert_professor():
     data = request.json
-    inserted_data = FormularioAlunoService().insert_professor(data)
-    return HttpResponseUtils.responseForAPIFromData(inserted_data)
+    inserted_data = FormularioAlunoService().insert_professor_for_multiple_turmas(data)
+    return HttpResponseUtils.responseForAPIFromArrayData(inserted_data)
 
 @professor_form_bp.route('/insert-resposta', methods=['PUT'])
 def insert_resposta():

@@ -13,13 +13,13 @@ post {
 body:json {
   {
     "nome":"{{professor_name}}",
-    "turma":{
-      "_id":"{{turma_id_selected}}",
-      "nome":"{{turma_name_selected}}",
-      "serie":"{{turma_serie_selected}}"
-    },
     "email":"{{professor_email}}",
-    "escola":"{{school_id_selected}}"
+    "telefone":"{{professor_phone}}",
+    "escola":{
+      "id": "{{school_id_selected}}",
+      "nome": "{{school_name_selected}}",
+      "turmas": "{{professor_schools}}"
+    }
   }
   
 }
@@ -31,4 +31,6 @@ vars:post-response {
 script:pre-request {
   bru.setVar("professor_name","professor bruno")
   bru.setVar("professor_email","professorbruno@email.com")
+  bru.setVar("professor_phone","")
+  
 }

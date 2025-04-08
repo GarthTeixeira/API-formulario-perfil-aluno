@@ -15,4 +15,9 @@ vars:post-response {
   turma_id_selected: res.body[0]["turmas"][0]["_id"]
   turma_name_selected: res.body[0]["turmas"][0]["nome"]
   turma_serie_selected: res.body[0]["turmas"][0]["serie"]
+  school_name_selected: res.body[0]["nome"]
+}
+
+script:post-response {
+  bru.setVar("professor_schools",res.body[0].turmas.slice(0,3))
 }

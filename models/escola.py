@@ -1,8 +1,7 @@
 class Escola:
-    def __init__(self, id ,nome, turmas):
+    def __init__(self, id ,nome):
         self.__id = id
         self.__nome = nome
-        self.__turmas = turmas
 
     def getEscolaId(self):
         return self.__id
@@ -11,6 +10,5 @@ class Escola:
         return {
             "id": self.__id,
             "nome": self.__nome,
-            "turmas": self.__turmas,
         }
     
