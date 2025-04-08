@@ -33,7 +33,7 @@ Form API to collect high-school students skills/competences data of ENEM (Brazil
   ```
 
   ```bash
-  > .\env\Scripts\active
+  > .\env\Scripts\activate
   ```
 
 2.  Install the required dependencies by running the following command. _Instale as dependências necessárias executando o comando_:
