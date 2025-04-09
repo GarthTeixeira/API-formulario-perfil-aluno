@@ -37,28 +37,32 @@ class FormularioAlunoService(BaseService):
         #TODO: não otimizado, pois está iterando sobre o dado e realizando operação por operação
         for turma in professor_data['escola']['turmas']:
             professor_data['turma'] = turma
-            list_reponse.append(self.insert_professor(professor_data))
+            list_reponse.append(self.__insert_professor(professor_data))
         self.closeConnection()
         return list_reponse
 
-    def insert_professor(self, professor_data: any) -> Dict:
-        school: Escola = Escola(professor_data['escola']['id'],professor_data['escola']['nome'])
-        turma:any = professor_data['turma']
-        professor: Professor = Professor(professor_data["nome"],professor_data["email"], professor_data["telefone"])
-       
-        form_response = self._repository.get_by_turma(turma['_id'])
-        response = {}
+    def __insert_professor(self, professor_data: any) -> Dict:
+        school, turma, professor = self.__extractFromProfessorData(professor_data)
+        form_id = self.__updateOrCreateFormAluno(school, turma['_id'], professor)
+        print("Novo Professor inserido no formulário {} (turma: {} serie: {})".format(form_id, turma['nome'], turma['serie']))
+        professor.exibir_informacoes()
+        return {'professor':professor.to_dict(), '_id': form_id}
+      
+    
+    def __updateOrCreateFormAluno(self, escola ,turma_id, professor):
+        form_response = self._repository.get_by_turma(turma_id)
         if (form_response is not None):
             form = FormularioAluno(**form_response)
             form.appendNewProfessor(professor)
-            response['_id'] = self._repository.update_formulario(form.to_dict())
+            return self._repository.update_formulario(form.to_dict())
         else:
-            response['_id'] = self._repository.insert_one(FormularioAluno(None,[professor],school,turma['_id']).to_dict())
-        
-        print("Novo Professor Inserido no formulário {} (turma: {} serie {})".format(response['_id'], turma['nome'], turma['serie']))
-        professor.exibir_informacoes()
-        response['professor'] = professor.to_dict()
-        return response
+            return self._repository.insert_one(FormularioAluno(None,[professor],escola,turma_id).to_dict())
+    
+    def __extractFromProfessorData(self,professor_data:any):
+        escola: Escola = Escola(professor_data['escola']['id'],professor_data['escola']['nome'])
+        turma:any = professor_data['turma']
+        professor: Professor = Professor(professor_data["nome"],professor_data["email"], professor_data["telefone"])
+        return (escola, turma, professor)
     
     def insert_resposta(self, grafo_values: Dict ) -> List[Dict]:
         area = grafo_values['area']
