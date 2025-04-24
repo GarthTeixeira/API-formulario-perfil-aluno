@@ -64,30 +64,30 @@ class FormularioAlunoService(BaseService):
         professor: Professor = Professor(professor_data["nome"],professor_data["email"], professor_data["telefone"])
         return (escola, turma, professor)
     
+    #TODO: Refatorar cleanly
     def insert_resposta(self, grafo_values: Dict ) -> List[Dict]:
         area = grafo_values['area']
         formulario_id = grafo_values["formulario"]
         reponse = {}
         formFound = self._repository.get_by_id(formulario_id)
-        tipo = ""
 
         formulario = FormularioAluno(**formFound)
-
         escola_id = formulario.getEscola().getEscolaId()
-
         disciplina_id = grafo_values['disciplina']
         
         disciplina = EscolaService().get_disciplina_by_id(escola_id,disciplina_id)
+
         if(disciplina is None):
             raise Exception(f"Não existem disciplinas correspondentes a escola_id:'{escola_id}', disciplina_id:'{disciplina_id}'")         
 
         serie_ano_seguinte = disciplina['serie_ano'] + 1
+        tipo = "COG" if area == 'COGNITIVOS' else "AREA"
 
         if serie_ano_seguinte == 4:
             lastNode = EscolaService().get_last_node(escola_id)
             formulario.appendNewGrafo(lastNode,disciplina,grafo_values['competencias'])
         else:
-            if area != 'COGNITIVOS':
+            if tipo != 'COG':
                 if "disciplina" not in grafo_values:
                     print("Disciplina não encontrada")
                     return []
@@ -102,7 +102,6 @@ class FormularioAlunoService(BaseService):
                     disciplina,
                     grafo_values['competencias']
                 )
-                tipo = "COG"
             
             else:
                 disciplinas = EscolaService().get_school_subjects_by_serie_ano(escola_id, serie_ano_seguinte)
@@ -111,17 +110,15 @@ class FormularioAlunoService(BaseService):
                     disciplina,
                     grafo_values['competencias']
                 )
-                tipo = "AREA"
                 
-            formulario.appendNewRegisterToProfessor(
-                    disciplina,
-                    tipo,
-                    **grafo_values["professor"]
-                )
+        formulario.appendNewRegisterToProfessor(
+                disciplina,
+                tipo,
+                **grafo_values["professor"]
+            )
 
                 
         formularioDict = formulario.to_dict()
-        # print("formularioDict",formularioDict)
         reponse = self._repository.update_one(formularioDict["_id"],formularioDict)
         self.closeConnection()
         return reponse
