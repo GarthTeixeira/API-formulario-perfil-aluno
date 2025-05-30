@@ -7,6 +7,8 @@ Script de inserção de valores de competência:
 Como os resultados dos formulários serão preenchidos por várias pessoas em um longo período de tempo, este script consegue preencher todas
 as respostas de professores fakes de todas as disciplinas das turmas.
 
+Parametros:
+
 *
 Insertion competence values script:
 As the form results are filed by several people over a long period this script can fill in every fake teacher answer from every class subject.
@@ -17,82 +19,15 @@ As the form results are filed by several people over a long period this script c
 from bson.objectid import ObjectId
 from pymongo import MongoClient
 from urllib.parse import quote_plus
+from bson import json_util
 import json
-import asyncio
-import aiohttp
 import random
 from faker import Faker
 import argparse
 import time
-import requests
 import pprint
 import os
-
-#Caminho Local
-local_path = os.path.dirname(__file__)
-print("Local path",local_path)
-# Caminho relativo até "db_resources"
-db_resources_path = os.path.join(local_path, '..', '..', 'db_resources')
-# Normalizando o caminho
-db_resources_path = os.path.abspath(db_resources_path)
-
-def put_request(url, payload):
-    try:
-        response = requests.put(url, json=payload)
-        response.raise_for_status()  # Lança uma exceção para códigos de status HTTP de erro
-        return response.json()  # Retorna o JSON da resposta
-    except requests.exceptions.RequestException as e:
-        print(f"Erro na requisição: {e}")
-        return None
-
-def post_request(url, payload):
-    try:
-        response = requests.post(url, json=payload)
-        response.raise_for_status()  # Lança uma exceção para códigos de status HTTP de erro
-        return response.json()  # Retorna o JSON da resposta
-    except requests.exceptions.RequestException as e:
-        print(f"Erro na requisição: {e}")
-        return None
-
-async def put_data(url, session, payload):
-    """Faz uma requisição PUT com o payload fornecido."""
-    try:
-        async with session.put(url, json=payload) as response:
-            response.raise_for_status()  # Levanta exceção para status HTTP 4xx/5xx
-            return await response.json()  # Retorna a resposta em JSON
-    except aiohttp.ClientError as e:
-        print(f"Erro ao enviar para {url}: {e}")
-        return None
-
-async def put_all(urls_and_payloads):
-    """Faz várias requisições PUT em paralelo."""
-    async with aiohttp.ClientSession() as session:
-        tasks = [
-            put_data(url, session, payload)
-            for url, payload in urls_and_payloads
-        ]
-        responses = await asyncio.gather(*tasks, return_exceptions=True)
-        return responses
-
-async def post_data(url, session, payload):
-    """Faz uma requisição POST com o payload fornecido."""
-    try:
-        async with session.post(url, json=payload) as response:
-            response.raise_for_status()  # Levanta exceção para status HTTP 4xx/5xx
-            return await response.json()  # Converte a resposta para JSON
-    except aiohttp.ClientError as e:
-        print(f"Erro ao enviar para {url}: {e}")
-        return None
-
-async def post_all(urls_and_payloads):
-    """Faz várias requisições POST em paralelo."""
-    async with aiohttp.ClientSession() as session:
-        tasks = [
-            post_data(url, session, payload)
-            for url, payload in urls_and_payloads
-        ]
-        responses = await asyncio.gather(*tasks, return_exceptions=True)
-        return responses
+from api import post_request, put_request
 
 def insert_resposta(turma_form_dict, list_disciplinas, list_competencias):
     
@@ -156,6 +91,19 @@ def insert_resposta(turma_form_dict, list_disciplinas, list_competencias):
     
     return response
 
+#Caminho Local
+local_path = os.path.dirname(__file__)
+print("Local path",local_path)
+# Caminho relativo até "db_resources"
+db_resources_path = local_path
+
+# Construindo o caminho para "db_resources"
+for _ in range(3):
+    db_resources_path = os.path.join(db_resources_path, '..')
+db_resources_path = os.path.join(db_resources_path, 'db_resources')
+
+# Normalizando o caminho
+db_resources_path = os.path.abspath(db_resources_path)
 
 parser = argparse.ArgumentParser(description="Cria formularios com valores de competências randômicas.")
 
@@ -183,8 +131,8 @@ connection_string = 'mongodb{}://{}:{}@{}/{}'.format(
             mongo_db_infos['PARAMS']
         )
 
-url_insert_professor='http://localhost:5000/professor-form/insert-professor'
-url_insert_resposta = 'http://localhost:5000/professor-form/insert-resposta'
+url_insert_professor=f"http://localhost:{config["params"]["backendport"]}/professor-form/insert-professor"
+url_insert_resposta = f"http://localhost:{config["params"]["backendport"]}/professor-form/insert-resposta"
 
 client = MongoClient(connection_string)
 db = client['competencias_enem_data']
@@ -251,7 +199,11 @@ pipeline_turmas = [
             '_id':  {
                 '$toString': '$_id'
             },
-            'serie_ano':{ '$toInt': { '$substrCP': ["$serie", 0, 1] } }
+            # 'serie_ano':{ '$toInt': { '$substrCP': ["$serie", 0, 1] } }
+        }
+    }, {
+        '$match': {
+            'nome': 'ET TURMA C'
         }
     }
 
@@ -287,26 +239,50 @@ pipeline_disciplinas = [
     }
 ]
 
+
+
 list_competencias =  list(competencias_collection.aggregate(pipeline_num_habilidades))
 list_turmas = list(escolas_collection.aggregate(pipeline_turmas))
 list_disciplinas = list(escolas_collection.aggregate(pipeline_disciplinas))
-school = escolas_collection.find_one({"_id":ObjectId(school_id)})
+school = escolas_collection.find_one({"_id":ObjectId(school_id)},{"disciplinas":0})
 
 #TODO: isolate these codes lines in fuctions
 form_ids = []
 turma_form_dict = {}
 
-for turma in list_turmas:
-    payload = {
-        'nome': Faker().name(),
-        'email': Faker().email(),
-        'escola': school,
-        'turma': turma
-    }
-    response = post_request(url_insert_professor, payload)
-    turma['professor'] = {'nome': response['professor']['nome'], 'email': response['professor']['email'], 'telefone':response['professor']['telefone'] }
-    turma_form_dict[response['id']] = turma
+print(url_insert_professor)
 
-pprint.pprint(turma_form_dict)
+school['turmas'] = list_turmas
+school['id'] = str(school['_id'])
+del school['_id']
 
-insert_resposta(turma_form_dict, list_disciplinas, list_competencias)
+payload_insert_professor = {
+    'nome': Faker().name(),
+    'email': Faker().email(),
+    'escola': school,
+    'telefone': Faker().phone_number()
+}
+
+
+response = post_request(url_insert_professor, payload_insert_professor)
+
+
+
+
+
+# for turma in list_turmas:
+#     payload = {
+#         'nome': Faker().name(),
+#         'email': Faker().email(),
+#         'escola': school,
+#         'turma': turma
+#     }
+#     payload_json = (json_util.dumps(payload))
+#     print("Payload professor: ", payload_json)
+#     response = post_request(url_insert_professor, payload_json)
+#     turma['professor'] = {'nome': response['professor']['nome'], 'email': response['professor']['email'], 'telefone':response['professor']['telefone'] }
+#     turma_form_dict[response['id']] = turma
+
+# pprint.pprint(turma_form_dict)
+
+# insert_resposta(turma_form_dict, list_disciplinas, list_competencias)

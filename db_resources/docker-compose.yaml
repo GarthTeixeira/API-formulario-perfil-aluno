@@ -30,16 +30,6 @@ services:
       - mongo_data:/data/db  # Associando o volume nomeado
       - ./init-scripts:/docker-entrypoint-initdb.d
 
-  mongo-express:
-    image: mongo-express
-    restart: always
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
-      ME_CONFIG_BASICAUTH: false
 
 volumes:
   mongo_data:
