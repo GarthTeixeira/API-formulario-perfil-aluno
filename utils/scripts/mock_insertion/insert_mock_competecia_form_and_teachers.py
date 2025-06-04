@@ -29,21 +29,16 @@ import pprint
 import os
 from api import post_request, put_request
 
-def insert_resposta(turma_form_dict, list_disciplinas, list_competencias):
+def insert_resposta(list_formularios_id, list_disciplinas, list_competencias, professor):
     
-    formularios = turma_form_dict.keys()
     insert_resposta_url_and_payloads = []
     response = []
-    form_num = len(formularios)
-
+    form_num = len(list_formularios_id)
     print("Inserindo respostas para {} formulários".format(form_num))
 
-    for index,formulario in enumerate(formularios):
+    for index,form_id in enumerate(list_formularios_id):
 
-        serie_da_turma = turma_form_dict[formulario]['serie_ano']
-        professor = turma_form_dict[formulario]['professor']
-
-        disciplinas_da_turma = list(filter(lambda disc: disc['serie_ano'] == serie_da_turma, list_disciplinas))
+        disciplinas_da_turma = list(filter(lambda disc: disc['serie_ano'] == index+1, list_disciplinas))
         competencias_cognitivas = list(filter(lambda comp: comp['tag']== 'COGNITIVOS', list_competencias))
 
         for disciplina in disciplinas_da_turma:
@@ -56,7 +51,7 @@ def insert_resposta(turma_form_dict, list_disciplinas, list_competencias):
             
             payload = {
                 'disciplina': disciplina['_id'],
-                'formulario': formulario,
+                'formulario': form_id,
                 'area': disciplina['area'],
                 'competencias': comp_map,
                 'professor': professor
@@ -116,7 +111,7 @@ args = parser.parse_args()
 f_config = open('{}/db_config.json'.format(db_resources_path))
 config = json.load(f_config)
 
-mongo_db_infos = config[args.env]
+mongo_db_infos = config[args.env] if (args.env != "") else config['local']
 school_id = config["params"]["school_id"] if (args.school == "") else args.school
 
 if 'CLUSTER' not in mongo_db_infos:
@@ -131,9 +126,11 @@ connection_string = 'mongodb{}://{}:{}@{}/{}'.format(
             mongo_db_infos['PARAMS']
         )
 
+#Url das apis
 url_insert_professor=f"http://localhost:{config["params"]["backendport"]}/professor-form/insert-professor"
 url_insert_resposta = f"http://localhost:{config["params"]["backendport"]}/professor-form/insert-resposta"
 
+#Conexão com o banco de dados MongoDB
 client = MongoClient(connection_string)
 db = client['competencias_enem_data']
 competencias_collection = db['competencias']
@@ -246,6 +243,17 @@ list_turmas = list(escolas_collection.aggregate(pipeline_turmas))
 list_disciplinas = list(escolas_collection.aggregate(pipeline_disciplinas))
 school = escolas_collection.find_one({"_id":ObjectId(school_id)},{"disciplinas":0})
 
+# Verificar as listas
+# print("Competências:")
+# pprint.pprint(list_competencias)
+# print("Turmas:")
+# pprint.pprint(list_turmas)
+# print("Disciplinas:")
+# pprint.pprint(list_disciplinas)
+# print("Escola:")
+# pprint.pprint(school)
+
+
 #TODO: isolate these codes lines in fuctions
 form_ids = []
 turma_form_dict = {}
@@ -263,26 +271,16 @@ payload_insert_professor = {
     'telefone': Faker().phone_number()
 }
 
-
 response = post_request(url_insert_professor, payload_insert_professor)
 
+# Verificar resposta de inserção do professor
+# print('resposta',response)
+
+forms_ids = list(map(lambda form: form['id'], response))
+teatcher = {
+    'nome': response[0]['professor']['nome'],
+    'email': response[0]['professor']['email'],
+}
 
 
-
-
-# for turma in list_turmas:
-#     payload = {
-#         'nome': Faker().name(),
-#         'email': Faker().email(),
-#         'escola': school,
-#         'turma': turma
-#     }
-#     payload_json = (json_util.dumps(payload))
-#     print("Payload professor: ", payload_json)
-#     response = post_request(url_insert_professor, payload_json)
-#     turma['professor'] = {'nome': response['professor']['nome'], 'email': response['professor']['email'], 'telefone':response['professor']['telefone'] }
-#     turma_form_dict[response['id']] = turma
-
-# pprint.pprint(turma_form_dict)
-
-# insert_resposta(turma_form_dict, list_disciplinas, list_competencias)
+insert_resposta(forms_ids, list_disciplinas, list_competencias, teatcher)
