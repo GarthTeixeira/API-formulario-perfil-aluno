@@ -2,10 +2,10 @@ from bson.objectid import ObjectId
 from pymongo import MongoClient
 from urllib.parse import quote_plus
 import json
-import copy
-from faker import Faker
+
 import os
 import argparse
+import random
 
 #Caminho Local
 local_path = os.path.dirname(__file__)
@@ -15,8 +15,10 @@ db_resources_path = os.path.join(local_path, '..', '..', 'db_resources')
 # Normalizando o caminho
 db_resources_path = os.path.abspath(db_resources_path)
 
-parser = argparse.ArgumentParser(description="Anonimiza alunos no banco de dados.")
+parser = argparse.ArgumentParser(description="Gera historico.")
 parser.add_argument("--env", type=str, default="", help="ambiente")
+parser.add_argument("--school", type=str, default="", help="Id escola")
+parser.add_argument("--mock", type=bool, default=False, help="Dados fakes")
 
 # Parse dos argumentos
 args = parser.parse_args()
@@ -25,6 +27,7 @@ f_config = {}
 f_config = open('{}/db_config.json'.format(db_resources_path))
 mongo_db_infos = json.load(f_config)
 
+school_id = mongo_db_infos["params"]["school_id"] if (args.school == "") else args.school
 mongo_db_infos = mongo_db_infos[args.env]
 
 if 'CLUSTER' not in mongo_db_infos:
@@ -45,7 +48,7 @@ collection = db['escolas']
 aggregation = [
     {
         '$match': {
-            '_id': ObjectId('67ca3ac792251c0cba3d7310')
+            '_id': ObjectId(school_id)
         }
     }, {
         '$unwind': '$disciplinas'
@@ -109,7 +112,16 @@ for doc in documentos:
     for serie in doc['series']:
         key = "{}º ano".format(serie['ano'])
         value = serie['disciplinas']
-        element['historico'][key] = value
+        if args.mock:
+            for disciplina in value:
+                if random.random() < 0.7:  # 70% de chance de cair aqui (6-10)
+                    nota = random.uniform(6, 10)
+                else:  # 30% de chance (0-5)
+                    nota = random.uniform(5, 6)
+
+                disciplina['nota'] = round(nota, 1)
+        if serie['ano'] != 4:
+            element['historico'][key] = value
     arqvs.append(element)
 
 with open("./data/historicos_modelo.json", "w",  encoding="utf-8") as json_file:
