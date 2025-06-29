@@ -47,7 +47,7 @@ def insert_resposta(list_formularios_id, list_disciplinas, list_competencias, pr
             comp_map = {}
 
             for comp in competencias_by_area:
-                comp_map[comp['_id']] = [random.uniform(0, 10) for _ in range(comp['competencias_habilidades'])]
+                comp_map[comp['_id']] = [random.randint(2, 20) * 0.5 for _ in range(comp['competencias_habilidades'])]
             
             payload = {
                 'disciplina': disciplina['_id'],
@@ -68,7 +68,7 @@ def insert_resposta(list_formularios_id, list_disciplinas, list_competencias, pr
 
             cog_map = {}
             for comp in competencias_cognitivas:
-                cog_map[comp['_id']] = [random.uniform(0, 10)]
+                cog_map[comp['_id']] = [random.randint(0, 20) * 0.5]
 
             payload['area'] = 'COGNITIVOS'
             payload['competencias'] = cog_map
@@ -127,9 +127,10 @@ connection_string = 'mongodb{}://{}:{}@{}/{}'.format(
         )
 
 #Url das apis
-url_insert_professor=f"http://localhost:{config["params"]["backendport"]}/professor-form/insert-professor"
-url_insert_resposta = f"http://localhost:{config["params"]["backendport"]}/professor-form/insert-resposta"
+url_insert_professor=f"http://localhost:{config[args.env]["backendport"]}/professor-form/insert-professor"
+url_insert_resposta = f"http://localhost:{config[args.env]["backendport"]}/professor-form/insert-resposta"
 
+print(school_id)
 #Conexão com o banco de dados MongoDB
 client = MongoClient(connection_string)
 db = client['competencias_enem_data']
@@ -198,10 +199,6 @@ pipeline_turmas = [
             },
             # 'serie_ano':{ '$toInt': { '$substrCP': ["$serie", 0, 1] } }
         }
-    }, {
-        '$match': {
-            'nome': 'ET TURMA C'
-        }
     }
 
 ]
@@ -246,8 +243,8 @@ school = escolas_collection.find_one({"_id":ObjectId(school_id)},{"disciplinas":
 # Verificar as listas
 # print("Competências:")
 # pprint.pprint(list_competencias)
-# print("Turmas:")
-# pprint.pprint(list_turmas)
+print("Turmas:")
+pprint.pprint(list_turmas)
 # print("Disciplinas:")
 # pprint.pprint(list_disciplinas)
 # print("Escola:")
